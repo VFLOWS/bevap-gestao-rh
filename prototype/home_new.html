@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Painel BEVAP RH</title>
+
+  <!-- Tailwind e FontAwesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+
+  <!-- Fonte Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos básicos -->
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    ::-webkit-scrollbar { display: none; }
+    html, body { -ms-overflow-style: none; scrollbar-width: none; }
+    .status-badge {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      display: inline-block;
+      color: #fff;
+    }
+    .status-andamento { background-color: #f59e0b; }
+    .status-concluido { background-color: #10b981; }
+    .status-pendente { background-color: #ef4444; }
+  </style>
+</head>
+<body class="h-full text-base-content">
+    <div class="flex items-center justify-between px-6 py-4 bg-white shadow">
+      <!-- Logo BEVAP -->
+      <div class="flex items-center space-x-4">
+        <img src="https://www.bevapbioenergia.com.br/wp-content/uploads/2020/12/165x61.jpg" alt="Logo BEVAP" class="h-10">
+        <h1 class="text-xl font-semibold">Painel de Rastreabilidade - Processos de RH</h1>
+      </div>
+      <div class="flex items-center space-x-4">
+        <i class="fa-regular fa-bell text-neutral-300"></i>
+        <img src="https://api.dicebear.com/7.x/notionists/svg?scale=200&seed=123" alt="User" class="w-8 h-8 rounded-full">
+      </div>
+    </div>
+    <!-- restante permanece igual -->
+  
+  
+    <!-- Conteúdo principal -->
+    <main class="p-6">
+  
+      <!-- Filtros -->
+      <section class="bg-white border border-neutral-200 rounded-lg p-6 mb-6">
+        <h2 class="text-lg font-semibold text-neutral-900 mb-4">Filtros</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+          <div>
+            <label class="block text-sm mb-2 text-neutral-700">Processos</label>
+            <select multiple class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-[#64BC46]">
+              <option>Admissão</option>
+              <option>Requisição de Pessoal</option>
+              <option>Recrutamento e Seleção</option>
+              <option>Recrutamento e Seleção Parte 2</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm mb-2 text-neutral-700">Status</label>
+            <select class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-neutral-500">
+                <option>Todos os Status</option>
+                <option>Em Andamento</option>
+                <option>Encerrado</option>
+                <option>Cancelado</option>
+              </select>
+          </div>
+          <div>
+            <label class="block text-sm mb-2 text-neutral-700">Período</label>
+            <input type="date" class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-[#64BC46]">
+          </div>
+          <div>
+            <label class="block text-sm mb-2 text-neutral-700">Solicitante</label>
+            <input type="text" placeholder="Digite o nome" class="w-full px-3 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-[#64BC46]">
+          </div>
+        </div>
+        <div class="flex space-x-3">
+          <button class="bg-[#64BC46] text-white px-6 py-2 rounded-md hover:bg-green-600 transition">
+            <i class="fa-solid fa-filter mr-2"></i>Filtrar
+          </button>
+          <button class="border border-[#64BC46] text-[#64BC46] px-6 py-2 rounded-md hover:bg-green-50 transition">
+            <i class="fa-solid fa-eraser mr-2"></i>Limpar
+          </button>
+        </div>
+      </section>
+      <!-- Seção: Admissão -->
+      <section class="mb-8">
+        <div class="bg-[#002F6C] text-white px-4 py-3 rounded-t-lg">
+          <h3 class="text-lg font-medium">Admissão</h3>
+        </div>
+        <div class="bg-white border border-neutral-200 rounded-b-lg overflow-hidden">
+          <div class="h-64 overflow-y-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-neutral-100 sticky top-0 z-10">
+                <tr>
+                  <th class="px-4 py-3 text-left uppercase text-xs text-neutral-500">ID Fluig</th>
+                  <th class="px-4 py-3 text-left uppercase text-xs text-neutral-500">Solicitante</th>
+                  <th class="px-4 py-3 text-left uppercase text-xs text-neutral-500">Status</th>
+                  <th class="px-4 py-3 text-left uppercase text-xs text-neutral-500">Localização</th>
+                  <th class="px-4 py-3 text-left uppercase text-xs text-neutral-500">Nome do Candidato</th>
+                  <th class="px-4 py-3 text-left uppercase text-xs text-neutral-500">CPF</th>
+                  <th class="px-4 py-3 text-left uppercase text-xs text-neutral-500">Data de Início</th>
+                  <th class="px-4 py-3 text-left uppercase text-xs text-neutral-500">Responsável</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-200">
+                <tr class="bg-white">
+                  <td class="px-4 py-3">ADM-001</td>
+                  <td class="px-4 py-3">Maria Silva</td>
+                  <td class="px-4 py-3"><span class="status-badge status-andamento">Em Andamento</span></td>
+                  <td class="px-4 py-3">São Paulo</td>
+                  <td class="px-4 py-3">João Santos</td>
+                  <td class="px-4 py-3">123.456.789-00</td>
+                  <td class="px-4 py-3">15/01/2025</td>
+                  <td class="px-4 py-3">Ana Costa</td>
+                </tr>
+                <tr class="bg-neutral-50">
+                  <td class="px-4 py-3">ADM-002</td>
+                  <td class="px-4 py-3">Carlos Lima</td>
+                  <td class="px-4 py-3"><span class="status-badge status-concluido">Concluído</span></td>
+                  <td class="px-4 py-3">Rio de Janeiro</td>
+                  <td class="px-4 py-3">Pedro Oliveira</td>
+                  <td class="px-4 py-3">987.654.321-00</td>
+                  <td class="px-4 py-3">20/01/2025</td>
+                  <td class="px-4 py-3">Roberto Mendes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <!-- Seção: Requisição de Pessoal -->
+      <section class="mb-8">
+        <div class="bg-[#002F6C] text-white px-4 py-3 rounded-t-lg">
+          <h3 class="text-lg font-medium">Requisição de Pessoal</h3>
+        </div>
+        <div class="bg-white border border-neutral-200 rounded-b-lg overflow-hidden">
+          <div class="h-64 overflow-y-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-neutral-100 sticky top-0 z-10">
+                <tr>
+                  <th class="px-4 py-3">ID Fluig</th>
+                  <th class="px-4 py-3">Solicitante</th>
+                  <th class="px-4 py-3">Status</th>
+                  <th class="px-4 py-3">Localização</th>
+                  <th class="px-4 py-3">Cargo</th>
+                  <th class="px-4 py-3">Departamento</th>
+                  <th class="px-4 py-3">Vagas</th>
+                  <th class="px-4 py-3">Data Solicitação</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-200">
+                <tr>
+                  <td class="px-4 py-3">REQ-001</td>
+                  <td class="px-4 py-3">Fernanda Rocha</td>
+                  <td class="px-4 py-3"><span class="status-badge status-pendente">Pendente</span></td>
+                  <td class="px-4 py-3">Brasília</td>
+                  <td class="px-4 py-3">Analista de TI</td>
+                  <td class="px-4 py-3">Tecnologia</td>
+                  <td class="px-4 py-3">2</td>
+                  <td class="px-4 py-3">10/01/2025</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Seção: Recrutamento e Seleção -->
+      <section class="mb-8">
+        <div class="bg-[#002F6C] text-white px-4 py-3 rounded-t-lg">
+          <h3 class="text-lg font-medium">Recrutamento e Seleção</h3>
+        </div>
+        <div class="bg-white border border-neutral-200 rounded-b-lg overflow-hidden">
+          <div class="h-64 overflow-y-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-neutral-100 sticky top-0 z-10">
+                <tr>
+                  <th class="px-4 py-3">ID Fluig</th>
+                  <th class="px-4 py-3">Solicitante</th>
+                  <th class="px-4 py-3">Status</th>
+                  <th class="px-4 py-3">Localização</th>
+                  <th class="px-4 py-3">Candidato</th>
+                  <th class="px-4 py-3">Etapa Atual</th>
+                  <th class="px-4 py-3">Última Atualização</th>
+                  <th class="px-4 py-3">Responsável</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-200">
+                <tr>
+                  <td class="px-4 py-3">REC-001</td>
+                  <td class="px-4 py-3">Luciana Torres</td>
+                  <td class="px-4 py-3"><span class="status-badge status-andamento">Em Andamento</span></td>
+                  <td class="px-4 py-3">Salvador</td>
+                  <td class="px-4 py-3">Amanda Ferreira</td>
+                  <td class="px-4 py-3">Entrevista RH</td>
+                  <td class="px-4 py-3">12/01/2025</td>
+                  <td class="px-4 py-3">Ricardo Alves</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <!-- Seção: Recrutamento e Seleção Parte 2 -->
+      <section class="mb-8">
+        <div class="bg-[#002F6C] text-white px-4 py-3 rounded-t-lg">
+          <h3 class="text-lg font-medium">Recrutamento e Seleção Parte 2</h3>
+        </div>
+        <div class="bg-white border border-neutral-200 rounded-b-lg overflow-hidden">
+          <div class="h-64 overflow-y-auto">
+            <table class="w-full text-sm">
+              <thead class="bg-neutral-100 sticky top-0 z-10">
+                <tr>
+                  <th class="px-4 py-3">ID Fluig</th>
+                  <th class="px-4 py-3">Solicitante</th>
+                  <th class="px-4 py-3">Status</th>
+                  <th class="px-4 py-3">Localização</th>
+                  <th class="px-4 py-3">Candidato</th>
+                  <th class="px-4 py-3">Resultado Técnica</th>
+                  <th class="px-4 py-3">Parecer Final</th>
+                  <th class="px-4 py-3">Responsável Técnico</th>
+                  <th class="px-4 py-3">Data Fechamento</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-200">
+                <tr>
+                  <td class="px-4 py-3">REC2-001</td>
+                  <td class="px-4 py-3">Gabriel Souza</td>
+                  <td class="px-4 py-3"><span class="status-badge status-concluido">Concluído</span></td>
+                  <td class="px-4 py-3">Belo Horizonte</td>
+                  <td class="px-4 py-3">Juliana Campos</td>
+                  <td class="px-4 py-3">Aprovado</td>
+                  <td class="px-4 py-3">Apto para contratação</td>
+                  <td class="px-4 py-3">Marcos Pereira</td>
+                  <td class="px-4 py-3">18/01/2025</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+  
+    </main>
+  
+    <!-- Rodapé -->
+    <footer class="bg-[#002F6C] text-white px-6 py-4 mt-6">
+      <div class="flex justify-between items-center text-sm">
+        <p>© 2025 BEVAP - Sistema de Gestão de Processos de RH</p>
+        <div class="flex space-x-4">
+          <span>Versão 1.0.0</span>
+          <span>|</span>
+          <span>Suporte: suporte@bevap.com.br</span>
+        </div>
+      </div>
+    </footer>
+  
+  </body>
+  </html>
+  

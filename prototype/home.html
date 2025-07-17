@@ -1,0 +1,1432 @@
+<html class=""><head>
+    
+    
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+      window.FontAwesomeConfig = {
+          autoReplaceSvg: 'nest', // Options: 'nest', 'remove', 'replace'
+      };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    
+    <style>
+      * {
+        font-family: "Inter", sans-serif;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+
+        
+    <style>
+      .highlighted-section {
+        outline: 2px solid #3F20FB;
+        background-color: rgba(63, 32, 251, 0.1);
+      }
+
+      .edit-button {
+        position: absolute;
+        z-index: 1000;
+      }
+    </style>
+    
+    <style>
+      :root {
+              /* Base colors */
+              --color-base: #ffffff;
+              --color-base-50: #f9fafb;
+              --color-base-100: #f3f4f6;
+              --color-base-200: #e5e7eb;
+              --color-base-300: #d1d5db;
+              --color-base-400: #9ca3af;
+              --color-base-500: #6b7280;
+              --color-base-600: #4b5563;  
+              --color-base-700: #374151;
+              --color-base-800: #1f2937;  
+              --color-base-900: #111827;
+              --color-base-content: #1f2937;
+
+              /* Primary colors */
+              --color-primary: #3b82f6;
+              --color-primary-50: #eff6ff;
+              --color-primary-100: #dbeafe;
+              --color-primary-200: #bfdbfe;
+              --color-primary-300: #93c5fd;
+              --color-primary-400: #60a5fa;
+              --color-primary-500: #3b82f6;
+              --color-primary-600: #2563eb;
+              --color-primary-700: #1d4ed8;
+              --color-primary-800: #1e40af;
+              --color-primary-900: #1e3a8a;
+              --color-primary-focus: #2563eb;
+              --color-primary-content: #ffffff;
+
+              /* Secondary colors */
+              --color-secondary: #8b5cf6;
+              --color-secondary-50: #f5f3ff;
+              --color-secondary-100: #ede9fe;
+              --color-secondary-200: #ddd6fe;
+              --color-secondary-300: #c4b5fd;
+              --color-secondary-400: #a78bfa;
+              --color-secondary-500: #8b5cf6;
+              --color-secondary-600: #7c3aed;
+              --color-secondary-700: #6d28d9;
+              --color-secondary-800: #5b21b6;
+              --color-secondary-900: #4c1d95;
+              --color-secondary-focus: #7c3aed;
+              --color-secondary-content: #ffffff;
+
+              /* Accent colors */
+              --color-accent: #f472b6;
+              --color-accent-50: #fdf2f8;
+              --color-accent-100: #fce7f3;
+              --color-accent-200: #fbcfe8;
+              --color-accent-300: #f9a8d4;
+              --color-accent-400: #f472b6;
+              --color-accent-500: #ec4899;
+              --color-accent-600: #db2777;
+              --color-accent-700: #be185d;
+              --color-accent-800: #9d174d;
+              --color-accent-900: #831843;
+              --color-accent-focus: #db2777;
+              --color-accent-content: #ffffff;
+
+              /* Neutral colors */
+              --color-neutral: #6b7280;
+              --color-neutral-50: #f9fafb;
+              --color-neutral-100: #f3f4f6;
+              --color-neutral-200: #e5e7eb;
+              --color-neutral-300: #d1d5db;
+              --color-neutral-400: #9ca3af;
+              --color-neutral-500: #6b7280;
+              --color-neutral-600: #4b5563;
+              --color-neutral-700: #374151;
+              --color-neutral-800: #1f2937;
+              --color-neutral-900: #111827;
+              --color-neutral-focus: #4b5563;
+              --color-neutral-content: #ffffff;
+
+              /* Info colors */
+              --color-info: #3b82f6;
+              --color-info-50: #eff6ff;
+              --color-info-100: #dbeafe;
+              --color-info-200: #bfdbfe;
+              --color-info-300: #93c5fd;
+              --color-info-400: #60a5fa;
+              --color-info-500: #3b82f6;
+              --color-info-600: #2563eb;
+              --color-info-700: #1d4ed8;
+              --color-info-800: #1e40af;
+              --color-info-900: #1e3a8a;
+              --color-info-focus: #2563eb;
+              --color-info-content: #ffffff;
+
+              /* Success colors */
+              --color-success: #10b981;
+              --color-success-50: #ecfdf5;
+              --color-success-100: #d1fae5;
+              --color-success-200: #a7f3d0;
+              --color-success-300: #6ee7b7;
+              --color-success-400: #34d399;
+              --color-success-500: #10b981;
+              --color-success-600: #059669;
+              --color-success-700: #047857;
+              --color-success-800: #065f46;
+              --color-success-900: #064e3b;
+              --color-success-focus: #059669;
+              --color-success-content: #ffffff;
+
+              /* Warning colors */
+              --color-warning: #f59e0b;
+              --color-warning-50: #fffbeb;
+              --color-warning-100: #fef3c7;
+              --color-warning-200: #fde68a;
+              --color-warning-300: #fcd34d;
+              --color-warning-400: #fbbf24;
+              --color-warning-500: #f59e0b;
+              --color-warning-600: #d97706;
+              --color-warning-700: #b45309;
+              --color-warning-800: #92400e;
+              --color-warning-900: #78350f;
+              --color-warning-focus: #d97706;
+              --color-warning-content: #ffffff;
+
+              /* Error colors */
+              --color-error: #ef4444;
+              --color-error-50: #fef2f2;
+              --color-error-100: #fee2e2;
+              --color-error-200: #fecaca;
+              --color-error-300: #fca5a5;
+              --color-error-400: #f87171;
+              --color-error-500: #ef4444;
+              --color-error-600: #dc2626;
+              --color-error-700: #b91c1c;
+              --color-error-800: #991b1b;
+              --color-error-900: #7f1d1d;
+              --color-error-focus: #dc2626;
+              --color-error-content: #ffffff;
+            }
+    </style>
+    
+    <style>
+    /* Dark theme */
+            .dark {
+              /* Base colors */
+              --color-base: #1f2937;
+              --color-base-50: #111827;
+              --color-base-100: #1f2937;
+              --color-base-200: #374151;
+              --color-base-300: #4b5563;
+              --color-base-400: #6b7280;
+              --color-base-500: #9ca3af;
+              --color-base-600: #d1d5db;
+              --color-base-700: #e5e7eb;
+              --color-base-800: #f3f4f6;
+              --color-base-900: #f9fafb;
+              --color-base-content: #f9fafb;
+
+              /* Primary colors */
+              --color-primary: #60a5fa;
+              --color-primary-50: #1e3a8a;
+              --color-primary-100: #1e40af;
+              --color-primary-200: #1d4ed8;
+              --color-primary-300: #2563eb;
+              --color-primary-400: #3b82f6;
+              --color-primary-500: #60a5fa;
+              --color-primary-600: #93c5fd;
+              --color-primary-700: #bfdbfe;
+              --color-primary-800: #dbeafe;
+              --color-primary-900: #eff6ff;
+              --color-primary-focus: #3b82f6;
+              --color-primary-content: #1f2937;
+
+              /* Secondary colors */
+              --color-secondary: #a78bfa;
+              --color-secondary-50: #4c1d95;
+              --color-secondary-100: #5b21b6;
+              --color-secondary-200: #6d28d9;
+              --color-secondary-300: #7c3aed;
+              --color-secondary-400: #8b5cf6;
+              --color-secondary-500: #a78bfa;
+              --color-secondary-600: #c4b5fd;
+              --color-secondary-700: #ddd6fe;
+              --color-secondary-800: #ede9fe;
+              --color-secondary-900: #f5f3ff;
+              --color-secondary-focus: #8b5cf6;
+              --color-secondary-content: #1f2937;
+
+              /* Accent colors */
+              --color-accent: #f472b6;
+              --color-accent-50: #831843;
+              --color-accent-100: #9d174d;
+              --color-accent-200: #be185d;
+              --color-accent-300: #db2777;
+              --color-accent-400: #ec4899;
+              --color-accent-500: #f472b6;
+              --color-accent-600: #f9a8d4;
+              --color-accent-700: #fbcfe8;
+              --color-accent-800: #fce7f3;
+              --color-accent-900: #fdf2f8;
+              --color-accent-focus: #ec4899;
+              --color-accent-content: #1f2937;
+
+              /* Neutral colors remain the same as light theme */
+
+              /* Info colors */
+              --color-info: #60a5fa;
+              --color-info-50: #1e3a8a;
+              --color-info-100: #1e40af;
+              --color-info-200: #1d4ed8;
+              --color-info-300: #2563eb;
+              --color-info-400: #3b82f6;
+              --color-info-500: #60a5fa;
+              --color-info-600: #93c5fd;
+              --color-info-700: #bfdbfe;
+              --color-info-800: #dbeafe;
+              --color-info-900: #eff6ff;
+              --color-info-focus: #3b82f6;
+              --color-info-content: #1f2937;
+
+              /* Success colors */
+              --color-success: #34d399;
+              --color-success-50: #064e3b;
+              --color-success-100: #065f46;
+              --color-success-200: #047857;
+              --color-success-300: #059669;
+              --color-success-400: #10b981;
+              --color-success-500: #34d399;
+              --color-success-600: #6ee7b7;
+              --color-success-700: #a7f3d0;
+              --color-success-800: #d1fae5;
+              --color-success-900: #ecfdf5;
+              --color-success-focus: #10b981;
+              --color-success-content: #1f2937;
+
+              /* Warning colors */
+              --color-warning: #fbbf24;
+              --color-warning-50: #78350f;
+              --color-warning-100: #92400e;
+              --color-warning-200: #b45309;
+              --color-warning-300: #d97706;
+              --color-warning-400: #f59e0b;
+              --color-warning-500: #fbbf24;
+              --color-warning-600: #fcd34d;
+              --color-warning-700: #fde68a;
+              --color-warning-800: #fef3c7;
+              --color-warning-900: #fffbeb;
+              --color-warning-focus: #f59e0b;
+              --color-warning-content: #1f2937;
+
+              /* Error colors */
+              --color-error: #f87171;
+              --color-error-50: #7f1d1d;
+              --color-error-100: #991b1b;
+              --color-error-200: #b91c1c;
+              --color-error-300: #dc2626;
+              --color-error-400: #ef4444;
+              --color-error-500: #f87171;
+              --color-error-600: #fca5a5;
+              --color-error-700: #fecaca;
+              --color-error-800: #fee2e2;
+              --color-error-900: #fef2f2;
+              --color-error-focus: #ef4444;
+              --color-error-content: #1f2937;
+            }
+    </style>
+
+    
+    <style>
+      .highlighted-section {
+        outline: 2px solid #3F20FB;
+        background-color: rgba(63, 32, 251, 0.1);
+      }
+
+      .edit-button {
+        position: absolute;
+        z-index: 1000;
+      }
+    </style>
+
+    
+    <style>
+    /* Dark theme */
+            .dark {
+              /* Base colors */
+              --color-base: #1f2937;
+              --color-base-50: #111827;
+              --color-base-100: #1f2937;
+              --color-base-200: #374151;
+              --color-base-300: #4b5563;
+              --color-base-400: #6b7280;
+              --color-base-500: #9ca3af;
+              --color-base-600: #d1d5db;
+              --color-base-700: #e5e7eb;
+              --color-base-800: #f3f4f6;
+              --color-base-900: #f9fafb;
+              --color-base-content: #f9fafb;
+
+              /* Primary colors */
+              --color-primary: #60a5fa;
+              --color-primary-50: #1e3a8a;
+              --color-primary-100: #1e40af;
+              --color-primary-200: #1d4ed8;
+              --color-primary-300: #2563eb;
+              --color-primary-400: #3b82f6;
+              --color-primary-500: #60a5fa;
+              --color-primary-600: #93c5fd;
+              --color-primary-700: #bfdbfe;
+              --color-primary-800: #dbeafe;
+              --color-primary-900: #eff6ff;
+              --color-primary-focus: #3b82f6;
+              --color-primary-content: #1f2937;
+
+              /* Secondary colors */
+              --color-secondary: #a78bfa;
+              --color-secondary-50: #4c1d95;
+              --color-secondary-100: #5b21b6;
+              --color-secondary-200: #6d28d9;
+              --color-secondary-300: #7c3aed;
+              --color-secondary-400: #8b5cf6;
+              --color-secondary-500: #a78bfa;
+              --color-secondary-600: #c4b5fd;
+              --color-secondary-700: #ddd6fe;
+              --color-secondary-800: #ede9fe;
+              --color-secondary-900: #f5f3ff;
+              --color-secondary-focus: #8b5cf6;
+              --color-secondary-content: #1f2937;
+
+              /* Accent colors */
+              --color-accent: #f472b6;
+              --color-accent-50: #831843;
+              --color-accent-100: #9d174d;
+              --color-accent-200: #be185d;
+              --color-accent-300: #db2777;
+              --color-accent-400: #ec4899;
+              --color-accent-500: #f472b6;
+              --color-accent-600: #f9a8d4;
+              --color-accent-700: #fbcfe8;
+              --color-accent-800: #fce7f3;
+              --color-accent-900: #fdf2f8;
+              --color-accent-focus: #ec4899;
+              --color-accent-content: #1f2937;
+
+              /* Neutral colors remain the same as light theme */
+
+              /* Info colors */
+              --color-info: #60a5fa;
+              --color-info-50: #1e3a8a;
+              --color-info-100: #1e40af;
+              --color-info-200: #1d4ed8;
+              --color-info-300: #2563eb;
+              --color-info-400: #3b82f6;
+              --color-info-500: #60a5fa;
+              --color-info-600: #93c5fd;
+              --color-info-700: #bfdbfe;
+              --color-info-800: #dbeafe;
+              --color-info-900: #eff6ff;
+              --color-info-focus: #3b82f6;
+              --color-info-content: #1f2937;
+
+              /* Success colors */
+              --color-success: #34d399;
+              --color-success-50: #064e3b;
+              --color-success-100: #065f46;
+              --color-success-200: #047857;
+              --color-success-300: #059669;
+              --color-success-400: #10b981;
+              --color-success-500: #34d399;
+              --color-success-600: #6ee7b7;
+              --color-success-700: #a7f3d0;
+              --color-success-800: #d1fae5;
+              --color-success-900: #ecfdf5;
+              --color-success-focus: #10b981;
+              --color-success-content: #1f2937;
+
+              /* Warning colors */
+              --color-warning: #fbbf24;
+              --color-warning-50: #78350f;
+              --color-warning-100: #92400e;
+              --color-warning-200: #b45309;
+              --color-warning-300: #d97706;
+              --color-warning-400: #f59e0b;
+              --color-warning-500: #fbbf24;
+              --color-warning-600: #fcd34d;
+              --color-warning-700: #fde68a;
+              --color-warning-800: #fef3c7;
+              --color-warning-900: #fffbeb;
+              --color-warning-focus: #f59e0b;
+              --color-warning-content: #1f2937;
+
+              /* Error colors */
+              --color-error: #f87171;
+              --color-error-50: #7f1d1d;
+              --color-error-100: #991b1b;
+              --color-error-200: #b91c1c;
+              --color-error-300: #dc2626;
+              --color-error-400: #ef4444;
+              --color-error-500: #f87171;
+              --color-error-600: #fca5a5;
+              --color-error-700: #fecaca;
+              --color-error-800: #fee2e2;
+              --color-error-900: #fef2f2;
+              --color-error-focus: #ef4444;
+              --color-error-content: #1f2937;
+            }
+    </style>
+
+    
+    <style>
+      .highlighted-section {
+        outline: 2px solid #3F20FB;
+        background-color: rgba(63, 32, 251, 0.1);
+      }
+
+      .edit-button {
+        position: absolute;
+        z-index: 1000;
+      }
+    </style>
+
+    
+    <style>
+    /* Dark theme */
+            .dark {
+              /* Base colors */
+              --color-base: #1f2937;
+              --color-base-50: #111827;
+              --color-base-100: #1f2937;
+              --color-base-200: #374151;
+              --color-base-300: #4b5563;
+              --color-base-400: #6b7280;
+              --color-base-500: #9ca3af;
+              --color-base-600: #d1d5db;
+              --color-base-700: #e5e7eb;
+              --color-base-800: #f3f4f6;
+              --color-base-900: #f9fafb;
+              --color-base-content: #f9fafb;
+
+              /* Primary colors */
+              --color-primary: #60a5fa;
+              --color-primary-50: #1e3a8a;
+              --color-primary-100: #1e40af;
+              --color-primary-200: #1d4ed8;
+              --color-primary-300: #2563eb;
+              --color-primary-400: #3b82f6;
+              --color-primary-500: #60a5fa;
+              --color-primary-600: #93c5fd;
+              --color-primary-700: #bfdbfe;
+              --color-primary-800: #dbeafe;
+              --color-primary-900: #eff6ff;
+              --color-primary-focus: #3b82f6;
+              --color-primary-content: #1f2937;
+
+              /* Secondary colors */
+              --color-secondary: #a78bfa;
+              --color-secondary-50: #4c1d95;
+              --color-secondary-100: #5b21b6;
+              --color-secondary-200: #6d28d9;
+              --color-secondary-300: #7c3aed;
+              --color-secondary-400: #8b5cf6;
+              --color-secondary-500: #a78bfa;
+              --color-secondary-600: #c4b5fd;
+              --color-secondary-700: #ddd6fe;
+              --color-secondary-800: #ede9fe;
+              --color-secondary-900: #f5f3ff;
+              --color-secondary-focus: #8b5cf6;
+              --color-secondary-content: #1f2937;
+
+              /* Accent colors */
+              --color-accent: #f472b6;
+              --color-accent-50: #831843;
+              --color-accent-100: #9d174d;
+              --color-accent-200: #be185d;
+              --color-accent-300: #db2777;
+              --color-accent-400: #ec4899;
+              --color-accent-500: #f472b6;
+              --color-accent-600: #f9a8d4;
+              --color-accent-700: #fbcfe8;
+              --color-accent-800: #fce7f3;
+              --color-accent-900: #fdf2f8;
+              --color-accent-focus: #ec4899;
+              --color-accent-content: #1f2937;
+
+              /* Neutral colors remain the same as light theme */
+
+              /* Info colors */
+              --color-info: #60a5fa;
+              --color-info-50: #1e3a8a;
+              --color-info-100: #1e40af;
+              --color-info-200: #1d4ed8;
+              --color-info-300: #2563eb;
+              --color-info-400: #3b82f6;
+              --color-info-500: #60a5fa;
+              --color-info-600: #93c5fd;
+              --color-info-700: #bfdbfe;
+              --color-info-800: #dbeafe;
+              --color-info-900: #eff6ff;
+              --color-info-focus: #3b82f6;
+              --color-info-content: #1f2937;
+
+              /* Success colors */
+              --color-success: #34d399;
+              --color-success-50: #064e3b;
+              --color-success-100: #065f46;
+              --color-success-200: #047857;
+              --color-success-300: #059669;
+              --color-success-400: #10b981;
+              --color-success-500: #34d399;
+              --color-success-600: #6ee7b7;
+              --color-success-700: #a7f3d0;
+              --color-success-800: #d1fae5;
+              --color-success-900: #ecfdf5;
+              --color-success-focus: #10b981;
+              --color-success-content: #1f2937;
+
+              /* Warning colors */
+              --color-warning: #fbbf24;
+              --color-warning-50: #78350f;
+              --color-warning-100: #92400e;
+              --color-warning-200: #b45309;
+              --color-warning-300: #d97706;
+              --color-warning-400: #f59e0b;
+              --color-warning-500: #fbbf24;
+              --color-warning-600: #fcd34d;
+              --color-warning-700: #fde68a;
+              --color-warning-800: #fef3c7;
+              --color-warning-900: #fffbeb;
+              --color-warning-focus: #f59e0b;
+              --color-warning-content: #1f2937;
+
+              /* Error colors */
+              --color-error: #f87171;
+              --color-error-50: #7f1d1d;
+              --color-error-100: #991b1b;
+              --color-error-200: #b91c1c;
+              --color-error-300: #dc2626;
+              --color-error-400: #ef4444;
+              --color-error-500: #f87171;
+              --color-error-600: #fca5a5;
+              --color-error-700: #fecaca;
+              --color-error-800: #fee2e2;
+              --color-error-900: #fef2f2;
+              --color-error-focus: #ef4444;
+              --color-error-content: #1f2937;
+            }
+    </style>
+
+    
+    <style>
+      .highlighted-section {
+        outline: 2px solid #3F20FB;
+        background-color: rgba(63, 32, 251, 0.1);
+      }
+
+      .edit-button {
+        position: absolute;
+        z-index: 1000;
+      }
+    </style>
+
+    
+    <style>
+    /* Dark theme */
+            .dark {
+              /* Base colors */
+              --color-base: #1f2937;
+              --color-base-50: #111827;
+              --color-base-100: #1f2937;
+              --color-base-200: #374151;
+              --color-base-300: #4b5563;
+              --color-base-400: #6b7280;
+              --color-base-500: #9ca3af;
+              --color-base-600: #d1d5db;
+              --color-base-700: #e5e7eb;
+              --color-base-800: #f3f4f6;
+              --color-base-900: #f9fafb;
+              --color-base-content: #f9fafb;
+
+              /* Primary colors */
+              --color-primary: #60a5fa;
+              --color-primary-50: #1e3a8a;
+              --color-primary-100: #1e40af;
+              --color-primary-200: #1d4ed8;
+              --color-primary-300: #2563eb;
+              --color-primary-400: #3b82f6;
+              --color-primary-500: #60a5fa;
+              --color-primary-600: #93c5fd;
+              --color-primary-700: #bfdbfe;
+              --color-primary-800: #dbeafe;
+              --color-primary-900: #eff6ff;
+              --color-primary-focus: #3b82f6;
+              --color-primary-content: #1f2937;
+
+              /* Secondary colors */
+              --color-secondary: #a78bfa;
+              --color-secondary-50: #4c1d95;
+              --color-secondary-100: #5b21b6;
+              --color-secondary-200: #6d28d9;
+              --color-secondary-300: #7c3aed;
+              --color-secondary-400: #8b5cf6;
+              --color-secondary-500: #a78bfa;
+              --color-secondary-600: #c4b5fd;
+              --color-secondary-700: #ddd6fe;
+              --color-secondary-800: #ede9fe;
+              --color-secondary-900: #f5f3ff;
+              --color-secondary-focus: #8b5cf6;
+              --color-secondary-content: #1f2937;
+
+              /* Accent colors */
+              --color-accent: #f472b6;
+              --color-accent-50: #831843;
+              --color-accent-100: #9d174d;
+              --color-accent-200: #be185d;
+              --color-accent-300: #db2777;
+              --color-accent-400: #ec4899;
+              --color-accent-500: #f472b6;
+              --color-accent-600: #f9a8d4;
+              --color-accent-700: #fbcfe8;
+              --color-accent-800: #fce7f3;
+              --color-accent-900: #fdf2f8;
+              --color-accent-focus: #ec4899;
+              --color-accent-content: #1f2937;
+
+              /* Neutral colors remain the same as light theme */
+
+              /* Info colors */
+              --color-info: #60a5fa;
+              --color-info-50: #1e3a8a;
+              --color-info-100: #1e40af;
+              --color-info-200: #1d4ed8;
+              --color-info-300: #2563eb;
+              --color-info-400: #3b82f6;
+              --color-info-500: #60a5fa;
+              --color-info-600: #93c5fd;
+              --color-info-700: #bfdbfe;
+              --color-info-800: #dbeafe;
+              --color-info-900: #eff6ff;
+              --color-info-focus: #3b82f6;
+              --color-info-content: #1f2937;
+
+              /* Success colors */
+              --color-success: #34d399;
+              --color-success-50: #064e3b;
+              --color-success-100: #065f46;
+              --color-success-200: #047857;
+              --color-success-300: #059669;
+              --color-success-400: #10b981;
+              --color-success-500: #34d399;
+              --color-success-600: #6ee7b7;
+              --color-success-700: #a7f3d0;
+              --color-success-800: #d1fae5;
+              --color-success-900: #ecfdf5;
+              --color-success-focus: #10b981;
+              --color-success-content: #1f2937;
+
+              /* Warning colors */
+              --color-warning: #fbbf24;
+              --color-warning-50: #78350f;
+              --color-warning-100: #92400e;
+              --color-warning-200: #b45309;
+              --color-warning-300: #d97706;
+              --color-warning-400: #f59e0b;
+              --color-warning-500: #fbbf24;
+              --color-warning-600: #fcd34d;
+              --color-warning-700: #fde68a;
+              --color-warning-800: #fef3c7;
+              --color-warning-900: #fffbeb;
+              --color-warning-focus: #f59e0b;
+              --color-warning-content: #1f2937;
+
+              /* Error colors */
+              --color-error: #f87171;
+              --color-error-50: #7f1d1d;
+              --color-error-100: #991b1b;
+              --color-error-200: #b91c1c;
+              --color-error-300: #dc2626;
+              --color-error-400: #ef4444;
+              --color-error-500: #f87171;
+              --color-error-600: #fca5a5;
+              --color-error-700: #fecaca;
+              --color-error-800: #fee2e2;
+              --color-error-900: #fef2f2;
+              --color-error-focus: #ef4444;
+              --color-error-content: #1f2937;
+            }
+    </style>
+
+    
+    <style>
+      .highlighted-section {
+        outline: 2px solid #3F20FB;
+        background-color: rgba(63, 32, 251, 0.1);
+      }
+
+      .edit-button {
+        position: absolute;
+        z-index: 1000;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      html, body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+
+    <style>
+      .input-modal {
+        background-color: #f3f4f6;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        width: 100%;
+        font-size: 0.875rem;
+        color: #374151;
+      }
+    </style>
+
+  </head>
+
+  <body class="h-full text-base-content">
+
+    <div class="flex items-center justify-between px-6 py-4 bg-white shadow">
+      <!-- Logo BEVAP -->
+      <div class="flex items-center space-x-4">
+        <img src="https://www.bevapbioenergia.com.br/wp-content/uploads/2020/12/165x61.jpg" alt="Logo BEVAP" class="h-10">
+        <h1 class="text-xl font-semibold">Painel de Rastreabilidade - Processos de RH</h1>
+      </div>
+      <div class="flex items-center space-x-4">
+        <i class="fa-regular fa-bell text-neutral-300"></i>
+        <img src="https://api.dicebear.com/7.x/notionists/svg?scale=200&seed=123" alt="User" class="w-8 h-8 rounded-full">
+      </div>
+    </div>
+
+
+    <main id="main" class="bg-[#F5F7FA] min-h-screen">
+      <div class="p-6">
+        <section id="filters" class="bg-white rounded-lg border border-[#003366]/20 p-6 mb-6">
+          <h2 class="text-lg mb-4 text-[#003366]">Filtros</h2>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+            <div>
+              <label class="block text-sm text-[#003366] mb-2">Processo</label>
+              <select class="w-full px-3 py-2 border border-[#003366]/30 rounded-md focus:outline-none focus:ring-2 focus:ring-[#003366]">
+                <option>Todos os Processos</option>
+                <option>Admissão</option>
+                <option>Requisição de Pessoal</option>
+                <option>Recrutamento e Seleção</option>
+                <option>Recrutamento e Seleção Parte 2</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm text-[#003366] mb-2">Status</label>
+              <select class="w-full px-3 py-2 border border-[#003366]/30 rounded-md focus:outline-none focus:ring-2 focus:ring-[#003366]">
+                <option>Todos os Status</option>
+                <option>Em Andamento</option>
+                <option>Encerrado</option>
+                <option>Cancelado</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm text-[#003366] mb-2">Período</label>
+              <input type="date" class="w-full px-3 py-2 border border-[#003366]/30 rounded-md focus:outline-none focus:ring-2 focus:ring-[#003366]">
+            </div>
+            <div>
+              <label class="block text-sm text-[#003366] mb-2">Solicitante</label>
+              <input type="text" placeholder="Digite o nome" class="w-full px-3 py-2 border border-[#003366]/30 rounded-md focus:outline-none focus:ring-2 focus:ring-[#003366]">
+            </div>
+          </div>
+          <div class="flex space-x-3">
+            <button class="bg-[#003366] text-white px-6 py-2 rounded-md hover:bg-[#002d5a] transition-colors">
+              <i class="fa-solid fa-filter mr-2"></i>Filtrar
+            </button>
+            <button class="border border-[#003366] text-[#003366] px-6 py-2 rounded-md hover:bg-[#003366]/10 transition-colors">
+              Limpar
+            </button>
+          </div>
+        </section>
+
+        <section id="admissao" class="mb-8">
+          <div class="bg-[#003366] text-white px-4 py-3 rounded-t-lg cursor-pointer flex items-center justify-between transition-colors hover:bg-[#002d5a] painel-header">
+            <h3 class="text-lg">Admissão</h3>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="bg-white border border-[#003366]/20 rounded-b-lg overflow-hidden painel-content">
+            <div class="h-64 overflow-y-auto">
+              <table class="w-full">
+                <thead class="bg-neutral-50 sticky top-0">
+                  <tr>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">ID Fluig</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Solicitante</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Status</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Localização</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Nome do Candidato</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">CPF</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Data de Início</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Responsável</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-neutral-200">
+                  <tr class="bg-white">
+                    <td class="px-4 py-3 text-sm text-neutral-900">ADM-001</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Maria Silva</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-[#003366] text-white">Em Andamento</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Executar etapas para assinar documentos (22)</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">João Santos</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">123.456.789-00</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">15/01/2025</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Ana Costa</td>
+                  </tr>
+                  <tr class="bg-neutral-50">
+                    <td class="px-4 py-3 text-sm text-neutral-900">ADM-002</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Carlos Lima</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-[#7AC143] text-white">Encerrado</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">N/A</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Pedro Oliveira</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">987.654.321-00</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">20/01/2025</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Roberto Mendes</td>
+                  </tr>
+                  <tr class="bg-white">
+                    <td class="px-4 py-3 text-sm text-neutral-900">ADM-003</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Fernanda Rocha</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-red-600 text-white">Cancelado</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">N/A</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Amanda Ferreira</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">111.222.333-44</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">25/01/2025</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Ricardo Alves</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="requisicao" class="mb-8">
+          <div class="bg-[#003366] text-white px-4 py-3 rounded-t-lg cursor-pointer flex items-center justify-between transition-colors hover:bg-[#002d5a] painel-header">
+            <h3 class="text-lg">Requisição de Pessoal</h3>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="bg-white border border-[#003366]/20 rounded-b-lg overflow-hidden painel-content">
+            <div class="h-64 overflow-y-auto">
+              <table class="w-full">
+                <thead class="bg-neutral-50 sticky top-0">
+                  <tr>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">ID Fluig</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Solicitante</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Status</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Localização</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Cargo</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Departamento</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Vagas</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Data Solicitação</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-neutral-200">
+                  <tr class="bg-white">
+                    <td class="px-4 py-3 text-sm text-neutral-900">REQ-001</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Fernanda Rocha</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-[#003366] text-white">Em Andamento</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Aprovação do diretor de RH</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Analista de TI</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Tecnologia</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">2</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">10/01/2025</td>
+                  </tr>
+                  <tr class="bg-neutral-50">
+                    <td class="px-4 py-3 text-sm text-neutral-900">REQ-002</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">João Almeida</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-[#7AC143] text-white">Encerrado</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">N/A</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Engenheiro</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Engenharia</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">1</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">05/01/2025</td>
+                  </tr>
+                  <tr class="bg-white">
+                    <td class="px-4 py-3 text-sm text-neutral-900">REQ-003</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Paula Souza</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-red-600 text-white">Cancelado</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">N/A</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Assistente</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Administrativo</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">3</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">02/01/2025</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="recrutamento1" class="mb-8">
+          <div class="bg-[#003366] text-white px-4 py-3 rounded-t-lg cursor-pointer flex items-center justify-between transition-colors hover:bg-[#002d5a] painel-header">
+            <h3 class="text-lg">Recrutamento e Seleção Parte 1</h3>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="bg-white border border-[#003366]/20 rounded-b-lg overflow-hidden painel-content">
+            <div class="h-64 overflow-y-auto">
+              <table class="w-full">
+                <thead class="bg-neutral-50 sticky top-0">
+                  <tr>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">ID Fluig</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Solicitante</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Status</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Localização</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Candidato</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Etapa Atual</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Última Atualização</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Responsável</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-neutral-200">
+                  <tr class="bg-white">
+                    <td class="px-4 py-3 text-sm text-neutral-900">REC-001</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Luciana Torres</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-[#003366] text-white">Em Andamento</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Revisar Informações candidato</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Amanda Ferreira</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Entrevista RH</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">12/01/2025</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Ricardo Alves</td>
+                  </tr>
+                  <tr class="bg-neutral-50">
+                    <td class="px-4 py-3 text-sm text-neutral-900">REC-002</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Gabriel Souza</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-[#7AC143] text-white">Encerrado</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">N/A</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Juliana Campos</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Aprovação do diretor de RH</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">18/01/2025</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Marcos Pereira</td>
+                  </tr>
+                  <tr class="bg-white">
+                    <td class="px-4 py-3 text-sm text-neutral-900">REC-003</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Fernanda Rocha</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-red-600 text-white">Cancelado</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">N/A</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Pedro Oliveira</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Entrevista Técnica</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">15/01/2025</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Ricardo Alves</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="recrutamento2" class="mb-8">
+          <div class="bg-[#003366] text-white px-4 py-3 rounded-t-lg cursor-pointer flex items-center justify-between transition-colors hover:bg-[#002d5a] painel-header">
+            <h3 class="text-lg">Recrutamento e Seleção Parte 2</h3>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="bg-white border border-[#003366]/20 rounded-b-lg overflow-hidden painel-content">
+            <div class="h-64 overflow-y-auto">
+              <table class="w-full">
+                <thead class="bg-neutral-50 sticky top-0">
+                  <tr>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">ID Fluig</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Solicitante</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Status</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Localização</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Candidato</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Resultado Técnica</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Parecer Final</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Responsável Técnico</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Data Fechamento</th>
+                    <th class="px-4 py-3 text-left text-xs text-neutral-500 uppercase">Detalhe</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-neutral-200">
+                  <tr class="bg-white">
+                    <td class="px-4 py-3 text-sm text-neutral-900">REC2-001</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Gabriel Souza</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-[#003366] text-white">Em Andamento</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Mudança de função</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Juliana Campos</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Aprovado</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Apto para contratação</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Marcos Pereira</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">18/01/2025</td>
+                    <td class="px-4 py-3 text-center"><button class="detail-btn" data-row="REC2-001"><i class="fa fa-eye text-[#003366] hover:text-[#7AC143] text-lg"></i></button></td>
+                  </tr>
+                  <tr class="bg-neutral-50">
+                    <td class="px-4 py-3 text-sm text-neutral-900">REC2-002</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Fernanda Rocha</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-[#7AC143] text-white">Encerrado</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">N/A</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Pedro Oliveira</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Reprovado</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Não apto para contratação</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Ricardo Alves</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">15/01/2025</td>
+                    <td class="px-4 py-3 text-center"><button class="detail-btn" data-row="REC2-002"><i class="fa fa-eye text-[#003366] hover:text-[#7AC143] text-lg"></i></button></td>
+                  </tr>
+                  <tr class="bg-white">
+                    <td class="px-4 py-3 text-sm text-neutral-900">REC2-003</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Luciana Torres</td>
+                    <td class="px-4 py-3"><span class="px-2 py-1 text-xs rounded-full bg-red-600 text-white">Cancelado</span></td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">N/A</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Amanda Ferreira</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Aprovado</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Apto para contratação</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">Marcos Pereira</td>
+                    <td class="px-4 py-3 text-sm text-neutral-900">12/01/2025</td>
+                    <td class="px-4 py-3 text-center"><button class="detail-btn" data-row="REC2-003"><i class="fa fa-eye text-[#003366] hover:text-[#7AC143] text-lg"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        
+        <!-- Modal Recrutamento e Seleção Parte 2 com Abas -->
+        <div id="modal-recrutamento2" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+          <div class="bg-white rounded-lg shadow-lg w-full max-w-7xl p-0 relative">
+            <!-- Abas -->
+            <div class="flex border-b border-neutral-200 bg-neutral-50 rounded-t-lg">
+              <button class="tab-btn px-6 py-3 text-sm font-semibold focus:outline-none transition-colors tab-active" data-tab="identificacao">Identificação</button>
+              <button class="tab-btn px-6 py-3 text-sm font-semibold focus:outline-none transition-colors" data-tab="tecnica">Avaliação Técnica</button>
+              <button class="tab-btn px-6 py-3 text-sm font-semibold focus:outline-none transition-colors" data-tab="comportamental">Avaliação comportamental</button>
+              <button class="tab-btn px-6 py-3 text-sm font-semibold focus:outline-none transition-colors" data-tab="aprovacao">Aprovação</button>
+              <button id="close-modal-recrutamento2" class="ml-auto px-4 text-neutral-400 hover:text-red-600 text-2xl font-bold">&times;</button>
+            </div>
+            <!-- Conteúdo das Abas -->
+            <div class="p-8">
+              <!-- Aba Identificação -->
+              <div class="tab-content" id="tab-identificacao">
+                <div class="grid grid-cols-6 gap-4 mb-2">
+                  <div class="col-span-1">
+                    <label class="block text-xs text-neutral-600 mb-1">Cargo</label>
+                    <input type="text" readonly class="input-modal" id="modal-cargo">
+                  </div>
+                  <div class="col-span-1">
+                    <label class="block text-xs text-neutral-600 mb-1">Origem</label>
+                    <input type="text" readonly class="input-modal" id="modal-origem">
+                  </div>
+                  <div class="col-span-1">
+                    <label class="block text-xs text-neutral-600 mb-1">Solicitante</label>
+                    <input type="text" readonly class="input-modal" id="modal-solicitante">
+                  </div>
+                  <div class="col-span-1">
+                    <label class="block text-xs text-neutral-600 mb-1">Candidato</label>
+                    <input type="text" readonly class="input-modal" id="modal-candidato">
+                  </div>
+                  <div class="col-span-1">
+                    <label class="block text-xs text-neutral-600 mb-1">Tipo da Vaga</label>
+                    <input type="text" readonly class="input-modal" id="modal-tipo-vaga">
+                  </div>
+                  <div class="col-span-1">
+                    <label class="block text-xs text-neutral-600 mb-1">Número processo Requisição pessoal</label>
+                    <input type="text" readonly class="input-modal" id="modal-num-processo">
+                  </div>
+                </div>
+                <div class="grid grid-cols-3 gap-4 mb-2">
+                  <div>
+                    <label class="block text-xs text-neutral-600 mb-1">Escolaridade (igual ou elevada à exigida)</label>
+                    <input type="text" readonly class="input-modal" id="modal-escolaridade">
+                  </div>
+                  <div>
+                    <label class="block text-xs text-neutral-600 mb-1">Permanência interna 6 meses</label>
+                    <input type="text" readonly class="input-modal" id="modal-permanencia">
+                  </div>
+                  <div>
+                    <label class="block text-xs text-neutral-600 mb-1">Salário menor ou igual à vaga?</label>
+                    <input type="text" readonly class="input-modal" id="modal-salario">
+                  </div>
+                </div>
+                <div class="mb-2">
+                  <label class="block text-xs text-neutral-600 mb-1">Link Solicitação Requisição Pessoal</label>
+                  <input type="text" readonly class="input-modal" id="modal-link">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-xs text-neutral-600 mb-1">Comentários</label>
+                  <textarea readonly class="input-modal w-full h-20" id="modal-comentarios"></textarea>
+                </div>
+                <div class="flex items-end mb-4 gap-4">
+                  <div class="flex items-center">
+                    <input type="checkbox" id="modal-paralisar" disabled class="mr-2">
+                    <label for="modal-paralisar" class="text-sm text-neutral-700">Paralisar Solicitação</label>
+                  </div>
+                  <div>
+                    <label class="block text-xs text-neutral-600 mb-1">Data início Paralisação</label>
+                    <input type="text" readonly class="input-modal" id="modal-data-inicio">
+                  </div>
+                  <div>
+                    <label class="block text-xs text-neutral-600 mb-1">Data fim Paralisação</label>
+                    <input type="text" readonly class="input-modal" id="modal-data-fim">
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-content hidden" id="tab-tecnica">
+                <h2 class="text-base font-semibold text-[#003366] mb-2">Avaliação Técnica</h2>
+                <div class="mb-4">
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">
+                    Recursos Utilizados <span class="text-red-500">*</span>
+                  </label>
+                  <ul id="modal-tecnica-recursos" class="list-disc pl-5 text-neutral-800 bg-neutral-50 rounded p-2 min-h-[2rem]"></ul>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">Comentários <span class="text-red-500">*</span></label>
+                  <textarea readonly class="input-modal w-full h-20" id="modal-tecnica-comentarios"></textarea>
+                </div>
+                <div class="flex items-center mb-4 gap-4">
+                  <div>
+                    <label class="block text-sm font-semibold text-neutral-700 mb-1">Candidato Aprovado</label>
+                    <input type="checkbox" id="modal-tecnica-aprovado" class="mr-2" disabled>
+                    <label for="modal-tecnica-aprovado" class="text-neutral-700">Sim</label>
+                  </div>
+                  <div class="flex-1">
+                    <label class="block text-sm font-semibold text-neutral-700 mb-1">Parecer <span class="text-red-500">*</span></label>
+                    <input type="text" readonly class="input-modal w-full" id="modal-tecnica-parecer">
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-content hidden" id="tab-comportamental">
+                <h2 class="text-base font-semibold text-[#003366] mb-2">Avaliação comportamental</h2>
+                <div class="mb-4">
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">
+                    Testes utilizados <span class="text-red-500">*</span>
+                  </label>
+                  <ul id="modal-comportamental-testes" class="list-disc pl-5 text-neutral-800 bg-neutral-50 rounded p-2 min-h-[2rem]"></ul>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">Comentários <span class="text-red-500">*</span></label>
+                  <textarea readonly class="input-modal w-full h-20" id="modal-comportamental-comentarios"></textarea>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">Parecer <span class="text-red-500">*</span></label>
+                  <input type="text" readonly class="input-modal w-full" id="modal-comportamental-parecer">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">Aprovado <span class="text-red-500">*</span></label>
+                  <input type="checkbox" id="modal-comportamental-aprovado" disabled>
+                  <label for="modal-comportamental-aprovado" class="text-neutral-700">Sim</label>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">Observações</label>
+                  <textarea readonly class="input-modal w-full h-16" id="modal-comportamental-observacoes"></textarea>
+                </div>
+              </div>              
+              
+              <div class="tab-content hidden" id="tab-aprovacao">
+                <h2 class="text-base font-semibold text-[#003366] mb-2">Aprovação</h2>
+                <div class="mb-4">
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">
+                    Parecer de contratação RH <span class="text-red-500">*</span>
+                  </label>
+                  <input type="text" readonly class="input-modal w-full" id="modal-aprovacao-parecer-rh">
+                </div>
+                <div class="mb-6">
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">Observações</label>
+                  <textarea readonly class="input-modal w-full h-16" id="modal-aprovacao-observacoes-rh"></textarea>
+                </div>
+                <div class="mb-4">
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">
+                    Parecer de contratação Liderança <span class="text-red-500">*</span>
+                  </label>
+                  <input type="text" readonly class="input-modal w-full" id="modal-aprovacao-parecer-lideranca">
+                </div>
+                <div>
+                  <label class="block text-sm font-semibold text-neutral-700 mb-1">Observações</label>
+                  <textarea readonly class="input-modal w-full h-16" id="modal-aprovacao-observacoes-lideranca"></textarea>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .tab-btn { border-bottom: 2px solid transparent; color: #003366; background: none; }
+          .tab-btn.tab-active { border-bottom: 2px solid #64BC46; color: #64BC46; background: #f5faff; }
+          .tab-content { animation: fadein .2s; }
+          @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+        </style>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            // Controle das abas do modal
+            document.querySelectorAll('#modal-recrutamento2 .tab-btn').forEach(btn => {
+              btn.addEventListener('click', function() {
+                // Remove destaque de todas as abas
+                document.querySelectorAll('#modal-recrutamento2 .tab-btn').forEach(b => b.classList.remove('tab-active'));
+                // Destaca a aba clicada
+                btn.classList.add('tab-active');
+                // Esconde todo conteúdo de aba
+                document.querySelectorAll('#modal-recrutamento2 .tab-content').forEach(tab => tab.classList.add('hidden'));
+                // Mostra conteúdo da aba clicada
+                document.getElementById('tab-' + btn.dataset.tab).classList.remove('hidden');
+              });
+            });
+
+            // Dados simulados para o modal
+            const detalhesRecrutamento2 = {
+              REC2_001: {
+                cargo: 'Mudança de função',
+                origem: '',
+                solicitante: 'Gabriel Souza',
+                candidato: 'Juliana Campos',
+                tipoVaga: '',
+                numProcesso: '',
+                escolaridade: '',
+                permanencia: '',
+                salario: '',
+                link: '',
+                comentarios: '',
+                paralisar: false,
+                dataInicio: '',
+                dataFim: '',
+                tecnica_recursos: ['Notebook', 'Internet', 'Sistema XYZ'],
+                tecnica_comentarios: 'Comentário técnico de exemplo',
+                tecnica_aprovado: true,
+                tecnica_parecer: 'Parecer técnico exemplo',
+                comportamental_testes: ['Teste 16PF', 'Entrevista comportamental'],
+                comportamental_comentarios: 'Comentário comportamental de exemplo',
+                comportamental_parecer: 'Parecer comportamental exemplo',
+                comportamental_aprovado: true,
+                comportamental_observacoes: 'Observações comportamentais de exemplo',
+                aprovacao_parecer_rh: 'Aprovado',
+                aprovacao_observacoes_rh: 'RH aprovou o candidato.',
+                aprovacao_parecer_lideranca: 'Aprovado',
+                aprovacao_observacoes_lideranca: 'Liderança satisfeita com o perfil.'                             
+              },
+              REC2_002: {
+                cargo: 'N/A',
+                origem: '',
+                solicitante: 'Fernanda Rocha',
+                candidato: 'Pedro Oliveira',
+                tipoVaga: '',
+                numProcesso: '',
+                escolaridade: '',
+                permanencia: '',
+                salario: '',
+                link: '',
+                comentarios: '',
+                paralisar: false,
+                dataInicio: '',
+                dataFim: '',
+                tecnica_recursos: ['Notebook', 'Internet', 'Sistema XYZ'],
+                tecnica_comentarios: 'Comentário técnico de exemplo',
+                tecnica_aprovado: true,
+                tecnica_parecer: 'Parecer técnico exemplo',
+                comportamental_testes: ['Teste 16PF', 'Entrevista comportamental'],
+                comportamental_comentarios: 'Comentário comportamental de exemplo',
+                comportamental_parecer: 'Parecer comportamental exemplo',
+                comportamental_aprovado: true,
+                comportamental_observacoes: 'Observações comportamentais de exemplo',
+                aprovacao_parecer_rh: 'Aprovado',
+                aprovacao_observacoes_rh: 'RH aprovou o candidato.',
+                aprovacao_parecer_lideranca: 'Aprovado',
+                aprovacao_observacoes_lideranca: 'Liderança satisfeita com o perfil.'
+              },
+              REC2_003: {
+                cargo: 'N/A',
+                origem: '',
+                solicitante: 'Luciana Torres',
+                candidato: 'Amanda Ferreira',
+                tipoVaga: '',
+                numProcesso: '',
+                escolaridade: '',
+                permanencia: '',
+                salario: '',
+                link: '',
+                comentarios: '',
+                paralisar: false,
+                dataInicio: '',
+                dataFim: '',
+                tecnica_recursos: ['Notebook', 'Internet', 'Sistema XYZ'],
+                tecnica_comentarios: 'Comentário técnico de exemplo',
+                tecnica_aprovado: true,
+                tecnica_parecer: 'Parecer técnico exemplo',
+                comportamental_testes: ['Teste 16PF', 'Entrevista comportamental'],
+                comportamental_comentarios: 'Comentário comportamental de exemplo',
+                comportamental_parecer: 'Parecer comportamental exemplo',
+                comportamental_aprovado: true,
+                comportamental_observacoes: 'Observações comportamentais de exemplo',
+                aprovacao_parecer_rh: 'Aprovado',
+                aprovacao_observacoes_rh: 'RH aprovou o candidato.',
+                aprovacao_parecer_lideranca: 'Aprovado',
+                aprovacao_observacoes_lideranca: 'Liderança satisfeita com o perfil.'                                
+              }
+            };
+
+            // Botão detalhe
+            document.querySelectorAll('.detail-btn').forEach(function (btn) {
+              btn.addEventListener('click', function () {
+                const rowId = btn.getAttribute('data-row').replace('-', '_');
+                const dados = detalhesRecrutamento2[rowId];
+                if (dados) {
+                  document.getElementById('modal-cargo').value = dados.cargo;
+                  document.getElementById('modal-origem').value = dados.origem;
+                  document.getElementById('modal-solicitante').value = dados.solicitante;
+                  document.getElementById('modal-candidato').value = dados.candidato;
+                  document.getElementById('modal-tipo-vaga').value = dados.tipoVaga;
+                  document.getElementById('modal-num-processo').value = dados.numProcesso;
+                  document.getElementById('modal-escolaridade').value = dados.escolaridade;
+                  document.getElementById('modal-permanencia').value = dados.permanencia;
+                  document.getElementById('modal-salario').value = dados.salario;
+                  document.getElementById('modal-link').value = dados.link;
+                  document.getElementById('modal-comentarios').value = dados.comentarios;
+                  document.getElementById('modal-paralisar').checked = dados.paralisar;
+                  document.getElementById('modal-data-inicio').value = dados.dataInicio;
+                  document.getElementById('modal-data-fim').value = dados.dataFim;
+                  // Preenche lista de recursos utilizados
+                  const recursosUl = document.getElementById('modal-tecnica-recursos');
+                  recursosUl.innerHTML = '';
+                  if (Array.isArray(dados.tecnica_recursos) && dados.tecnica_recursos.length > 0) {
+                    dados.tecnica_recursos.forEach(recurso => {
+                      const li = document.createElement('li');
+                      li.textContent = recurso;
+                      recursosUl.appendChild(li);
+                    });
+                  } else {
+                    const li = document.createElement('li');
+                    li.textContent = 'Nenhum recurso informado';
+                    recursosUl.appendChild(li);
+                  }
+                  document.getElementById('modal-tecnica-comentarios').value = dados.tecnica_comentarios || '';
+                  document.getElementById('modal-tecnica-aprovado').checked = dados.tecnica_aprovado || false;
+                  document.getElementById('modal-tecnica-parecer').value = dados.tecnica_parecer || '';
+                  // Preenche lista de testes utilizados
+                  const testesUl = document.getElementById('modal-comportamental-testes');
+                  testesUl.innerHTML = '';
+                  if (Array.isArray(dados.comportamental_testes) && dados.comportamental_testes.length > 0) {
+                    dados.comportamental_testes.forEach(teste => {
+                      const li = document.createElement('li');
+                      li.textContent = teste;
+                      testesUl.appendChild(li);
+                    });
+                  } else {
+                    const li = document.createElement('li');
+                    li.textContent = 'Nenhum teste informado';
+                    testesUl.appendChild(li);
+                  }
+                  document.getElementById('modal-comportamental-comentarios').value = dados.comportamental_comentarios || '';
+                  document.getElementById('modal-comportamental-parecer').value = dados.comportamental_parecer || ''; 
+                  document.getElementById('modal-comportamental-aprovado').checked = dados.comportamental_aprovado || false;
+                  document.getElementById('modal-comportamental-observacoes').value = dados.comportamental_observacoes || ''; 
+                  document.getElementById('modal-aprovacao-parecer-rh').value = dados.aprovacao_parecer_rh || '';
+                  document.getElementById('modal-aprovacao-observacoes-rh').value = dados.aprovacao_observacoes_rh || '';
+                  document.getElementById('modal-aprovacao-parecer-lideranca').value = dados.aprovacao_parecer_lideranca || '';
+                  document.getElementById('modal-aprovacao-observacoes-lideranca').value = dados.aprovacao_observacoes_lideranca || '';                                  
+                } else {
+                  document.querySelectorAll('#modal-recrutamento2 .input-modal').forEach(el => el.value = '');
+                  document.getElementById('modal-paralisar').checked = false;
+                  document.getElementById('modal-tecnica-aprovado').checked = false;
+                  document.getElementById('modal-comportamental-aprovado').checked = false;
+                }
+                // Sempre mostra a aba Identificação ao abrir
+                document.querySelectorAll('#modal-recrutamento2 .tab-btn').forEach(b => b.classList.remove('tab-active'));
+                document.querySelector('#modal-recrutamento2 .tab-btn[data-tab="identificacao"]').classList.add('tab-active');
+                document.querySelectorAll('#modal-recrutamento2 .tab-content').forEach(tab => tab.classList.add('hidden'));
+                document.getElementById('tab-identificacao').classList.remove('hidden');
+                document.getElementById('modal-recrutamento2').classList.remove('hidden');
+              });
+            });
+
+            // Fechar modal
+            document.getElementById('close-modal-recrutamento2').addEventListener('click', function () {
+              document.getElementById('modal-recrutamento2').classList.add('hidden');
+            });
+            document.getElementById('modal-recrutamento2').addEventListener('click', function (e) {
+              if (e.target === this) this.classList.add('hidden');
+            });
+          });
+        </script>
+
+        <script>
+          document.querySelectorAll('.painel-header').forEach(header => {
+            header.addEventListener('click', function () {
+              const content = header.nextElementSibling;
+              if (content) {
+                content.classList.toggle('hidden');
+                // Alterna o ícone se quiser
+                const icon = header.querySelector('i');
+                if (icon) {
+                  icon.classList.toggle('fa-chevron-down');
+                  icon.classList.toggle('fa-chevron-up');
+                }
+              }
+            });
+          });
+          // (Opcional) Inicia todos fechados, menos o primeiro
+          document.querySelectorAll('.painel-content').forEach((content, idx) => {
+            if (idx !== 0) content.classList.add('hidden');
+          });
+        </script>
+
+  </div> <!-- Fechamento do último container, se houver -->
+</body>
+</html>
