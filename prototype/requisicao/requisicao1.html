@@ -1,0 +1,1669 @@
+<form enctype="" role="form" method="post" name="form" action="" onsubmit="return false;">
+
+			<div id="campos_hidden">
+
+				<input type="hidden" name="WKFormMode" id="WKFormMode" value="VIEW" disabled="disabled">
+				<input type="hidden" name="dados_matSolicitante" id="dados_matSolicitante" value="14cdc0c0-a710-4412-81dd-d94fe3abe00a" disabled="disabled">
+				<input type="hidden" name="ativAtual" id="ativAtual" disabled="disabled">
+				<input type="hidden" name="numSolic" id="numSolic" disabled="disabled">
+				<input type="hidden" name="solicitacoesCriadasRecruta" id="solicitacoesCriadasRecruta" value="" disabled="disabled">
+				<input type="hidden" name="numeroEpis" id="numeroEpis" value="" disabled="disabled">
+				<input type="hidden" name="devolverParaDivulgacao" id="devolverParaDivulgacao" value="" disabled="disabled">
+				<input type="hidden" name="numeroTreinamentos" id="numeroTreinamentos" value="" disabled="disabled">
+				<input type="hidden" name="controlValidarInfo" id="controlValidarInfo" value="1" disabled="disabled">
+				<input type="hidden" name="listAprovadores" id="listAprovadores" value="" disabled="disabled">
+				<input type="hidden" name="aprovador" id="aprovador" value="" disabled="disabled">
+
+			</div>
+
+			<div class="panel panel-default painelPrincipal">
+				<div class="panel-body">
+					<h1 class="text-center title">
+						<b>Requisição de Pessoal</b>
+					</h1>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div id="abasNav2">
+						<div id="navbar2" class="col-xs-12">
+							<ul class="nav nav-pills" role="tablist">
+								<li class="nav-item active">
+									<a href="#painelIdentificacao" role="tab" data-toggle="pill">Identificação</a>
+								</li>
+								<li class="nav-item">
+									<a href="#painelRequisitosVaga" role="tab" data-toggle="pill">Requisitos da Vaga</a>
+								</li>
+								<li class="nav-item">
+									<a href="#painelRequisitosPessoais" role="tab" data-toggle="pill">Requisitos
+										Pessoais</a>
+								</li>
+
+								<li class="nav-item">
+									<a href="#painelSst" role="tab" data-toggle="pill">SST</a>
+								</li>
+
+								<li class="nav-item">
+									<a href="#painelTai" role="tab" data-toggle="pill">TAI</a>
+								</li>
+
+								<li class="nav-item">
+									<a href="#painelRecrutamento" role="tab" data-toggle="pill">Recrutamento</a>
+								</li>
+
+								<li class="nav-item">
+									<a href="#painelIntegracao" role="tab" data-toggle="pill">Integração</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<br><br>
+					<div class="tab-content">
+						<div class="panel panel-default tab-pane fade in active" id="painelIdentificacao">
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>Identificação</b></h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group row">
+
+									<!-- <div class="col-md-3">
+										<label class="required" for="tipoVaga">Leed Time de contratação</label>
+										<select onchange="mudaVaga(this.value)" class="form-control" name="tipoVaga"
+											id="tipoVaga">
+											<option value="">Selecione...</option>
+											<option value="lvl1">Nível I - Operacional</option>
+											<option value="lvl2">Nível II - Técnico</option>
+											<option value="lvl3">Nível III - Liderança</option>
+											<option value="lvl4">Nível IV - Encarregados</option>
+											<option value="lvl5">Nível V - Crítico</option>
+										</select>
+									</div> -->
+
+									<div class="label-field">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="tipoVaga" class="control-label required">Leed Time de
+												contratação
+											</label>
+											<div class="divCoordenador">
+												<span id="tipoVaga" class="form-control" name="tipoVaga">Operacionais</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="label-field">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="cargo" class="control-label required">Cargo
+											</label>
+											<div class="divCoordenador">
+												<span id="cargo" class="form-control" name="cargo">10795 - RECEPCIONISTA</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="label-field">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="areaReq" class="required control-label">Seção
+											</label>
+
+											<div>
+												<span id="areaReq" class="form-control" name="areaReq">01.2.2.9.01 - Apoio Administrativo</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<label for="localTrabalho">Departamento</label>
+										<span id="localTrabalho" class="form-control" name="localTrabalho">A4. DIVISÃO ADMINISTRATIVA</span>
+									</div>
+
+									<!-- <div class="label-field">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="localTrabalho" class="required control-label">Departamento
+											</label>
+											<div>
+												<input type="zoom" name="localTrabalho" id="localTrabalho"
+													class="form-control" data-zoom="{
+											'displayKey': 'ZOOM',
+											'datasetId': 'ds_buscaDepartamento',
+											'fields': [
+												{
+													'field':'NOME',
+													'label': 'Descrição',
+													'filterValues': 'NOME',
+													'standard': 'true'
+												}   
+											]
+										}" />
+											</div>
+										</div>
+									</div> -->
+
+
+
+								</div>
+
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label class="required" for="numVagas">Número de Vagas</label>
+										<span id="numVagas" class="form-control" name="numVagas">1</span>
+									</div>
+
+
+									<div class="label-field">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="centroCusto" class="required control-label">Centro de Custo
+											</label>
+
+											<div class="divCoordenador">
+												<span id="centroCusto" class="form-control" name="centroCusto">2.7.02.013 - Apoio Administrativo</span>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="label-field">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="horarioTrabalho" class="required control-label">Horário de
+												trabalho
+											</label>
+											<!-- <input type="text" class="form-control hide" name="codCoordenador"
+												id="codCoordenador" /> -->
+											<div class="divCoordenador">
+												<span id="horarioTrabalho" class="form-control" name="horarioTrabalho">Horário Administrativo (07:30/12:00 às 13:00/17:30 - SEG À QUI e SEX às 07:30/12:00 às 13:00/16:30)</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<label class="required" for="motivo">Motivo</label>
+										<span id="motivo" class="form-control" name="motivo">Substituição</span>
+									</div>
+								</div>
+
+								<div class="form-group row">
+
+
+									<div class="col-md-3" id="divMotivo2" style="display: none;">
+										<label id="labelMotivo2" for="motivo2">Motivo</label>
+										<span id="motivo2" class="form-control" name="motivo2">A vaga se destinou de recrutamento interno </span>
+									</div>
+
+									<div class="label-field" id="divNomeMotivo" style="display: none;">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label id="labelNomeMotivo" for="nomeMotivo" class="control-label">Nome
+											</label>
+											<div>
+												<span id="nomeMotivo" class="form-control" name="nomeMotivo">07747 - LUCIANA DO NASCIMENTO MELCHIOR</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="label-field" id="divSupervisorVaga" style="display: none;">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="supervisorVaga" class="control-label">Supervisor
+											</label>
+											<div>
+												<span id="supervisorVaga" class="form-control" name="supervisorVaga">&nbsp;</span>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+
+
+								<div class="form-group row" id="divFaixaSalarial" style="">
+									<div class="col-md-3">
+										<label for="faixasalarialDe" class="required">Faixa salarial De:</label>
+										<span id="faixasalarialDe" class="form-control" name="faixasalarialDe">2.395,12</span>
+									</div>
+									<div class="col-md-3">
+										<label for="faixasalarialDeAte" class="required">Até</label>
+										<span id="faixasalarialDeAte" class="form-control" name="faixasalarialDeAte">2.395,12</span>
+									</div>
+									<div class="col-md-3">
+										<label for="previstoPatch" class="required">Previsto PEF ?</label>
+										<span id="previstoPatch" class="form-control" name="previstoPatch">Sim</span>
+									</div>
+
+									<div class="col-md-3">
+										<label class="required" for="nivelAprovacao">Nível de aprovação?</label>
+										<span id="nivelAprovacao" class="form-control" name="nivelAprovacao">Líderes, Operacionais</span>
+									</div>
+								</div>
+
+								<div class="form-group row">
+
+									<div class="col-md-12">
+										<label for="observacao">Observações</label>
+										<span id="observacao" class="form-control" style="overflow:auto; height: 100px; resize: none;" name="observacao">&nbsp;</span>
+									</div>
+
+								</div>
+
+								<div class="form-group row" id="divSolicitacoes" style="display: none;">
+
+									<div class="col-md-12">
+										<label for="historicoSolicit">Histórico Solicitações geradas</label>
+										<span id="historicoSolicit" class="form-control" style="overflow:auto; height: 150px; resize: none;" name="historicoSolicit">&nbsp;</span>
+									</div>
+
+								</div>
+
+
+
+								<div class="form-group row" id="divTabelaHistorico" style="display: none;">
+									<div class="col-xs-12">
+										<h3>Histórico processos Criados</h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<br><table class="table" tablename="tabelaHistorico" nodeletebutton="true" noaddbutton="true" id="tabelaHistorico">
+												<thead>
+													<tr class="tableHeadRow">
+														<!-- <th class="tableColumn gridDelete"></th> -->
+														<th class="tableColumn">Número Solicitação</th>
+														<th class="tableColumn">Link Solicitação</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaHistorico">
+														
+
+														<td class="col-xs-2">
+
+															<div class="form-group">
+																<span id="numSolicitacaoCriada" class="form-control" name="numSolicitacaoCriada">&nbsp;</span>
+															</div>
+
+														</td>
+
+														<td class="col-xs-8">
+
+															<div class="form-group">
+																<span id="linkSolicitacaoCriada" class="form-control" name="linkSolicitacaoCriada">&nbsp;</span>
+															</div>
+
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+									</div>
+
+								</div>
+
+
+								<div class="row form-group">
+									<div class="col-md-12">
+										<div class="alert alert-info" role="alert">
+											<b style="color:white">Atenção: </b> (<b style="color:red"> * </b>) Campo
+											Obrigatório
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="panel panel-default tab-pane fade" id="painelRequisitosVaga">
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>Requisitos Vaga</b></h3>
+							</div>
+							<div class="panel-body">
+
+								<div class="form-group row">
+									<div class="col-md-5">
+										<!-- <h3>Formação</h3> -->
+										<label class="required" for="instrucaoCandidato">Grau Instrução</label>
+										<span id="instrucaoCandidato" class="form-control" name="instrucaoCandidato">Médio</span>
+									</div>
+
+									<div class="col-md-3">
+										<label class="required" for="formacaoCandidato">Formação</label>
+										<span id="formacaoCandidato" class="form-control" name="formacaoCandidato">Ensino Medio completo</span>
+									</div>
+
+								</div>
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<!-- <h3>Tarefas a serem desempenhadas</h3> -->
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<br><br><table class="table" tablename="tabelaTarefas" nodeletebutton="true" noaddbutton="true" id="tabelaTarefas">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+														<th class="tableColumn">
+															<label style="font-size: 17px;" for="tarefas___" class="required">Tarefas a serem
+																desempenhadas</label>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaTarefas">
+														
+														<td style="width: 2%;" class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button2" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<span id="tarefas" class="form-control" name="tarefas">&nbsp;</span>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+														<td style="width: 2%;" class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button2" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<span id="tarefas___1" class="form-control" name="tarefas___1">Receber e efetuar ligações telefônicas e recepcionar clientes e visitantes, prestando atendimento na recepção e registrando visitas; prestar informações gerais a respeito da empresa e receber / distribuir correspondências internas e/ou externas.</span>
+															</div>
+
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+										<div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar2" id="refCom_Adicionar2" onclick="addRowTable('tabelaTarefas')">Adicionar</button>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<!-- <h3>Caracteristicas do trabalho</h3> -->
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<br><br><table class="table" tablename="caracteristicasTrabalho" nodeletebutton="true" noaddbutton="true" id="caracteristicasTrabalho">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+														<th class="tableColumn">
+															<label style="font-size: 17px;" for="caracteristicas___" class="required">Caracteristicas
+																do trabalho</label>
+														</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="caracteristicasTrabalho">
+														
+														<td style="width: 2%;" class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button3" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<span id="caracteristicas" class="form-control" name="caracteristicas">&nbsp;</span>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+														<td style="width: 2%;" class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button3" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<span id="caracteristicas___1" class="form-control" name="caracteristicas___1">Atentimento ao Cliente</span>
+															</div>
+
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+										<div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar3" id="refCom_Adicionar3" onclick="addRowTable('caracteristicasTrabalho')">Adicionar</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default tab-pane fade" id="painelRequisitosPessoais">
+
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>Requisitos Pessoais</b></h3>
+							</div>
+
+							<div class="panel-body">
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<!-- <h3>Caracteristicas Pessoais</h3> -->
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<br><br><table class="table" tablename="caracteristicasPessoais" nodeletebutton="true" noaddbutton="true" id="caracteristicasPessoais">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+														<th class="tableColumn">
+															<label style="font-size: 17px;" for="caracteristicasPessoais___" class="required">Caracteristicas Pessoais</label>
+														</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="caracteristicasPessoais">
+														
+														<td style="width: 2%;" class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonCarac" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<span id="caracteristicasPessoais" class="form-control" name="caracteristicasPessoais">&nbsp;</span>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+														<td style="width: 2%;" class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonCarac" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<span id="caracteristicasPessoais___1" class="form-control" name="caracteristicasPessoais___1">Comunicativa, organizada, discreta.</span>
+															</div>
+
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+										<div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_AdicionarPessoais" id="refCom_AdicionarPessoais" onclick="addRowTable('caracteristicasPessoais')">Adicionar</button>
+										</div>
+									</div>
+
+								</div>
+
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<!-- <h3>Habilidades Necessárias</h3> -->
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<br><br><br><table class="table" tablename="tabelaHabilidades" nodeletebutton="true" noaddbutton="true" id="tabelaHabilidades">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+														<th class="tableColumn">
+															<label style="font-size: 17px;" for="habilidades___" class="required">Habilidades
+																Necessárias</label>
+														</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaHabilidades">
+														
+														<td style="width: 2%;" class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonHab" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<span id="habilidades" class="form-control" name="habilidades">&nbsp;</span>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+														<td style="width: 2%;" class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonHab" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<span id="habilidades___1" class="form-control" name="habilidades___1">Execel </span>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+														<td style="width: 2%;" class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonHab" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<span id="habilidades___2" class="form-control" name="habilidades___2">Totvs, RM</span>
+															</div>
+
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+										<div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_AdicionarHab6" id="refCom_AdicionarHab6" onclick="addRowTable('tabelaHabilidades')">Adicionar</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default tab-pane fade" id="painelSst">
+
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>SST</b></h3>
+							</div>
+
+							<div class="panel-body">
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3 class="panel-title"><b>EPI:</b></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><table class="table" tablename="tabelaEpi" nodeletebutton="true" noaddbutton="true" id="tabelaEpi">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaEpi">
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi" class="form-control" name="epi">&nbsp;</span>
+																		<!--input type="zoom" name="epi" id="epi" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___1" class="form-control" name="epi___1">CAPACETE DE SEGURANCA CA 498 TIPO II ABA FRONTAL CLASSE B COM LOGO BEVAP - GARD - 10795</span>
+																		<!--input type="zoom" name="epi___1" id="epi___1" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___2" class="form-control" name="epi___2">CARNEIRA COM JUGULAR PARA CAPACETE DE SEGURANCA COM NCA 50 - 10795</span>
+																		<!--input type="zoom" name="epi___2" id="epi___2" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___3" class="form-control" name="epi___3">CAMISA (ADMINISTRATIVO MASCULINA AZUL Nº 2) MANGA LONGA COR AZUL CLARO JUI - MONACO COM GOLA INTERNA E PUNHO COR AZUL ACY - RIVIERA TECIDO 50% ALGODAO 50% POLIESTER - 10795</span>
+																		<!--input type="zoom" name="epi___3" id="epi___3" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___4" class="form-control" name="epi___4">CAMISA (ADMINISTRATIVO MASCULINA AZUL Nº 3) MANGA LONGA COR AZUL CLARO JUI - MONACO COM GOLA INTERNA E PUNHO COR AZUL ACY - RIVIERA TECIDO 50% ALGODAO 50% POLIESTER - 10795</span>
+																		<!--input type="zoom" name="epi___4" id="epi___4" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___5" class="form-control" name="epi___5">CAMISETE (ADMINISTRATIVO FEMININO AZUL Nº 2) MANGA LONGA COR AZUL CLARO JUI-MONACO GOLA INTERNA E PUNHO COR AZUL ACY RIVIERA 50% ALGODAO 50% POLIESTER - 10795</span>
+																		<!--input type="zoom" name="epi___5" id="epi___5" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___6" class="form-control" name="epi___6">CAMISETE (ADMINISTRATIVO FEMININO AZUL Nº 3) MANGA LONGA COR AZUL CLARO JUI-MONACO GOLA INTERNA E PUNHO COR AZUL ACY RIVIERA 50% ALGODAO 50% POLIESTER - 10795</span>
+																		<!--input type="zoom" name="epi___6" id="epi___6" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___7" class="form-control" name="epi___7">MARMITA TÉRMICA - 10795</span>
+																		<!--input type="zoom" name="epi___7" id="epi___7" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___8" class="form-control" name="epi___8">PERNEIRA DE SEGURANÇA CA 44234 CONFECCIONADA EM MATERIAL SINTÉTICO 3 TALAS FRONTAL DE AÇO REGULAGEM E FECHO EM VELCRO - 10795</span>
+																		<!--input type="zoom" name="epi___8" id="epi___8" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___9" class="form-control" name="epi___9">PROTETOR AUDITIVO DO TIPO INSERÇÃO PRÉ-MOLDADO 3M 18 dB CA 5745 - 10795</span>
+																		<!--input type="zoom" name="epi___9" id="epi___9" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___10" class="form-control" name="epi___10">BOTINA DE SEGURANCA MICROFIBRAS 70B19 COM BIQUEIRA DE COMPOSITE  CA 34554 - 10795</span>
+																		<!--input type="zoom" name="epi___10" id="epi___10" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___11" class="form-control" name="epi___11">BONÉ DE SEGURANÇA (TIPO ÁRABE  CA 29047) CONFECCIONADO EM BRIM COM ABA COM TIRA DE VELCRO PARA AJUSTE FRONTAL PROTEÇÃO CONTRA RAIOS SOLARES - 10795</span>
+																		<!--input type="zoom" name="epi___11" id="epi___11" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___12" class="form-control" name="epi___12">ÓCULOS DE SEGURANÇA SOBREPOR PANDA INCOLOR CA 10344 - 10795</span>
+																		<!--input type="zoom" name="epi___12" id="epi___12" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___13" class="form-control" name="epi___13">OCULOS DE SEGURANCA POLICARBONATO ANTI-RISCO INCOLOR CA 39959 - 10795</span>
+																		<!--input type="zoom" name="epi___13" id="epi___13" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___14" class="form-control" name="epi___14">BONÉ DE SEGURANÇA 1° (CASQUETE CA 38352) CONFECCIONADO EM BRIM TIPO LEGIONÁRIO BEVAP - 10795</span>
+																		<!--input type="zoom" name="epi___14" id="epi___14" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___15" class="form-control" name="epi___15">CAMISA (ADMINISTRATIVO MASCULINA AZUL Nº 1) MANGA LONGA COR AZUL CLARO JUI - MONACO COM GOLA INTERNA E PUNHO COR AZUL ACY - RIVIERA TECIDO 50% ALGODAO 50% POLIESTER - 10795</span>
+																		<!--input type="zoom" name="epi___15" id="epi___15" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr><tr>
+														
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																	</label>
+																	<div>
+																		<span id="epi___16" class="form-control" name="epi___16">CAMISETE (ADMINISTRATIVO FEMININO AZUL Nº 1) MANGA LONGA COR AZUL CLARO JUI-MONACO GOLA INTERNA E PUNHO COR AZUL ACY RIVIERA 50% ALGODAO 50% POLIESTER - 10795</span>
+																		<!--input type="zoom" name="epi___16" id="epi___16" class="form-control" data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaEpi',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'EPI',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" /-->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar5"
+												id="refCom_Adicionar5"
+												onclick="addRowTable('tabelaEpi')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3 class="panel-title"><b>Treinamentos:</b></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<br><table class="table" tablename="tabelaTreinamentos" nodeletebutton="true" noaddbutton="true" id="tabelaTreinamentos">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaTreinamentos">
+														
+														<!-- <td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonTreinamento"
+																	onclick="deletaFilho(this)" style="width: 100%;"
+																	class="imagem"><i
+																		class="fluigicon fluigicon-trash icon-md"></i></button>
+															</div>
+														</td> -->
+
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="treinamento" class="control-label">Treinamentos
+																	</label>
+																	<div>
+																		<span id="treinamento" class="form-control" name="treinamento">&nbsp;</span>
+																		<!-- input type="zoom" name="treinamento" id="treinamento" class="form-control"
+																			data-zoom="{
+																	'displayKey': 'ZOOM',
+																	'datasetId': 'ds_buscaTreinamento',
+																	'fields': [
+																		{
+																			'field':'ZOOM',
+																			'label': 'Treinamento',
+																			'filterValues': 'ZOOM',
+																			'standard': 'true'
+																		}   
+																	]
+																}" / -->
+																	</div>
+																</div>
+															</div>
+
+														</td>
+
+														<!-- <td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="treinamento" id="treinamento"
+																	class="form-control" />
+															</div>
+
+														</td> -->
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar6"
+												id="refCom_Adicionar6"
+												onclick="addRowTable('tabelaTreinamentos')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default tab-pane fade" id="painelTai">
+
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>TAI</b></h3>
+							</div>
+
+							<div class="panel-body">
+
+								<div class="row">
+									<div class="col-md-2">
+										<div id="switchInLot" class="bs-example" style="padding-bottom: 24px;">
+											<label class="required" for="usaItensTi">Usa itens de TI</label>
+
+											<div class="bootstrap-switch-on bootstrap-switch-disabled bootstrap-switch-id-usaItensTi bootstrap-switch bootstrap-switch-wrapper"><div class="bootstrap-switch-container" style="display: none;"><span class="bootstrap-switch-handle-on bootstrap-switch-primary">ON</span><span class="bootstrap-switch-label">&nbsp;</span><span class="bootstrap-switch-handle-off bootstrap-switch-default">OFF</span><input checked="" id="usaItensTi" name="usaItensTi" type="checkbox" disabled="disabled"></div></div>
+										</div>
+
+									</div>
+								</div>
+
+								<div id="divUsaitensTi">
+									<div class="row">
+
+										<div class="col-md-2">
+											<label class="required" for="impressao">Impressão</label>
+											<span id="impressao" class="form-control" name="impressao">Preto e Branco</span>
+										</div>
+
+										<div class="label-field" id="divSupervisorVaga">
+											<div class="col-xs-11 col-sm-11 col-md-2 col-lg-2">
+												<label for="perfilPadrao" class="required control-label">Perfil padrão
+												</label>
+												<div>
+													<span id="perfilPadrao" class="form-control" name="perfilPadrao">07747 - LUCIANA DO NASCIMENTO MELCHIOR</span>
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-2">
+											<br>
+											<div id="switchInLot" class="bs-example" style="padding-bottom: 24px;">
+												<label for="email">E-mail</label>
+												<div class="bootstrap-switch-on bootstrap-switch-disabled bootstrap-switch-id-email bootstrap-switch bootstrap-switch-wrapper"><div class="bootstrap-switch-container" style="display: none;"><span class="bootstrap-switch-handle-on bootstrap-switch-primary">ON</span><span class="bootstrap-switch-label">&nbsp;</span><span class="bootstrap-switch-handle-off bootstrap-switch-default">OFF</span><input id="email" name="email" type="checkbox" checked="" disabled="disabled"></div></div>
+											</div>
+										</div>
+
+									</div>
+
+									<br>
+									<br>
+
+									<div class="form-group row">
+										<div class="col-xs-12">
+											<!-- <h3 class="panel-title"><b>Equipamentos</b></h3> -->
+											<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+												<br><br><br><table class="table" tablename="tableEquipamento" nodeletebutton="true" noaddbutton="true" id="tableEquipamento">
+													<thead>
+														<tr class="tableHeadRow">
+
+															<th class="tableColumn gridDelete"></th>
+															<th class="tableColumn">
+																<label style="font-size: 17px;" for="equipamentos___" class="required">Equipamentos</label>
+															</th>
+
+														</tr>
+													</thead>
+													<tbody>
+														<tr style="display:none" detail="true" detailname="tableEquipamento">
+															
+															<td style="width: 2%;" class="col-xs-1 gridDelete">
+																<div class="form-group">
+																	<button type="button" name="refCom_td_buttonEquipamentos" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+																</div>
+															</td>
+
+															<td class="col-xs-7">
+
+																<div class="form-group">
+																	<span id="equipamentos" class="form-control" name="equipamentos">&nbsp;</span>
+																</div>
+
+															</td>
+
+														</tr><tr>
+															
+															<td style="width: 2%;" class="col-xs-1 gridDelete">
+																<div class="form-group">
+																	<button type="button" name="refCom_td_buttonEquipamentos" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+																</div>
+															</td>
+
+															<td class="col-xs-7">
+
+																<div class="form-group">
+																	<span id="equipamentos___1" class="form-control" name="equipamentos___1">computador</span>
+																</div>
+
+															</td>
+
+														</tr><tr>
+															
+															<td style="width: 2%;" class="col-xs-1 gridDelete">
+																<div class="form-group">
+																	<button type="button" name="refCom_td_buttonEquipamentos" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+																</div>
+															</td>
+
+															<td class="col-xs-7">
+
+																<div class="form-group">
+																	<span id="equipamentos___2" class="form-control" name="equipamentos___2">celular</span>
+																</div>
+
+															</td>
+
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+											<div class="form-group">
+												<button type="button" class="btn btn-default" name="refCom_Adicionar4" id="refCom_Adicionar4" onclick="addRowTable('tableEquipamento')">Adicionar</button>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="form-group row">
+										<div class="col-xs-12">
+											<!-- <h3 class="panel-title"><b>Licenças</b></h3> -->
+											<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+												<br><br><table class="table" tablename="tabelaLicensas" nodeletebutton="true" noaddbutton="true" id="tabelaLicensas">
+													<thead>
+														<tr class="tableHeadRow">
+
+															<th class="tableColumn gridDelete"></th>
+															<th class="tableColumn">
+																<label style="font-size: 17px;" for="licensas___" class="required">Licenças</label>
+															</th>
+
+														</tr>
+													</thead>
+													<tbody>
+														<tr style="display:none" detail="true" detailname="tabelaLicensas">
+															
+															<td style="width: 2%;" class="col-xs-1 gridDelete">
+																<div class="form-group">
+																	<button type="button" name="refCom_td_button5" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+																</div>
+															</td>
+
+															<td class="col-xs-7">
+
+																<div class="form-group">
+																	<span id="licensas" class="form-control" name="licensas">&nbsp;</span>
+																</div>
+
+															</td>
+
+														</tr><tr>
+															
+															<td style="width: 2%;" class="col-xs-1 gridDelete">
+																<div class="form-group">
+																	<button type="button" name="refCom_td_button5" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+																</div>
+															</td>
+
+															<td class="col-xs-7">
+
+																<div class="form-group">
+																	<span id="licensas___1" class="form-control" name="licensas___1">pacote office</span>
+																</div>
+
+															</td>
+
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+											<div class="form-group">
+												<button type="button" class="btn btn-default" name="refCom_AdicionarLicensas" id="refCom_AdicionarLicensas" onclick="addRowTable('tabelaLicensas')">Adicionar</button>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="panel panel-default tab-pane fade" id="painelIntegracao">
+
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>Integração</b></h3>
+							</div>
+
+							<div class="panel-body">
+
+								<div class="form-group row row-info">
+									<div class="col-md-3">
+										<label for="dados_nomeSolicitante">Nome do solicitante</label>
+										<span id="dados_nomeSolicitante" class="form-control" name="dados_nomeSolicitante">Zilda</span>
+									</div>
+									<div class="col-md-3">
+										<label for="dataEnvio">Data da solicitação</label>
+										<span id="dataEnvio" class="form-control" name="dataEnvio">17/07/2024</span>
+									</div>
+									<div class="col-md-3">
+										<label for="dados_numFluig">Nº Fluig</label>
+										<span id="dados_numFluig" class="form-control" name="dados_numFluig">&nbsp;</span>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="panel panel-default tab-pane fade" id="painelRecrutamento">
+
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>Recrutamento</b></h3>
+							</div>
+
+							<div class="panel-body">
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3>Candidatos</h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<br><table class="table" tablename="tabelaRecrutamento" nodeletebutton="true" noaddbutton="true" id="tabelaRecrutamento">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaRecrutamento">
+														
+
+														<td class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+															<div class="row">
+																<div id="trashTbRecrutamento" class="form-group col-xs-1">
+																	<button type="button" name="buttonDeleteFilhoRec" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md"></i></button>
+																</div>
+
+																<div class="form-group col-xs-2">
+																	<label class="required" for="nomeCandidato___">Nome Candidato</label>
+																	<span id="nomeCandidato" class="form-control" name="nomeCandidato">&nbsp;</span>
+																</div>
+
+																<div class="form-group col-xs-2">
+																	<label class="required" for="cpfCandidato___">CPF</label>
+																	<span id="cpfCandidato" class="form-control" name="cpfCandidato">&nbsp;</span>
+																</div>
+
+																<div class="form-group col-xs-2">
+																	<label class="required" for="rgCandidato___">RG</label>
+																	<span id="rgCandidato" class="form-control" name="rgCandidato">&nbsp;</span>
+																</div>
+
+																<div class="form-group col-xs-2">
+																	<label class="required" for="dataNascimentoCandidato___">Data
+																		Nascimento</label>
+																	<span id="dataNascimentoCandidato" class="form-control" name="dataNascimentoCandidato">&nbsp;</span>
+																</div>
+
+
+																<div class="form-group col-xs-2">
+																	<label class="required" for="naturalidadeCandidato___">Naturalidade</label>
+																	<span id="naturalidadeCandidato" class="form-control" name="naturalidadeCandidato">&nbsp;</span>
+																</div>
+
+															</div>
+
+															<div class="row">
+
+																<div class="col-md-1">
+
+																</div>
+
+																<div class="form-group col-xs-4">
+																	<label class="required" for="formacao___">Formação</label>
+																	<span id="formacao" class="form-control" name="formacao">&nbsp;</span>
+																</div>
+
+																<div class="form-group col-xs-3">
+																	<label class="required" for="instrucao___">Grau
+																		Instrução</label>
+																	<span id="instrucao" class="form-control" name="instrucao">Selecione ...</span>
+																</div>
+
+
+																<div class="form-group col-xs-3">
+																	<label class="required" for="origemCandidato___">Origem</label>
+																	<span id="origemCandidato" class="form-control" name="origemCandidato">&nbsp;</span>
+																</div>
+
+																<div class="form-group col-xs-4" hidden="">
+																	<span id="solicRecrutamento" class="form-control" name="solicRecrutamento">&nbsp;</span>
+																	<span id="status" class="form-control" name="status">&nbsp;</span>
+																</div>
+
+															</div>
+
+														</td>
+
+
+
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+
+										<div class="form-group">
+											<button type="button" class="btn btn-default" name="buttonAddRowRecrutamento" id="buttonAddRowRecrutamento" onclick="addRowTable('tabelaRecrutamento')" disabled="disabled">Adicionar</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="divValidaSolicitacao" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Validação do RH
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label class="required" for="solicitacaValidada">Aprovado</label>
+								<span id="solicitacaValidada" class="form-control" name="solicitacaValidada">Sim</span>
+							</div>
+							<div class="col-md-12">
+								<label for="correcoes">Observações</label>
+								<span id="correcoes" class="form-control" style="overflow:auto; height: 100px; resize: none;" name="correcoes">Esta vaga se trata de uma substituição da Recepcionista que foi aprovada em um recrutamento interno para uma vaga de Analista Financeiro JR.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="painelAprovadores" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Aprovador
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label class="required" for="aprovado">Aprovado</label>
+								<span id="aprovado" class="form-control" name="aprovado">Selecione</span>
+							</div>
+							<div class="col-md-12">
+								<label for="observacaoAprovador">Observações</label>
+								<span id="observacaoAprovador" class="form-control" style="overflow:auto; height: 100px; resize: none;" name="observacaoAprovador">&nbsp;</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="painelAprovacaoDiretor" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Aprovação do diretor
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label class="required" for="aprovadorDiretor">Aprovado</label>
+								<span id="aprovadorDiretor" class="form-control" name="aprovadorDiretor">Selecione</span>
+							</div>
+							<div class="col-md-12">
+								<label for="obsDiretor">Observações</label>
+								<span id="obsDiretor" class="form-control" style="overflow:auto; height: 100px; resize: none;" name="obsDiretor">&nbsp;</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="painelAprovacaoDiretorRh" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Aprovação do diretor de RH
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label class="required" for="aprovadorDiretorRh">Aprovado</label>
+								<span id="aprovadorDiretorRh" class="form-control" name="aprovadorDiretorRh">Selecione</span>
+							</div>
+							<div class="col-md-12">
+								<label for="obsDiretorRh">Observações</label>
+								<span id="obsDiretorRh" class="form-control" style="overflow:auto; height: 100px; resize: none;" name="obsDiretorRh">&nbsp;</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="painelPresidente" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Aprovação do presidente
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label class="required" for="aprovadorPresidente">Aprovado</label>
+								<span id="aprovadorPresidente" class="form-control" name="aprovadorPresidente">Selecione</span>
+							</div>
+							<div class="col-md-12">
+								<label for="obsPresidente">Observações</label>
+								<span id="obsPresidente" class="form-control" style="overflow:auto; height: 100px; resize: none;" name="obsPresidente">&nbsp;</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</form>

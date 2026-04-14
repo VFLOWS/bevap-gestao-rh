@@ -1,0 +1,102 @@
+LISTA DE CAMPOS VISUAIS - POR PAINEL (FORMULÁRIO REQUISIÇÃO DE PESSOAL)
+Fonte HTML (referência completa): testezao/forms/90987 - Requisição de pessoal/Requisição de Pessoal.html
+Fonte HTML (prototype): bevap-gestao-rh/prototype/requisicao/requisicao1.html
+
+(formato: NOME DO CAMPO - ID DO CAMPO)
+
+================================================================================
+PAINEL: Identificação
+ID DO PAINEL: painelIdentificacao
+Nome do candidato - nomeMotivo
+Cargo - cargo
+Seção - areaReq
+Número de Vagas - numVagas
+Centro de Custo - centroCusto
+Horário de trabalho - horarioTrabalho
+Departamento - localTrabalho
+Motivo - motivo
+Motivo (descrição complementar) - motivo2
+Tipo de vaga (Leed Time de contratação) - tipoVaga
+Observações - observacao
+
+================================================================================
+PAINEL: Requisitos da Vaga
+ID DO PAINEL: painelRequisitosVaga
+---------------
+Formação
+Formação - formacaoCandidato
+Grau de Instrução - instrucaoCandidato
+---------------
+Características do trabalho (Pai e Filho)
+TABELA FILHO: caracteristicasTrabalho
+Caracteristicas do trabalho - caracteristicasTrabalho.caracteristicas
+---------------
+Supervisão exercida
+Supervisor - supervisorVaga
+
+================================================================================
+PAINEL: Requisitos Pessoais
+ID DO PAINEL: painelRequisitosPessoais
+---------------
+Características pessoais (Pai e Filho)
+TABELA FILHO: caracteristicasPessoais
+Características pessoais - caracteristicasPessoais.caracteristicasPessoais
+---------------
+Habilidades necessárias (Pai e Filho)
+TABELA FILHO: tabelaHabilidades
+Habilidades necessárias - tabelaHabilidades.habilidades
+---------------
+Tarefas a serem desempenhadas (Pai e Filho)
+TABELA FILHO: tabelaTarefas
+Tarefas a serem desempenhadas - tabelaTarefas.tarefas
+
+================================================================================
+PAINEL: SST
+ID DO PAINEL: painelSst
+---------------
+EPI (Pai e Filho)
+TABELA FILHO: tabelaEpi
+EPI - tabelaEpi.epi
+---------------
+Treinamentos (Pai e Filho)
+TABELA FILHO: tabelaTreinamentos
+Treinamentos - tabelaTreinamentos.treinamento
+
+================================================================================
+PAINEL: TAI
+ID DO PAINEL: painelTai
+Usar itens de TI - usaItensTi
+Acesso a internet - acessoInternet
+Impressão - impressao
+Perfil padrão - perfilPadrao
+Usar e-mail - email
+---------------
+Equipamentos (Pai e Filho)
+TABELA FILHO: tableEquipamento
+Equipamentos - tableEquipamento.equipamentos
+---------------
+Licenças (Pai e Filho)
+TABELA FILHO: tabelaLicensas
+Licenças - tabelaLicensas.licensas
+
+================================================================================
+PAINEL: Recrutamento
+ID DO PAINEL: painelRecrutamento
+---------------
+Candidatos (Pai e Filho)
+TABELA FILHO: tabelaRecrutamento
+Nome Candidato - tabelaRecrutamento.nomeCandidato
+CPF - tabelaRecrutamento.cpfCandidato
+RG - tabelaRecrutamento.rgCandidato
+Data Nascimento - tabelaRecrutamento.dataNascimentoCandidato
+Naturalidade - tabelaRecrutamento.naturalidadeCandidato
+Formação - tabelaRecrutamento.formacao
+Grau Instrução - tabelaRecrutamento.instrucao
+Origem - tabelaRecrutamento.origemCandidato
+
+================================================================================
+PAINEL: Integração
+ID DO PAINEL: painelIntegracao
+Nome do solicitante - dados_nomeSolicitante
+Data da solicitação - dataEnvio
+Nº Fluig - dados_numFluig

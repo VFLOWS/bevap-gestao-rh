@@ -1,0 +1,4179 @@
+<html>
+
+<head>
+	<link type="text/css" rel="stylesheet" href="/style-guide/css/fluig-style-guide.min.css" />
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/portal/resources/js/mustache/mustache-min.js"></script>
+	<script type="text/javascript" src="/style-guide/js/fluig-style-guide.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/ecm_resources/resources/assets/forms/forms.js"></script>
+	<script type="text/javascript" src="/webdesk/vcXMLRPC.js"></script>
+	<!--Using filter-->
+	<link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide-filter.min.css">
+	<script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<form name="form" role="form">
+			<input type="hidden" name="dgf_campo_descritor" id="dgf_campo_descritor">
+			<input type="hidden" name="dgf_user_locate" id="dgf_user_locate">
+			<input type="hidden" name="dgf_cod_processo_publico" id="dgf_cod_processo_publico" value="digte_di_admissao">
+			<input type="hidden" name="dgf_nr_processo_bpm" id="dgf_nr_processo_bpm">
+			<input type="hidden" name="dgf_cod_ativiadade_bpm" id="dgf_cod_ativiadade_bpm">	
+			<input type="hidden" name="dgf_cod_etapa" id="dgf_cod_etapa">
+			<input type="hidden" name="dgf_etapa_desc" id="dgf_etapa_desc">
+			<input type="hidden" name="dgf_cod_jornada" id="dgf_cod_jornada">
+			<input type="hidden" name="dgf_jornada_perc_conclusao" id="dgf_jornada_perc_conclusao">
+			<input type="hidden" name="dgf_jornada_concl_desc" id="dgf_jornada_concl_desc">
+			<input type="hidden" name="dgf_is_identity_enabled" id="dgf_is_identity_enabled">
+			<textarea name="dgf_documento_link" id="dgf_documento_link" style="display: none;"></textarea>
+			<textarea name="dgf_assinatura_link" id="dgf_assinatura_link" style="display: none;"></textarea>
+			<textarea name="dgf_assinatura_assinantes" id="dgf_assinatura_assinantes" style="display: none;"></textarea>
+			<textarea name="dgf_assinatura_documentos" id="dgf_assinatura_documentos" style="display: none;"></textarea>
+			<input type="hidden" name="dgf_assinatura_id" id="dgf_assinatura_id">
+			<input type="hidden" name="dgf_assinatura_status" id="dgf_assinatura_status">
+			<input type="hidden" name="dgf_operacao" id="dgf_operacao">		
+			<input type="hidden" name="dgf_version_form" id="dgf_version_form">
+			<input type="hidden" name="dgf_tabelas_formulario" id="dgf_tabelas_formulario">
+			<input type="hidden" name="dgf_usuario_atividade" id="dgf_usuario_atividade">
+			<div class="panel panel-default">
+				<div class="panel panel-default well fs-no-padding fs-text-center fs-no-shadow" id="divTituloFormularioAdmisao">
+					<div class="panel-heading fs-sm-padding fsc-headmain-a fs-border-radius">
+						<h4 class="panel-title">TOTVS RH - AdmissÃ£o Digital - RM</h4>
+					</div>
+					<div class="panel-body fs-no-padding">
+						<nav class="fs-no-margin" role="navigation" style="border: none;">
+							<ul class="nav navbar-nav" id="ulScrollTo">
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div id="divDgfNomeEtapa" class="fs-txt-center" style="display: none;">
+					<h2 id="dgfNomeEtapa"></h2>
+				</div>
+				<div class="panel-body">
+					<div class="panel panel-default" id="divDadosContato">
+						<!-- DADOS CONTATO -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Dados de Contato</h4>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_email_contato" class="control-label">Email de Contato</label>
+									<input type="text" name="dgf_email_contato" id="dgf_email_contato" class="form-control"
+										placeholder="Ex: email@dominio.com.br">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_celular_contato" class="control-label">Celular de Contato</label>
+									<input type="text" name="dgf_celular_contato" id="dgf_celular_contato" class="form-control"
+										placeholder="Ex: 11997104545" mask="00000000000000">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_telefone_contato" class="control-label">Telefone de Contato</label>
+									<input type="text" name="dgf_telefone_contato" id="dgf_telefone_contato" class="form-control"
+										placeholder="Ex: 11997104545" mask="00000000000000">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 fs-xs-padding-horizontal">
+									<input type="button" class="btn btn-info" id="btnReenviarEmail"
+										name="btnReenviarEmail" value="Reenviar E-mail/SMS/Whatsapp (Envio de Documentos)"
+										style="display: none;">
+									<button class="btn btn-info" id="btnCopiarLinkDocumentos" style="display: none;">Copiar Link - Envio de Documentos</button>
+								</div>
+								<div class="col-md-4 fs-xs-padding-horizontal">
+									<input type="button" class="btn btn-info" id="btnReenviarDocAssinatura"
+										name="btnReenviarDocAssinatura" value="Reenviar E-mail/SMS/Whatsapp (Assinatura)"
+										style="display: none;">
+									<button class="btn btn-info" id="btnCopiarLinkAssinatura" style="display: none;">Copiar Link - Assinatura</button>
+								</div>
+							</div>
+							<div class="row" id="divTpcontato" style="display: none;">
+								<div class="form-group col-sm-2">
+									<label for="dgf_tp_contato" class="control-label">Tipo de Contato</label>
+									<select name="dgf_tp_contato" id="dgf_tp_contato" class="form-control">
+										<option value="1">FuncionÃ¡rio</option>
+										<option value="2">Empresa</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divDadosContratacao">
+						<!-- DADOS CONTRATAÃ‡ÃƒO -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Dados de ContrataÃ§Ã£o</h4>
+						</div>
+						<div class="panel-body">
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_empresa_com_desc_cod" class="control-label">Empresa</label>
+								<input type="zoom" id="dgf_pf_empresa_com_desc_cod" name="dgf_pf_empresa_com_desc_cod"
+									data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha uma Empresa',
+											'displayKey':'COD_DESC_COM_EMPRESA',
+											'datasetId':'ds_dpf_di_r_r_gcoligada_permitidos',
+											'fields':[
+												{'field':'COD_DESC_COM_EMPRESA','label':'CÃ³digo - DescriÃ§Ã£o','visible':'true'},
+												{'field':'COD_EMPRESA','label':'ID Empresa','visible':'false'},
+												{'field':'DESC_COMERCIAL_EMPRESA','label':'Empresa Nome Comercial','visible':'false'},
+												{'field':'DESC_EMPRESA','label':'Empresa','visible':'false'},
+												{'field':'COD_CNPJ','label':'Cnpj','visible':'false'},
+												{'field':'LOGRADOURO_EMPRESA','label':'LOGRADOURO','visible':'false'},
+												{'field':'BAIRRO_EMPRESA','label':'BAIRRO','visible':'false'},
+												{'field':'CIDADE_EMPRESA','label':'CIDADE','visible':'false'},
+												{'field':'ESTADO_EMPRESA','label':'ESTADO','visible':'false'},
+												{'field':'COD_CEP','label':'CEP','visible':'false'}]}" />
+
+								<input type="hidden" name="pf_codcoligada" id="pf_codcoligada">
+								<input type="hidden" name="dgf_emp_filial" id="dgf_emp_filial">
+								<input type="hidden" name="dgf_emp_filial_cc" id="dgf_emp_filial_cc">
+								<input type="hidden" name="dgf_emp_filial_secao" id="dgf_emp_filial_secao">
+
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_filial_com_desc_cod" class="control-label">Filial</label>
+								<input type="zoom" id="dgf_pf_filial_com_desc_cod"
+									name="dgf_pf_filial_com_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a filial',
+											'displayKey':'COD_DESC_COM_FILIAL',
+											'datasetId':'ds_dpf_di_r_r_gfilial_permitidos',
+											'fields':[
+												{'field':'COD_DESC_COM_FILIAL','label':'Id - DescriÃ§Ã£o Comercial','search':'true'},
+												{'field':'COD_FILIAL','label':'ID Filial','visible':'false'},
+												{'field':'COD_EMPRESA','label':'ID Empresa','visible':'false'},
+												{'field':'DESC_COMERCIAL_FILIAL','label':'Filial Nome Comercial','visible':'false'},
+												{'field':'DESC_FILIAL','label':'Filial','visible':'false'},
+												{'field':'LOGRADOURO_FILIAL','label':'Logradouro Filial','visible':'false'},
+												{'field':'BAIRRO_FILIAL','label':'Bairro Filial','visible':'false'},
+												{'field':'CIDADE_FILIAL','label':'Cidade Filial','visible':'false'},
+												{'field':'ESTADO_FILIAL','label':'Estado Filial','visible':'false'},
+												{'field':'CEP_FILIAL','label':'CEP Filial','visible':'false'},
+												{'field':'NUMERO_FILIAL','label':'Nr. Filial','visible':'false'},
+												{'field':'COMPLEMENTO_FILIAL','label':'Complemento Filial','visible':'false'},
+												{'field':'PAIS_FILIAL','label':'PaÃ­s Filial','visible':'false'},
+												{'field':'CNPJ_FILIAL','label':'CNPJ Filial','visible':'false'}]}" />
+								 <input type="hidden" name="pf_codfilial" id="pf_codfilial" value="">				
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_jornada_desc_cod" class="control-label">Jornada de AdmissÃ£o</label>
+								<input type="zoom" id="dgf_jornada_desc_cod" name="dgf_jornada_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o tipo de contrataÃ§Ã£o',
+											'displayKey':'descricao',
+											'datasetId':'dpf_cadastro_jornada',
+											'fields':[
+												{
+													'field':'codJornada',
+													'label':'CÃ³digo',
+													'visible':'false'
+												},
+												{
+													'field':'descricao',
+													'label':'DescriÃ§Ã£o',
+													'standard':'true'
+												},
+												{
+													'field':'cod_grupo_tipo_contrato',
+													'visible':'false'
+												},
+												{
+													'field':'desc_grupo_tipo_contrato',
+													'visible':'false'
+												}
+											]
+										}" />
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_grupo_tp_contrato_desc">Grupo Contrato Assinatura</label>
+								<input type="zoom" name="dgf_grupo_tp_contrato_desc" class="form-control input-sm"
+									id="dgf_grupo_tp_contrato_desc" data-zoom="{
+											'displayKey':'desc_grupo_tipo_contrato',
+											'datasetId':'dpf_grupo_tipo_contrato',
+											'maximumSelectionLength':'1',
+											'fields':[
+												{'field':'desc_grupo_tipo_contrato','label':'DescriÃ§Ã£o','standard':'true'},
+												{'field':'cod_grupo_tipo_contrato','label':'CÃ³digo','visible':'false'}]
+										}" />
+								<input type="hidden" name="dgf_grupo_tp_contrato_cod" id="dgf_grupo_tp_contrato_cod" value="">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_chapa" class="control-label">Chapa</label>
+								<input type="text" name="pf_chapa" id="pf_chapa" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_codpessoa" class="control-label">Identificador (Cod Pessoa)</label>
+								<input type="text" name="pf_codpessoa" id="pf_codpessoa" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_nrofichareg" class="control-label">Ficha de Registro</label>
+								<input type="text" name="pf_nrofichareg" id="pf_nrofichareg" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_email" class="control-label">Email Corporativo</label>
+								<input type="text" name="pf_email" id="pf_email"
+									class="form-control" placeholder="Ex: email@dominio.com.br">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_codusuario" class="control-label">CÃ³digo UsuÃ¡rio</label>
+								<input type="text" name="pf_codusuario" id="pf_codusuario"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_dataadmissao" class="control-label">Data de AdmissÃ£o</label>
+								<input type="text" name="pf_dataadmissao" id="pf_dataadmissao" class="form-control valida_datas"
+									placeholder="Ex: 00/00/0000">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_dtbase" class="control-label">Data Base</label>
+								<input type="text" name="pf_dtbase" id="pf_dtbase" class="form-control valida_datas"
+									placeholder="Ex: 00/00/0000">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_tipoadmissao_desc_cod" class="control-label">Tipo de AdmissÃ£o</label>
+								<input type="zoom" id="dgf_pf_tipoadmissao_desc_cod" name="dgf_pf_tipoadmissao_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o tipo admissÃ£o',
+											'displayKey':'COD_DESC_TIPO_ADMISSAO',
+											'datasetId':'ds_dpf_di_r_r_ptpadmissao',
+											'fields':[
+												{
+													'field':'COD_TIPO',
+													'visible':'false'
+												},{
+													'field':'DESC_TIPO',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_TIPO_ADMISSAO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_tipoadmissao_desc" id="dgf_pf_tipoadmissao_desc">
+								<input type="hidden" name="pf_tipoadmissao" id="pf_tipoadmissao">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codsecao_desc_cod" class="control-label">SeÃ§Ã£o</label>
+								<input type="zoom" id="dgf_pf_codsecao_desc_cod" name="dgf_pf_codsecao_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a seÃ§Ã£o',
+											'displayKey':'COD_DESC_SECAO',
+											'datasetId':'ds_dpf_di_r_r_psecao',
+											'fields':[
+												{
+													'field':'COD_SECAO',
+													'visible':'false'
+												},{
+													'field':'DESC_SECAO',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_SECAO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_codsecao_desc" id="dgf_pf_codsecao_desc">
+								<input type="hidden" name="pf_codsecao" id="pf_codsecao">
+								<input type="hidden" name="dgf_secao" id="dgf_secao">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_esocialnatatividade" class="control-label">Natureza da Atividade</label>
+								<select name="pf_esocialnatatividade" id="pf_esocialnatatividade" class="form-control">
+									<option value="1">Trabalho urbano</option>
+									<option value="2">Trabalho rural</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_indadmissao" class="control-label">Indicativo de AdmissÃ£o</label>
+								<select name="pf_indadmissao" id="pf_indadmissao" class="form-control">
+									<option value="1">Normal</option>
+									<option value="2">Decorrente de AÃ§Ã£o Fiscal</option>
+									<option value="3">Decorrente de DecisÃ£o Judicial</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_tpregimeprev" class="control-label">Tipo de Regime
+									PrevidenciÃ¡rio</label>
+								<select name="pf_tpregimeprev" id="pf_tpregimeprev" class="form-control">
+									<option value="1">RGPS - Reg. Geral PrevidÃªncia Social</option>
+									<option value="2">RPPS - Reg. PrÃ³prio PrevidÃªncia Social</option>
+									<option value="3">RPPE - Reg. PrÃ³prio PrevidÃªncia Social Exterior</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_jornada" class="control-label">Quantidade Horas MÃªs</label>
+								<input type="number" name="pf_jornada" id="pf_jornada" class="form-control"
+									placeholder="Ex: 220">
+								<input type="hidden" name="dgf_hrsemana" id="dgf_hrsemana">
+								<input type="hidden" name="dgf_hrdia" id="dgf_hrdia">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codtipo_desc_cod" class="control-label">Tipo FuncionÃ¡rio</label>
+								<input type="zoom" id="dgf_pf_codtipo_desc_cod" name="dgf_pf_codtipo_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a categoria',
+											'displayKey':'COD_DESC_TIPO',
+											'datasetId':'ds_dpf_di_r_r_ptpfunc',
+											'fields':[
+												{
+													'field':'COD_TIPO',
+													'visible':'false'
+												},{
+													'field':'DESC_TIPO',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_TIPO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_codtipo_desc" id="dgf_pf_codtipo_desc">
+								<input type="hidden" name="pf_codtipo" id="pf_codtipo">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codfuncao_desc_cod" class="control-label">FunÃ§Ã£o</label>
+								<input type="zoom" id="dgf_pf_codfuncao_desc_cod" name="dgf_pf_codfuncao_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a funÃ§Ã£o',
+											'displayKey':'COD_DESC_FUNCAO',
+											'datasetId':'ds_dpf_di_r_r_pfuncao',
+											'fields':[
+												{
+													'field':'COD_FUNCAO',
+													'visible':'false'
+												},{
+													'field':'DESC_FUNCAO',
+													'visible':'false'
+												},{
+													'field':'COD_CBO',
+													'visible':'false'
+												},{
+													'field':'COD_CBO2002',
+													'visible':'false'
+												},{
+													'field':'COD_CARGO',
+													'visible':'false'
+												},{
+													'field':'DESC_CARGO',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_FUNCAO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_codfuncao_desc" id="dgf_pf_codfuncao_desc">
+								<input type="hidden" name="pf_codfuncao" id="pf_codfuncao">
+								<input type="hidden" name="pf_funcao_cbo" id="pf_funcao_cbo">
+								<input type="hidden" name="pf_funcao_cbo2002" id="pf_funcao_cbo2002">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_cod_desc_cargo" class="control-label">Cargo</label>
+								<input type="text"   name="dgf_pf_cod_desc_cargo" id="dgf_pf_cod_desc_cargo" class="form-control" readonly>
+								<input type="hidden" name="dgf_pf_cod_cargo" id="dgf_pf_cod_cargo">
+								<input type="hidden" name="dgf_pf_desc_cargo" id="dgf_pf_desc_cargo">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_temremuneracao" class="control-label">Tem RemuneraÃ§Ã£o</label>
+								<select name="pf_temremuneracao" id="pf_temremuneracao" class="form-control">
+									<option value="sim">Sim</option>
+									<option value="nao">NÃ£o</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_sal_nivel_desc_cod" class="control-label">NÃ­vel FunÃ§Ã£o</label>
+								<input type="zoom" id="dgf_pf_sal_nivel_desc_cod" name="dgf_pf_sal_nivel_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o nÃ­vel da funÃ§Ã£o',
+											'displayKey':'COD_DESC_NIVEL',
+											'datasetId':'ds_dpf_di_r_r_vniveistab',
+											'fields':[
+												{
+													'field':'COD_NIVEL',
+													'visible':'false'
+												},{
+													'field':'DESC_NIVEL',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_NIVEL',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												},{
+													'field':'FUNCAO',
+													'visible':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_sal_nivel_desc" id="dgf_pf_sal_nivel_desc">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_sal_faixa_desc_cod" class="control-label">Faixa Salarial</label>
+								<input type="zoom" id="dgf_pf_sal_faixa_desc_cod" name="dgf_pf_sal_faixa_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a faixa salarial',
+											'displayKey':'COD_DESC_FAIXA',
+											'datasetId':'ds_dpf_di_r_r_vfaixasal',
+											'fields':[
+												{
+													'field':'COD_FAIXA',
+													'visible':'false'
+												},{
+													'field':'DESC_CONSULTAFAIXASALARIAL',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_FAIXA',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												},{
+													'field':'NIVEL',
+													'visible':'false'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_sal_faixa_cod" id="dgf_pf_sal_faixa_cod">
+								<input type="hidden" name="dgf_pf_sal_tabela_cod" id="dgf_pf_sal_tabela_cod">
+
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_salario" class="control-label">SalÃ¡rio</label>
+								<input type="text" name="pf_salario" id="pf_salario" class="form-control"
+									mask="#00.000.000.000.000,00">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_hora" class="control-label">Valor Hora</label>
+								<input type="text" name="pf_hora" id="pf_hora" class="form-control"
+									mask="#00.000.000.000.000,00">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_salariobase" class="control-label">SalÃ¡rio Base DissÃ­dio</label>
+								<input type="text" name="pf_salariobase" id="pf_salariobase" class="form-control"
+									mask="#00.000.000.000.000,00">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_percentadiant" class="control-label">Percentual de Adiantamento</label>
+								<input type="number" name="pf_percentadiant" id="pf_percentadiant" class="form-control" min="0"
+									max="100" placeholder="De 000 atÃ© 100">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_ajudacusto" class="control-label">Ajuda de Custo</label>
+								<input type="text" name="pf_ajudacusto" id="pf_ajudacusto" class="form-control" mask="#00.000.000.000.000,00">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_arredondamento" class="control-label">Arredondamento</label>
+								<input type="text" name="pf_arredondamento" id="pf_arredondamento" class="form-control" mask="#00.000.000.000.000,00">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codrecebimento_desc_cod" class="control-label">Tipo de Pagamento</label>
+								<input type="zoom" id="dgf_pf_codrecebimento_desc_cod" name="dgf_pf_codrecebimento_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha tipo pagamento',
+											'displayKey':'COD_DESC_RECEBIMENTO',
+											'datasetId':'ds_dpf_di_r_r_pcodreceb',
+											'fields':[
+												{
+													'field':'COD_RECEBIMENTO',
+													'visible':'false'
+												},{
+													'field':'DESC_RECEBIMENTO',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_RECEBIMENTO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_codrecebimento_desc" id="dgf_pf_codrecebimento_desc">
+								<input type="hidden" name="pf_codrecebimento" id="pf_codrecebimento">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codcatesocial_desc_cod" class="control-label">Categoria eSocial</label>
+								<input type="zoom" id="dgf_pf_codcatesocial_desc_cod" name="dgf_pf_codcatesocial_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a categoria eSocial',
+											'displayKey':'COD_DESC_CATESOCIAL',
+											'datasetId':'ds_dpf_di_r_r_pesocialcat',
+											'fields':[
+												{
+													'field':'COD_CATAESOCIAL',
+													'visible':'false'
+												},{
+													'field':'DESC_CATESOCIAL',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_CATESOCIAL',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_codcatesocial_desc" id="dgf_pf_codcatesocial_desc">
+								<input type="hidden" name="pf_codcategoriaesocial" id="pf_codcategoriaesocial">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_tiporegimetrabalhista" class="control-label">Tipo de Regime Trabalhista</label>
+								<select name="pf_tiporegimetrabalhista" id="pf_tiporegimetrabalhista" class="form-control">
+									<option value="0"></option>
+									<option value="1">CLT - ConsolidaÃ§Ã£o das Leis de Trabalho</option>
+									<option value="2">EstatutÃ¡rio/legislaÃ§Ãµes especÃ­ficas</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_contribsind_desc_cod" class="control-label">ContribuiÃ§Ã£o Sindical</label>
+								<input type="zoom" id="dgf_pf_contribsind_desc_cod" name="dgf_pf_contribsind_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha uma contribuiÃ§Ã£o',
+											'displayKey':'COD_DESC_CONT_SINDICAL',
+											'datasetId':'ds_dpf_di_r_r_pcodctsind',
+											'fields':[
+												{
+													'field':'COD_CONT_SINDICAL',
+													'visible':'false'
+												},{
+													'field':'DESC_INDICADOR',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_CONT_SINDICAL',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_contribsind_desc" id="dgf_pf_contribsind_desc">
+								<input type="hidden" name="pf_contribsindical" id="pf_contribsindical">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codsindicato_desc_cod" class="control-label">Sindicato</label>
+								<input type="zoom" id="dgf_pf_codsindicato_desc_cod" name="dgf_pf_codsindicato_desc_cod" data-zoom="{
+									'maximumSelectionLength':'1',
+									'placeholder':'Escolha um sindicato',
+									'displayKey':'COD_DESC_SINDICATO',
+									'datasetId':'ds_dpf_di_r_r_psindic',
+									'fields':[
+										{
+											'field':'COD_SINDICATO',
+											'visible':'false'
+										},{
+											'field':'DESC_SINDICATO',
+											'visible':'false'
+										},{
+											'field':'COD_DESC_SINDICATO',
+											'label':'CÃ³digo - DescriÃ§Ã£o',
+											'standard':'true'
+										}
+									]
+								}" />
+								<input type="hidden" name="dgf_pf_codsindicato_desc" id="dgf_pf_codsindicato_desc">
+								<input type="hidden" name="pf_codsindicato" id="pf_codsindicato">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_sind_filiacao_desc_cod" class="control-label">Sindicato
+									FiliaÃ§Ã£o</label>
+								<input type="zoom" id="dgf_pf_sind_filiacao_desc_cod" name="dgf_pf_sind_filiacao_desc_cod"
+									data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha um sindicato',
+											'displayKey':'COD_DESC_SINDICATO',
+											'datasetId':'ds_dpf_di_r_r_psindic',
+											'fields':[
+												{
+													'field':'COD_SINDICATO',
+													'visible':'false'
+												},{
+													'field':'DESC_SINDICATO',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_SINDICATO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="pf_codsindicatofiliacao" id="pf_codsindicatofiliacao">
+								<input type="hidden" name="dgf_pf_sind_filiacao_desc" id="dgf_pf_sind_filiacao_desc">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_aposentado" class="control-label">Aposentado</label>
+								<select name="pf_aposentado" id="pf_aposentado" class="form-control">
+									<option value="2">NÃ£o</option>
+									<option value="1">Sim</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_situacaoinss" class="control-label">INSS</label>
+								<select name="pf_situacaoinss" id="pf_situacaoinss" class="form-control">
+									<option value="1">Calcula</option>
+									<option value="2">NÃ£o Calcula</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_situacaoirrf" class="control-label">IRRF</label>
+								<select name="pf_situacaoirrf" id="pf_situacaoirrf" class="form-control">
+									<option value="1">Calcula</option>
+									<option value="2">NÃ£o Calcula</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_situacaofgts" class="control-label">SituaÃ§Ã£o do Fgts</label>
+								<select name="pf_situacaofgts" id="pf_situacaofgts" class="form-control">
+									<option value="1">Sim</option>
+									<option value="2">NÃ£o</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_dtsaldofgts" class="control-label">Data Ãšltimo Saldo FGTS</label>
+								<input type="text" name="pf_dtsaldofgts" id="pf_dtsaldofgts" class="form-control valida_datas">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_ocorrencia_desc_cod" class="control-label">CÃ³digo OcorrÃªncia SEFIP</label>
+								<input type="zoom" id="dgf_pf_ocorrencia_desc_cod" name="dgf_pf_ocorrencia_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a categoria',
+											'displayKey':'COD_DESC_OCORRENCIA',
+											'datasetId':'ds_dpf_di_r_r_pcodocortrab',
+											'fields':[
+												{
+													'field':'COD_OCORRENCIA',
+													'visible':'false'
+												},{
+													'field':'DESC_OCORRENCIA',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_OCORRENCIA',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="pf_codocorrencia" id="pf_codocorrencia">
+								<input type="hidden" name="dgf_pf_ocorrencia_desc" id="dgf_pf_ocorrencia_desc">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codcategoria_desc_cod" class="control-label">CÃ³digo Categoria SEFIP</label>
+								<input type="zoom" id="dgf_pf_codcategoria_desc_cod" name="dgf_pf_codcategoria_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a categoria',
+											'displayKey':'COD_DESC_CATEGORIA',
+											'datasetId':'ds_dpf_di_r_r_pcodcattrab',
+											'fields':[
+												{
+													'field':'COD_CATEGORIA',
+													'visible':'false'
+												},{
+													'field':'DESC_CATEGORIA',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_CATEGORIA',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="pf_codcategoria" id="pf_codcategoria">
+								<input type="hidden" name="dgf_pf_codcategoria_desc" id="dgf_pf_codcategoria_desc">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_situacaorais_desc_cod" class="control-label">SituaÃ§Ã£o EmpregatÃ­cio (RAIS)</label>
+								<input type="zoom" id="dgf_pf_situacaorais_desc_cod" name="dgf_pf_situacaorais_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o situaÃ§Ã£o do RAIS',
+											'displayKey':'COD_DESC_SITUACAO',
+											'datasetId':'ds_dpf_di_r_r_pcodsitrais',
+											'fields':[
+												{
+													'field':'COD_SITUACAO',
+													'visible':'hidden'
+												},{
+													'field':'DESC_SITUACAO',
+													'visible':'hidden'
+												},{
+													'field':'COD_DESC_SITUACAO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_situacaorais_desc" id="dgf_pf_situacaorais_desc">
+								<input type="hidden" name="pf_situacaorais" id="pf_situacaorais">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_vinculorais_desc_cod" class="control-label">VÃ­nculo EmpregatÃ­cio (RAIS)</label>
+								<input type="zoom" id="dgf_pf_vinculorais_desc_cod" name="dgf_pf_vinculorais_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o vÃ­nculo empregatÃ­cio',
+											'displayKey':'COD_DESC_VINCULO',
+											'datasetId':'ds_dpf_di_r_r_pcodvinculo',
+											'fields':[
+												{
+													'field':'COD_VINCULO',
+													'visible':'hidden'
+												},{
+													'field':'DESC_VINCULO',
+													'visible':'hidden'
+												},{
+													'field':'COD_DESC_VINCULO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_vinculorais_desc" id="dgf_pf_vinculorais_desc">
+								<input type="hidden" name="pf_vinculorais" id="pf_vinculorais">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_qsq_desc_cod" class="control-label">Grupo de Quiosque</label>
+								<input type="zoom" id="dgf_pf_qsq_desc_cod" name="dgf_pf_qsq_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o grupo de quiosque',
+											'displayKey':'COD_DESC_GRUPO',
+											'datasetId':'ds_dpf_di_r_r_pgrpacessoquiosque',
+											'fields':[
+												{
+													'field':'COD_GRUPO',
+													'visible':'hidden'
+												},{
+													'field':'DESC_GRUPO',
+													'visible':'hidden'
+												},{
+													'field':'COD_DESC_GRUPO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_qsq_desc" id="dgf_pf_qsq_desc">
+								<input type="hidden" name="pf_codgrpquiosque" id="pf_codgrpquiosque">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_equipe_desc_cod" class="control-label">CÃ³digo de Equipe</label>
+								<input type="zoom" id="dgf_pf_equipe_desc_cod" name="dgf_pf_equipe_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o cÃ³digo de equipe',
+											'displayKey':'COD_DESC_EQUIPE',
+											'datasetId':'ds_dpf_di_r_r_pequipe',
+											'fields':[
+												{
+													'field':'COD_EQUIPE',
+													'visible':'hidden'
+												},{
+													'field':'DESC_EQUIPE',
+													'visible':'hidden'
+												},{
+													'field':'COD_DESC_EQUIPE',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_equipe_desc" id="dgf_pf_equipe_desc">
+								<input type="hidden" name="pf_codequipe" id="pf_codequipe">
+							</div>
+						</div>
+
+						<div id="divDadosBancarios" class="panel-body">
+							<legend id="legendDadosBancarios">Dados BancÃ¡rios</legend>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codbancofgts_desc_cod" class="control-label">Banco DepÃ³sito FGTS</label>
+								<input type="zoom" id="dgf_pf_codbancofgts_desc_cod" name="dgf_pf_codbancofgts_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o banco',
+											'displayKey':'COD_DIG_DESC_BANCO',
+											'datasetId':'ds_dpf_di_r_r_gbanco',
+											'fields':[
+												{
+													'field':'COD_BANCO',
+													'visible':'false'
+												},{
+													'field':'DESC_BANCO',
+													'visible':'false'
+												},{
+													'field':'COD_DIG_DESC_BANCO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_codbancofgts_desc" id="dgf_pf_codbancofgts_desc">
+								<input type="hidden" name="pf_codbancofgts" id="pf_codbancofgts">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_agencia_fgts_desc_cod" class="control-label">AgÃªncia DepÃ³sito FGTS</label>
+								<input type="zoom" id="dgf_pf_agencia_fgts_desc_cod" name="dgf_pf_agencia_fgts_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a agÃªncia',
+											'displayKey':'COD_DESC_AGENCIA',
+											'datasetId':'ds_dpf_di_r_r_gagencia',
+											'fields':[
+												{
+													'field':'COD_AGENCIA',
+													'visible': 'false'
+												},{
+													'field':'DESC_AGENCIA',
+													'visible': 'false'
+												},{
+													'field':'COD_DESC_AGENCIA',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_agencia_fgts_desc" id="dgf_pf_agencia_fgts_desc">
+								<input type="hidden" name="pf_agenciafgts" id="pf_agenciafgts">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_contafgts" class="control-label">Conta DepÃ³sito FGTS</label>
+								<input type="text" name="pf_contafgts" id="pf_contafgts" class="form-control"
+									placeholder="Ex: 21598-0">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codbancopis_desc_cod" class="control-label">Banco PIS</label>
+								<input type="zoom" id="dgf_pf_codbancopis_desc_cod" name="dgf_pf_codbancopis_desc_cod" data-zoom="{
+									'maximumSelectionLength':'1',
+									'placeholder':'Escolha o banco',
+									'displayKey':'COD_DIG_DESC_BANCO',
+									'datasetId':'ds_dpf_di_r_r_gbanco',
+									'fields':[
+										{
+											'field':'COD_BANCO',
+											'visible':'false'
+										},{
+											'field':'DESC_BANCO',
+											'visible':'false'
+										},{
+											'field':'COD_DIG_DESC_BANCO',
+											'label':'CÃ³digo - DescriÃ§Ã£o',
+											'standard':'true'
+										}
+									]
+								}"/>
+								<input type="hidden" name="dgf_pf_codbancopis_desc" id="dgf_pf_codbancopis_desc">
+								<input type="hidden" name="pf_codbancopis" id="pf_codbancopis">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_tpcontabancaria" class="control-label">Tipo de Conta BancÃ¡ria</label>
+								<select name="pf_tpcontabancaria" id="pf_tpcontabancaria" class="form-control">
+									<option value=""></option>
+									<option value="1">Conta Corrente</option>
+									<option value="2">Conta PoupanÃ§a</option>
+									<option value="3">Conta SalÃ¡rio</option>
+								</select>
+								<input type="hidden" name="dgf_pf_tpcontabancaria_desc" id="dgf_pf_tpcontabancaria_desc">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codbancopagto_desc_cod" class="control-label">Banco DepÃ³sito SalÃ¡rio</label>
+								<input type="zoom" id="dgf_pf_codbancopagto_desc_cod" name="dgf_pf_codbancopagto_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o banco',
+											'displayKey':'COD_DIG_DESC_BANCO',
+											'datasetId':'ds_dpf_di_r_r_gbanco',
+											'fields':[
+												{
+													'field':'COD_BANCO',
+													'visible':'false'
+												},{
+													'field':'DESC_BANCO',
+													'visible':'false'
+												},{
+													'field':'COD_DIG_DESC_BANCO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_codbancopagto_desc" id="dgf_pf_codbancopagto_desc">
+								<input type="hidden" name="pf_codbancopagto" id="pf_codbancopagto">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codagenciapgt_desc_cod" class="control-label">AgÃªncia DepÃ³sito
+									SalÃ¡rio</label>
+								<input type="zoom" id="dgf_pf_codagenciapgt_desc_cod" name="dgf_pf_codagenciapgt_desc_cod"
+									data-zoom="{
+										'maximumSelectionLength':'1',
+										'placeholder':'Escolha a agÃªncia',
+										'displayKey':'COD_DESC_AGENCIA',
+										'datasetId':'ds_dpf_di_r_r_gagencia',
+										'fields':[
+											{
+												'field':'COD_AGENCIA',
+												'visible': 'false'
+											},{
+												'field':'DESC_AGENCIA',
+												'visible': 'false'
+											},{
+												'field':'COD_DESC_AGENCIA',
+												'label':'CÃ³digo - DescriÃ§Ã£o',
+												'standard':'true'
+											}
+										]
+									}" />
+								<input type="hidden" name="dgf_pf_codagenciapagto_desc" id="dgf_pf_codagenciapagto_desc">
+								<input type="hidden" name="pf_codagenciapagto" id="pf_codagenciapagto">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_contapagamento" class="control-label">Conta DepÃ³sito SalÃ¡rio</label>
+								<input type="text" id="pf_contapagamento" name="pf_contapagamento" class="form-control" maxlength="15"/>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_opbancaria" class="control-label">OperaÃ§Ã£o BancÃ¡ria</label>
+								<input type="text" name="pf_opbancaria" id="pf_opbancaria" class="form-control" maxlength="5">
+							</div>
+						</div>
+						<div id="divContratoTrabalho" class="panel-body">
+							<legend id="legendContratoTrabalho">Contrato de Trabalho</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="pf_tipocontratoprazo" class="control-label">Contrato com Prazo</label>
+									<select name="pf_tipocontratoprazo" id="pf_tipocontratoprazo" class="form-control">
+										<option value="">Prazo Indeterminado</option>
+										<option value="E">ExperiÃªncia</option>
+										<option value="D">Prazo Determinado</option>
+									</select>
+									<input type="hidden" name="pf_temprazocontr" id="pf_temprazocontr">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3">
+									<label for="dpf_dias_venc_exp1" class="control-label">Dias Venc Primeira ExperiÃªncia:</label>
+									<input type="text" name="dpf_dias_venc_exp1" id="dpf_dias_venc_exp1"  class="form-control">
+								</div>
+
+								<div class="form-group col-sm-4">
+									<label for="dgf_pf_experiencia_inicio" class="control-label">Vencimento da Primeira ExperiÃªncia</label>
+									<input type="text" name="dgf_pf_experiencia_inicio" id="dgf_pf_experiencia_inicio" class="form-control valida_datas">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3">
+									<label for="dpf_dias_venc_exp2" class="control-label">Dias Venc Segunda ExperiÃªncia:</label>
+									<input type="text" name="dpf_dias_venc_exp2" id="dpf_dias_venc_exp2"  class="form-control">
+								</div>
+
+								<div class="form-group col-sm-4">
+									<label for="dgf_pf_experiencia_fim" class="control-label">Vencimento da Segunda ExperiÃªncia</label>
+									<input type="text" name="dgf_pf_experiencia_fim" id="dgf_pf_experiencia_fim" class="form-control valida_datas">
+								</div>
+							</div>
+							<div class="row">
+								<div id="divFUN_DATFIMCT" style="display: none;">
+									<div class="form-group col-sm-4">
+										<label for="pf_fimprazocontr" class="control-label">TÃ©rmino de Contrato - Prazo
+											Determinado</label>
+										<input type="text" name="pf_fimprazocontr" id="pf_fimprazocontr" class="form-control">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_tipocontprazodeterminado" class="control-label">Tipo Contratato - Prazo Determinado</label>
+										<select name="pf_tipocontprazodeterminado" id="pf_tipocontprazodeterminado" class="form-control">
+											<option value="2">Definido em Dias</option>
+											<option value="3">Vinculado a ocorrencia de um fato</option>
+										</select>
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_temclauasseg" class="control-label">ClÃ¡usula AssecuratÃ³ria - Prazo
+											Determinado</label>
+										<select name="pf_temclauasseg" id="pf_temclauasseg" class="form-control">
+											<option value="0">NÃ£o</option>
+											<option value="1">Sim</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-12">
+									<label for="pf_motivocontprazodeterminado" class="control-label">Motivo da ContrataÃ§Ã£o - Prazo Determinado</label>
+									<textarea name="pf_motivocontprazodeterminado" id="pf_motivocontprazodeterminado" class="form-control" rows="5" maxlength="255" style="resize: none;"></textarea>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_complemento_contr_desc" class="control-label">Complemento
+										Contrato</label>
+									<input type="zoom" id="dgf_complemento_contr_desc"
+										name="dgf_complemento_contr_desc" data-zoom="{
+												'maximumSelectionLength':'1','placeholder':'Selecione um complemento','displayKey':'inputDescricaoComplemento','datasetId':'dpf_di_compl_contrato',
+												'fields':[
+													{'field':'inputCodigoComplemento','label':'Cod'},
+													{'field':'inputDescricaoComplemento','label':'Desc','standard':'true'},
+													{'field':'inputCodigoFuncao','label':'Cod FunÃ§Ã£o'},
+													{'field':'zoomFuncao','label':'Desc FunÃ§Ã£o'},
+													{'field':'textareaTextoComplementar1','visible':'false'},
+													{'field':'textareaTextoComplementar2','visible':'false'},
+													{'field':'textareaTextoComplementar3','visible':'false'},
+													{'field':'textareaTextoComplementar4','visible':'false'},
+													{'field':'textareaTextoComplementar5','visible':'false'}
+												]
+											}" />
+								</div>
+							</div>
+						</div>
+
+						<div id="divEstagiario" class="panel-body">
+							<legend id="legendEstagiario">InformaÃ§Ãµes de EstÃ¡gio</legend>
+
+							<div class="form-group col-sm-4">
+								<label for="pf_naturezaestagio" class="control-label">Natureza do EstÃ¡gio</label>
+								<select name="pf_naturezaestagio" id="pf_naturezaestagio" class="form-control">
+									<option value=""></option>
+									<option value="O">ObrigatÃ³rio</option>
+									<option value="N">NÃ£o ObrigatÃ³rio</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_codnivelestagio" class="control-label">NÃ­vel de EstÃ¡gio</label>
+								<select name="pf_codnivelestagio" id="pf_codnivelestagio" class="form-control">
+									<option value=""></option>
+									<option value="1">Fundamental</option>
+									<option value="2">MÃ©dio</option>
+									<option value="3">FormaÃ§Ã£o Profissional</option>
+									<option value="4">Superior</option>
+									<option value="8">Especial</option>
+									<option value="9">MÃ£e social.(Lei 7644, de 1987)</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_areaatuacaoestagio" class="control-label">Ã�rea de AtuaÃ§Ã£o</label>
+								<input type="text" name="pf_areaatuacaoestagio" id="pf_areaatuacaoestagio" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_numeroapoliceestagio" class="control-label">NÃºmero de ApÃ³lice</label>
+								<input type="text" name="pf_numeroapoliceestagio" id="pf_numeroapoliceestagio" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_dtprevterminoestagio" class="control-label">Data Fim do EstÃ¡gio</label>
+								<input type="text" name="pf_dtprevterminoestagio" id="pf_dtprevterminoestagio" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_entidade_desc_cod" class="control-label">Entidade de Ensino</label>
+								<input type="zoom" id="dgf_pf_entidade_desc_cod" name="dgf_pf_entidade_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a entidade de ensino',
+											'displayKey':'COD_DESC_ENTIDADE',
+											'datasetId':'ds_dpf_di_r_r_ventidades',
+											'fields':[
+												{
+													'field':'COD_ENTIDADE',
+													'visible':'false'
+												},{
+													'field':'DESC_ENTIDADE',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_ENTIDADE',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_entidade_desc" id="dgf_pf_entidade_desc">
+								<input type="hidden" name="pf_codinstituicaoensinoestagio" id="pf_codinstituicaoensinoestagio">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codagestagio_desc_cod" class="control-label">Agente IntegraÃ§Ã£o</label>
+								<input type="zoom" id="dgf_pf_codagestagio_desc_cod" name="dgf_pf_codagestagio_desc_cod"
+									data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o agente de integraÃ§Ã£o',
+											'displayKey':'COD_DESC_ENTIDADE',
+											'datasetId':'ds_dpf_di_r_r_ventidades',
+											'fields':[
+												{
+													'field':'COD_ENTIDADE',
+													'visible':'false'
+												},{
+													'field':'DESC_ENTIDADE',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_ENTIDADE',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_codagestagio_desc" id="dgf_pf_codagestagio_desc">
+								<input type="hidden" name="pf_codagenteintegracaoestagio" id="pf_codagenteintegracaoestagio">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_nomecoordenadorestagio" class="control-label">Nome do Coordenador</label>
+								<input type="text" name="pf_nomecoordenadorestagio" id="pf_nomecoordenadorestagio"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_cpfcoordenadorestagio" class="control-label">CPF do Coordenador</label>
+								<input type="text" name="pf_cpfcoordenadorestagio" id="pf_cpfcoordenadorestagio" class="form-control"
+									mask="000.000.000-00">
+							</div>
+						</div>
+
+						<div id="divMenorAprendiz" class="panel-body">
+							<legend id="legendMenorAprendiz">InformaÃ§Ãµes de Menor Aprendiz</legend>
+
+							<div class="form-group col-sm-5">
+								<label for="dgf_pf_cnpjempcontraprendiz" class="control-label">CNPJ Entidade Qualificadora/Empregador Cotista</label>
+								<input type="text" name="dgf_pf_cnpjempcontraprendiz" id="dgf_pf_cnpjempcontraprendiz" class="form-control" maxlength="20">
+							</div>
+
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_inscrestabativprat" class="control-label">InscriÃ§Ã£o Estabelecimento Atividades PrÃ¡ticas</label>
+								<input type="text" name="dgf_pf_inscrestabativprat" id="dgf_pf_inscrestabativprat" class="form-control" maxlength="20">
+							</div>
+
+							<div class="form-group col-sm-3">
+								<label for="dgf_pf_modalidadecontratacao" class="control-label">Modalidade ContrataÃ§Ã£o</label>
+								<select name="dgf_pf_modalidadecontratacao" id="dgf_pf_modalidadecontratacao" class="form-control">
+									<option value=""></option>
+									<option value="1">Direta</option>
+									<option value="2">Indireta</option>
+								</select>
+							</div>
+
+						</div>
+
+						<div id="divLocalHorario" class="panel-body">
+							<legend id="legendLocalHorario">HorÃ¡rio de Trabalho</legend>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_codhorario_desc_cod" class="control-label">HorÃ¡rio de Trabalho</label>
+								<input type="zoom" id="dgf_pf_codhorario_desc_cod" name="dgf_pf_codhorario_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha o HorÃ¡rio de Trabalho',
+											'displayKey':'COD_DESC_HORARIO',
+											'datasetId':'ds_dpf_di_r_r_ahorario',
+											'fields':[
+												{
+													'field':'COD_HORARIO',
+													'visible':'false'
+												},
+												{
+													'field':'DESC_HORARIO',
+													'visible':'false'
+												},
+												{
+													'field':'COD_EMPRESA',
+													'visible':'false'
+												},
+												{
+													'field':'COD_DESC_HORARIO',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_codhorario_desc" id="dgf_pf_codhorario_desc">
+								<input type="hidden" name="pf_codhorario" id="pf_codhorario">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_indiniciohor_desc_cod" class="control-label">Indice InÃ­cio HorÃ¡rio</label>
+								<input type="zoom" id="dgf_pf_indiniciohor_desc_cod" name="dgf_pf_indiniciohor_desc_cod" data-zoom="{
+											'maximumSelectionLength':'1',
+											'placeholder':'Escolha a sequÃªncia do turno',
+											'displayKey':'COD_DESC_INDICE',
+											'datasetId':'ds_dpf_di_r_r_indicehor', 
+											'fields':[
+												{
+													'field':'COD_INDICE',
+													'visible':'false'
+												},{
+													'field':'DESC_LETRA_INDICE',
+													'visible':'false'
+												},{
+													'field':'COD_DESC_INDICE',
+													'label':'CÃ³digo - DescriÃ§Ã£o',
+													'standard':'true'
+												}
+											]
+										}" />
+								<input type="hidden" name="dgf_pf_indiniciohor_desc" id="dgf_pf_indiniciohor_desc">
+								<input type="hidden" name="pf_indiniciohor" id="pf_indiniciohor">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_tempoparcial" class="control-label">Contrato a Tempo Parcial</label>
+								<select name="pf_tempoparcial" id="pf_tempoparcial" class="form-control">
+									<option value="0">NÃ£o Ã© contrato em tempo parcial</option>
+									<option value="1">Limitado a 25 horas semanais</option>
+									<option value="2">Limitado a 30 horas semanais</option>
+									<option value="3">Limitado a 26 horas semanais</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_tiporegimejornada" class="control-label">Tipo de Jornada</label>
+								<select id="pf_tiporegimejornada" name="pf_tiporegimejornada" class="form-control">
+									<option value="1">Submetidos a HorÃ¡rio de Trabalho (Cap. II da CLT)</option>
+									<option value="2">Atividade Externa EspecÃ­ficada no Inciso I do Art. 62 da CLT
+									</option>
+									<option value="3">FunÃ§Ãµes EspecÃ­ficadas no Inciso II do Art. 62 da CLT</option>
+									<option value="4">Teletrabalho, previsto no Inciso III do Art. 62 da CLT</option>
+								</select>
+								<input type="hidden" name="dgf_pf_tiporegimejornada_desc" id="dgf_pf_tiporegimejornada_desc">
+							</div>
+						</div>
+
+						<div id="divDadosContabeis" class="panel-body">
+							<legend id="legendDadosContabeis">Dados ContÃ¡beis</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_pf_integrcontabil_desc_cod" class="control-label">IntegraÃ§Ã£o ContÃ¡bil</label>
+									<input type="zoom" id="dgf_pf_integrcontabil_desc_cod" name="dgf_pf_integrcontabil_desc_cod" data-zoom="{
+												'maximumSelectionLength':'1',
+												'placeholder':'Escolha o vÃ­nculo empregatÃ­cio',
+												'displayKey':'COD_DESC_CONTABIL',
+												'datasetId':'ds_dpf_di_r_r_pcodintcontfunc',
+												'fields':[
+													{
+														'field':'COD_CONTABIL',
+														'visible':'hidden'
+													},{
+														'field':'DESC_CONTABIL',
+														'visible':'hidden'
+													},{
+														'field':'COD_DESC_CONTABIL',
+														'label':'CÃ³digo - DescriÃ§Ã£o',
+														'standard':'true'
+													}
+												]
+											}" />
+									<input type="hidden" name="dgf_pf_integrcontabil_desc" id="dgf_pf_integrcontabil_desc">
+									<input type="hidden" name="pf_integrcontabil" id="pf_integrcontabil">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_pf_intgerencial_desc_cod" class="control-label">IntegraÃ§Ã£o Gerencial</label>
+									<input type="zoom" id="dgf_pf_intgerencial_desc_cod" name="dgf_pf_intgerencial_desc_cod" data-zoom="{
+												'maximumSelectionLength':'1',
+												'placeholder':'Escolha o vÃ­nculo empregatÃ­cio',
+												'displayKey':'COD_DESC_GERENCIAL',
+												'datasetId':'ds_dpf_di_r_r_pcodintgerfunc',
+												'fields':[
+													{
+														'field':'COD_GERENCIAL',
+														'visible':'hidden'
+													},{
+														'field':'DESC_GERENCIAL',
+														'visible':'hidden'
+													},{
+														'field':'COD_DESC_GERENCIAL',
+														'label':'CÃ³digo - DescriÃ§Ã£o',
+														'standard':'true'
+													}
+												]
+											}" />
+									<input type="hidden" name="dgf_pf_intgerencial_desc" id="dgf_pf_intgerencial_desc">
+									<input type="hidden" name="pf_integrgerencial" id="pf_integrgerencial">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_pf_codccusto_desc_cod" class="control-label">Centro de Custo</label>
+									<input type="zoom" id="dgf_pf_codccusto_desc_cod" name="dgf_pf_codccusto_desc_cod" data-zoom="{
+												'maximumSelectionLength':'1',
+												'placeholder':'Escolha o centro de custo',
+												'displayKey':'COD_DESC_CENTRO_CUSTO',
+												'datasetId':'ds_dpf_di_r_r_pccusto',
+												'fields':[
+													{
+														'field':'COD_EMPRESA',
+														'visible': 'false'
+													},
+													{
+														'field':'COD_FILIAL',
+														'visible': 'false'
+													},
+													{
+														'field':'COD_CENTRO_CUSTO',
+														'visible': 'false'
+													},{
+														'field':'DESC_CENTRO_CUSTO',
+														'visible':'false'
+													},{
+														'field':'COD_DESC_CENTRO_CUSTO',
+														'label':'CÃ³digo - DescriÃ§Ã£o',
+														'standard':'true'
+													}
+												]
+											}" />
+									<input type="hidden" name="dgf_pf_codccusto_desc" id="dgf_pf_codccusto_desc">
+									<input type="hidden" name="pf_codccusto" id="pf_codccusto">	
+									<input type="hidden" name="dgf_centro_custo" id="dgf_centro_custo">	
+								</div>
+							</div>
+						</div>	
+						<div id="divRateioCentroCusto" class="panel-body">
+							<legend id="legendRateioCentroCusto">Rateio Fixo (Centro de Custo)</legend>
+							<div class="row">
+								<div class="form-group col-sm-12 fs-txt-center">
+									<input type="button" class="btn btn-info btnAdicionarRateioCentroCusto"
+										value="Incluir Centro de Custo">
+								</div>
+							</div>
+							<table class="table table-striped" id="tbRateioCentroCusto" tablename="tbRateioCentroCusto"
+								noaddbutton="true" nodeletebutton="true">
+								<thead>
+									<tr>
+										<th>Rateio Fixo (Centro de Custo)</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="row">
+												<div class="col-sm-6">
+													<label for="dgf_pr_codccusto_desc_cod" class="obrigatorio">Centro de
+														Custo</label>
+													<input type="zoom" id="dgf_pr_codccusto_desc_cod" name="dgf_pr_codccusto_desc_cod"
+														class="form-control" data-zoom="{
+															'maximumSelectionLength':'1',
+															'placeholder':'Escolha o centro de custo',
+															'displayKey':'COD_DESC_CENTRO_CUSTO',
+															'datasetId':'ds_dpf_di_r_r_pccusto',
+															'fields':[
+																{
+																	'field':'COD_EMPRESA',
+																	'visible': 'false'
+																},
+																{
+																	'field':'COD_FILIAL',
+																	'visible': 'false'
+																},
+																{
+																	'field':'COD_CENTRO_CUSTO',
+																	'visible': 'false'
+																},{
+																	'field':'DESC_CENTRO_CUSTO',
+																	'visible':'false'
+																},{
+																	'field':'COD_DESC_CENTRO_CUSTO',
+																	'label':'CÃ³digo - DescriÃ§Ã£o',
+																	'standard':'true'
+																}
+															]
+														}" />
+													<input type="hidden" name="pr_codccusto" id="pr_codccusto">
+												</div>
+												<div class="col-sm-3">
+													<label for="pr_valor" class="obrigatorio">Valor (%)</label>
+													<input type="text" name="pr_valor" id="pr_valor"
+														class="form-control" mask="#0.000,00">
+												</div>
+											</div>
+										</td>
+										<td class="fs-no-margin fs-no-padding hidden-xs" style="width: 5%;">
+											<i style="color: darkred;"
+												class="fluigicon fluigicon-remove-circle icon-lg fs-txt-center fs-cursor-pointer"
+												onclick="fnCustomDelete(this);"></i>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="divTomadores" class="panel-body">
+							<legend id="legendTomadores">Tomadores</legend>
+							<div class="row">
+								<div class="form-group col-sm-12 fs-txt-center">
+									<input type="button" class="btn btn-info btnAdicionarTomador"
+										value="Incluir Tomador">
+								</div>
+							</div>
+							<table class="table table-striped" id="tbTomador" tablename="tbTomador"
+								noaddbutton="true" nodeletebutton="true">
+								<thead>
+									<tr>
+										<th>Tomador</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="row">
+												<div class="col-sm-2">
+													<label for="pt_codtomador">CÃ³digo do Tomador</label>
+													<input type="text" name="pt_codtomador"
+														id="pt_codtomador" class="form-control" readonly>
+												</div>
+												<div class="col-sm-4">
+													<label for="dgf_pt_tomador_desc_cod" class="obrigatorio">Tomador</label>
+													<input type="zoom" id="dgf_pt_tomador_desc_cod" name="dgf_pt_tomador_desc_cod"
+														data-zoom="{
+																'maximumSelectionLength':'1',
+																'placeholder':'Escolha o Tomador',
+																'displayKey':'COD_DESC_TOMADOR',
+																'datasetId':'ds_dpf_di_r_r_fcfo',
+																'fields':[
+																	{
+																		'field':'COD_TOMADOR',
+																		'visible':'false'
+																	},{
+																		'field':'COD_DESC_TOMADOR',
+																		'label': 'COD CFO - NOME',
+																		'standard':'true'
+																	},{
+																		'field':'COD_CEI',
+																		'visible':'false'
+																	},{
+																		'field':'COD_EMPRESA',
+																		'visible':'false'
+																	}
+																]
+															}" />
+												</div>
+												<div class="col-sm-3">
+													<label for="pt_cei">CEI</label>
+													<input type="text" name="pt_cei" id="pt_cei"
+														class="form-control" readonly>
+												</div>
+												<div class="col-sm-3">
+													<label for="pt_codcoltomador">Coligada Tomador</label>
+													<input type="text" name="pt_codcoltomador"
+														id="pt_codcoltomador" class="form-control" readonly>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-sm-3">
+													<label for="pt_tptomador" class="obrigatorio">Tipo de Tomador</label>
+													<select name="pt_tptomador" id="pt_tptomador"
+														class="form-control">
+														<option value=""></option>
+														<option value="1">CessÃ£o de mÃ£o de obra</option>
+														<option value="2">ConstruÃ§Ã£o civil</option>
+													</select>
+												</div>
+												<div class="col-sm-3">
+													<label for="pt_valor" class="obrigatorio">Valor de rateio (dias)</label>
+													<input type="number" name="pt_valor" id="pt_valor"
+														class="form-control" max="30">
+												</div>
+											</div>
+										</td>
+										<td class="fs-no-margin fs-no-padding hidden-xs" style="width: 5%;">
+											<i style="color: darkred;"
+												class="fluigicon fluigicon-remove-circle icon-lg fs-txt-center fs-cursor-pointer"
+												onclick="fnCustomDelete(this);"></i>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="divEventos" class="panel-body">
+							<legend id="legendEventos">CÃ³digos Fixos</legend>
+							<div class="row">
+								<div class="form-group col-sm-12 fs-txt-center">
+									<input type="button" class="btn btn-info btnAdicionarEvento" value="Incluir Evento">
+								</div>
+							</div>
+							<table class="table table-striped" id="tbEvento" tablename="tbEvento" noaddbutton="true"
+								nodeletebutton="true">
+								<thead>
+									<tr>
+										<th>Evento</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="row">
+												<div class="col-sm-6">
+													<label for="dgt_pe_evento_desc_cod" class="obrigatorio">Evento</label>
+													<input type="zoom" id="dgt_pe_evento_desc_cod" name="dgt_pe_evento_desc_cod"
+														data-zoom="{
+															'maximumSelectionLength':'1',
+															'placeholder':'Escolha o Evento',
+															'displayKey':'COD_DESC_EVENTO',
+															'datasetId':'ds_dpf_di_r_r_pevento',
+															'fields':[
+																{
+																	'field':'COD_EVENTO',
+																	'visible':'false'
+																},{
+																	'field':'COD_DESC_EVENTO',
+																	'label': 'COD - NOME',
+																	'standard':'true'
+																},{
+																	'field':'COD_TIPO_EVENTO',
+																	'label': 'CATEGORIA'
+																}
+															]
+														}">
+													<input type="hidden" name="pe_codevento" id="pe_codevento">
+												</div>
+												<div class="col-sm-3">
+													<label for="pe_categoria">Categoria Evento</label>
+													<input type="text" name="pe_categoria" id="pe_categoria"
+														class="form-control" readonly>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-3">
+													<label for="pe_nrovezes"
+														class="obrigatorio">NÃºmero de vezes de lanÃ§amento</label>
+													<input type="number" name="pe_nrovezes"
+														id="pe_nrovezes" class="form-control">
+												</div>
+												<div class="col-sm-3">
+													<label for="dgf_pe_codfix_desc_cod"
+														class="obrigatorio">Tipo</label>
+													<input type="zoom" name="dgf_pe_codfix_desc_cod"
+														id="dgf_pe_codfix_desc_cod" class="form-control" data-zoom="{
+															'maximumSelectionLength':'1',
+															'placeholder':'Escolha o Tipo',
+															'displayKey':'COD_DESC_FIX',
+															'datasetId':'ds_dpf_di_r_r_ptpcodfixo',
+															'fields':[
+																{
+																	'field':'COD_FIX',
+																	'visible':'false'
+																},{
+																	'field':'COD_DESC_FIX',
+																	'label': 'COD - NOME',
+																	'standard':'true'
+																}
+															]
+														}">
+													<input type="hidden" name="pe_tipo"
+														id="pe_tipo">
+												</div>
+												<div class="col-sm-3">
+													<label for="pe_valor" class="obrigatorio">Valor do codigo fixo</label>
+													<input type="text" name="pe_valor" id="pe_valor"
+														class="form-control" mask="#0.000.000,00">
+												</div>
+											</div>
+										</td>
+										<td class="fs-no-margin fs-no-padding hidden-xs" style="width: 5%;">
+											<i style="color: darkred;"
+												class="fluigicon fluigicon-remove-circle icon-lg fs-txt-center fs-cursor-pointer"
+												onclick="fnCustomDelete(this);"></i>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="divEventosProgramados" class="panel-body">
+							<legend id="legendEventos">Eventos Programados</legend>
+							<div class="row">
+								<div class="form-group col-sm-12 fs-txt-center">
+									<input type="button" class="btn btn-info btnAdicionarEventoProgramado" value="Incluir Evento Programado">
+								</div>
+							</div>
+							<table class="table table-striped" id="tbEventoProgramado" tablename="tbEventoProgramado" noaddbutton="true"
+								nodeletebutton="true">
+								<thead>
+									<tr>
+										<th>Evento Programado</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="row">
+												<div class="col-sm-6">
+													<label for="dgt_ep_evento_desc_cod" class="obrigatorio">Evento</label>
+													<input type="zoom" id="dgt_ep_evento_desc_cod" name="dgt_ep_evento_desc_cod"
+														data-zoom="{
+															'maximumSelectionLength':'1',
+															'placeholder':'Escolha o Evento',
+															'displayKey':'COD_DESC_EVENTO',
+															'datasetId':'ds_dpf_di_r_r_pevento',
+															'fields':[
+																{
+																	'field':'COD_EVENTO',
+																	'visible':'false'
+																},{
+																	'field':'COD_DESC_EVENTO',
+																	'label': 'COD - NOME',
+																	'standard':'true'
+																},{
+																	'field':'COD_TIPO_EVENTO',
+																	'label': 'CATEGORIA'
+																}
+															]
+														}">
+													<input type="hidden" name="ep_codevento" id="ep_codevento">
+												</div>
+												<div class="col-sm-3">
+													<label for="ep_mesinic">MÃªs Inicial</label>
+													<input type="number" name="ep_mesinic" id="ep_mesinic"
+														class="form-control" min="1"max="12">
+												</div>
+												<div class="col-sm-3">
+													<label for="ep_anoinic">Ano Inicial</label>
+													<input type="number" name="ep_anoinic" id="ep_anoinic"
+														class="form-control" min="1900"max="2900" maxlength="4">
+												</div>
+												<div class="col-sm-3">
+													<label for="ep_mesfim">MÃªs Fim</label>
+													<input type="number" name="ep_mesfim" id="ep_mesfim"
+														class="form-control" min="1"max="12">
+												</div>
+												<div class="col-sm-3">
+													<label for="ep_anofim">Ano Fim</label>
+													<input type="number" name="ep_anofim" id="ep_anofim"
+														class="form-control" min="1900"max="2900" maxlength="4">
+												</div>
+												<div class="col-sm-3">
+													<label for="ep_semprevalido">Sempre VÃ¡lido</label>								
+													<select name="ep_semprevalido" id="ep_semprevalido" class="form-control">
+														<option value="0">NÃ£o</option>
+														<option value="1">Sim</option>
+													</select>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-3">
+													<label for="dgf_ep_tipo_desc_cod"
+														class="obrigatorio">Tipo</label>
+													<input type="zoom" name="dgf_ep_tipo_desc_cod"
+														id="dgf_ep_tipo_desc_cod" class="form-control" data-zoom="{
+															'maximumSelectionLength':'1',
+															'placeholder':'Escolha o Tipo',
+															'displayKey':'COD_DESC_PROG',
+															'datasetId':'ds_dpf_di_r_r_ptpcodprog',
+															'fields':[
+																{
+																	'field':'COD_PROG',
+																	'visible':'false'
+																},{
+																	'field':'COD_DESC_PROG',
+																	'label': 'COD - NOME',
+																	'standard':'true'
+																}
+															]
+														}">
+													<input type="hidden" name="ep_tipo"
+														id="ep_tipo">
+												</div>
+												<div class="col-sm-3">
+													<label for="ep_valor">Valor</label>
+													<input type="text" name="ep_valor" id="ep_valor"
+														class="form-control" mask="#0.000.000,00">
+												</div>
+												<div class="col-sm-3">
+													<label for="ep_complemento1" >Complemento 1</label>
+													<input type="text" name="ep_complemento1" id="ep_complemento1"
+														class="form-control" maxlength="30">
+												</div>
+												<div class="col-sm-3">
+													<label for="ep_complemento2" >Complemento 2</label>
+													<input type="text" name="ep_complemento2" id="ep_complemento2"
+														class="form-control" maxlength="30">
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-6">
+													<label for="dgf_ep_codccusto_desc_cod" class="obrigatorio">Centro de
+														Custo</label>
+													<input type="zoom" id="dgf_ep_codccusto_desc_cod" name="dgf_ep_codccusto_desc_cod"
+														class="form-control" data-zoom="{
+															'maximumSelectionLength':'1',
+															'placeholder':'Escolha o centro de custo',
+															'displayKey':'COD_DESC_CENTRO_CUSTO',
+															'datasetId':'ds_dpf_di_r_r_pccusto',
+															'fields':[
+																{
+																	'field':'COD_EMPRESA',
+																	'visible': 'false'
+																},
+																{
+																	'field':'COD_FILIAL',
+																	'visible': 'false'
+																},
+																{
+																	'field':'COD_CENTRO_CUSTO',
+																	'visible': 'false'
+																},{
+																	'field':'DESC_CENTRO_CUSTO',
+																	'visible':'false'
+																},{
+																	'field':'COD_DESC_CENTRO_CUSTO',
+																	'label':'CÃ³digo - DescriÃ§Ã£o',
+																	'standard':'true'
+																}
+															]
+														}" />
+													<input type="hidden" name="ep_codccusto" id="ep_codccusto">
+												</div>
+											</div>
+										</td>
+										<td class="fs-no-margin fs-no-padding hidden-xs" style="width: 5%;">
+											<i style="color: darkred;"
+												class="fluigicon fluigicon-remove-circle icon-lg fs-txt-center fs-cursor-pointer"
+												onclick="fnCustomDelete(this);"></i>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="divValorAssociado" class="panel-body">
+							<legend id="legendValorAssociado">Valores Associados</legend>
+							<div class="row">
+								<div class="form-group col-sm-12 fs-txt-center">
+									<input type="button" class="btn btn-info btnAdicionarValorAssociado" value="Incluir Valor Associado">
+								</div>
+							</div>
+							<table class="table table-striped" id="tbValorAssociado" tablename="tbValorAssociado" noaddbutton="true"
+								nodeletebutton="true">
+								<thead>
+									<tr>
+										<th>Evento</th>
+										<th>&nbsp;</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div class="row">
+												<div class="col-sm-3">
+													<label for="pa_dtvalor"
+														class="obrigatorio">Data</label>
+													<input type="text" name="pa_dtvalor"
+														id="pa_dtvalor" class="form-control valida_datas" placeholder="Ex: 00/00/0000">
+												</div>
+												<div class="col-sm-6">
+													<label for="dgt_pa_codvalor_desc_cod" class="obrigatorio">CÃ³digo</label>
+													<input type="zoom" id="dgt_pa_codvalor_desc_cod" name="dgt_pa_codvalor_desc_cod"
+														data-zoom="{
+															'maximumSelectionLength':'1',
+															'placeholder':'Escolha o CÃ³digo',
+															'displayKey':'COD_DESC_VALASSOCIADO',
+															'datasetId':'ds_dpf_di_r_r_pcodvalfunc',
+															'fields':[
+																{
+																	'field':'COD_VALASSOCIADO',
+																	'visible':'false'
+																},{
+																	'field':'COD_DESC_VALASSOCIADO',
+																	'label': 'COD - DESC',
+																	'standard':'true'
+																},{
+																	'field':'DESC_VALASSOCIADO',
+																	'label': 'DESC',
+																	'visible':'false'
+																}
+															]
+														}">
+													<input type="hidden" name="pa_codvalor" id="pa_codvalor">
+													<input type="hidden" name="pa_descricao" id="pa_descricao">
+												</div>
+												<div class="col-sm-3">
+													<label for="pa_valor" class="obrigatorio">Valor do codigo fixo</label>
+													<input type="text" name="pa_valor" id="pa_valor"
+														class="form-control" mask="#0.000.000,00">
+												</div>
+											</div>
+											<div class="row">	
+												<div class="col-sm-12">
+													<label for="pa_observacao">ObservaÃ§Ã£o</label>
+													<input type="text" name="pa_observacao" id="pa_observacao"
+														class="form-control">
+												</div>
+											</div>
+										</td>
+										<td class="fs-no-margin fs-no-padding hidden-xs" style="width: 5%;">
+											<i style="color: darkred;"
+												class="fluigicon fluigicon-remove-circle icon-lg fs-txt-center fs-cursor-pointer"
+												onclick="fnCustomDelete(this);"></i>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="divOrigemSolicitacao" class="panel-body">
+							<legend id="legendOrigemSolicitacao">Origem da SolicitaÃ§Ã£o</legend>
+							<div class="form-group col-sm-4">
+								<label for="dgf_cod_agrupador">Agrupador</label>
+								<input type="text" name="dgf_cod_agrupador" id="dgf_cod_agrupador" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="">NÃºmero da requisiÃ§Ã£o</label>
+								<input type="dgf_num_requisicao" name="dgf_num_requisicao" id="dgf_num_requisicao"
+									class="form-control" readonly>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_dt_requisicao">Data requisiÃ§Ã£o</label>
+								<input type="text" name="dgf_dt_requisicao" id="dgf_dt_requisicao"
+									class="form-control" readonly>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_tp_requisicao">Tipo da requisiÃ§Ã£o</label>
+								<input type="text" name="dgf_tp_requisicao" id="dgf_tp_requisicao"
+									class="form-control" readonly>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_num_requisicao_ats">Num sistema ATS</label>
+								<input type="text" name="dgf_num_requisicao_ats" id="dgf_num_requisicao_ats"
+									class="form-control" readonly>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_num_requisicao_ats_int">Num sistema ATS IntegraÃ§Ã£o</label>
+								<input type="text" name="dgf_num_requisicao_ats_int" id="dgf_num_requisicao_ats_int"
+									class="form-control" readonly>
+							</div>
+						</div>
+						<div id="divDiasValeTransporte" class="panel-body">
+							<legend id="legendDiasValeTransporte">Dias Vale Transporte</legend>
+							<div class="row">
+								<label for="labelDiasValeTransporteExpedienteIntegral">Expediente Integral</label>
+							</div>
+							<div class="row">	
+								<div class="form-group col-sm-4">
+									<label for="pf_diasuteismes">Dias Ãšteis MÃªs</label>
+									<input type="number" name="pf_diasuteismes" id="pf_diasuteismes" class="form-control" min="0" max="99" mask="00">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_diasutrestantes">Dias Ãšteis Restantes</label>
+									<input type="number" name="pf_diasutrestantes" id="pf_diasutrestantes" class="form-control" min="0" max="99" mask="00">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_diasutproxmes">Dias Ãšteis PrÃ³ximo MÃªs</label>
+									<input type="number" name="pf_diasutproxmes" id="pf_diasutproxmes" class="form-control" min="0" max="99" mask="00">
+								</div>
+							</div>
+							<div class="row">
+							 	<label for="labelDiasValeTransporteMeioExpediente">Meio Expediente</label>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="pf_diasutmeioexp">Dias Ãšteis MÃªs</label>
+									<input type="number" name="pf_diasutmeioexp" id="pf_diasutmeioexp" class="form-control" min="0" max="99" mask="00">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_diasutrestmeio">Dias Ãšteis Restantes</label>
+									<input type="number" name="dgf_diasutrestmeio" id="dgf_diasutrestmeio" class="form-control" min="0" max="99" mask="00">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_diasutproxmeio">Dias Ãšteis PrÃ³ximo MÃªs</label>
+									<input type="number" name="dgf_diasutproxmeio" id="dgf_diasutproxmeio" class="form-control" min="0" max="99" mask="00">
+								</div>
+							</div>
+						</div>
+						<div id="divMotivos" class="panel-body">
+							<legend id="legendOrigemSolicitacao">Motivos</legend>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_motivoadmissao_desc_cod">Motivo AdmissÃ£o</label>
+								<input type="zoom" id="dgf_pf_motivoadmissao_desc_cod" name="dgf_pf_motivoadmissao_desc_cod" data-zoom="{
+									'maximumSelectionLength':'1',
+									'placeholder':'Escolha o Motivo',
+									'displayKey':'COD_DESC_MOTIVO',
+									'datasetId':'ds_dpf_di_r_r_pmotadmisao',
+									'fields':[
+										{
+											'field':'COD_MOTIVO',
+											'visible':'false'
+										},
+										{
+											'field':'DESC_MOTIVO',
+											'visible':'false'
+										},
+										{
+											'field':'COD_DESC_MOTIVO',
+											'label':'CÃ³digo - DescriÃ§Ã£o',
+											'standard':'true'
+										}
+									]
+								}" />
+								<input type="hidden" name="pf_motivoadmissao" id="pf_motivoadmissao" >
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_motmudsalario_desc_cod">Motivo MudanÃ§a SalÃ¡rio</label>
+								<input type="zoom" id="dgf_pf_motmudsalario_desc_cod" name="dgf_pf_motmudsalario_desc_cod" data-zoom="{
+									'maximumSelectionLength':'1',
+									'placeholder':'Escolha o Motivo',
+									'displayKey':'COD_DESC_MOTIVO',
+									'datasetId':'ds_dpf_di_r_r_pmotmudsal',
+									'fields':[
+										{
+											'field':'COD_MOTIVO',
+											'visible':'false'
+										},
+										{
+											'field':'DESC_MOTIVO',
+											'visible':'false'
+										},
+										{
+											'field':'COD_DESC_MOTIVO',
+											'label':'CÃ³digo - DescriÃ§Ã£o',
+											'standard':'true'
+										}
+									]
+								}" />
+								<input type="hidden" name="pf_motmudancasalario" id="pf_motmudancasalario">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_motmudfuncao_desc_cod">Motivo MudanÃ§a FunÃ§Ã£o</label>
+								<input type="zoom" id="dgf_pf_motmudfuncao_desc_cod" name="dgf_pf_motmudfuncao_desc_cod" data-zoom="{
+									'maximumSelectionLength':'1',
+									'placeholder':'Escolha o Motivo',
+									'displayKey':'COD_DESC_MOTIVO',
+									'datasetId':'ds_dpf_di_r_r_pmotmudfunc',
+									'fields':[
+										{
+											'field':'COD_MOTIVO',
+											'visible':'false'
+										},
+										{
+											'field':'DESC_MOTIVO',
+											'visible':'false'
+										},
+										{
+											'field':'COD_DESC_MOTIVO',
+											'label':'CÃ³digo - DescriÃ§Ã£o',
+											'standard':'true'
+										}
+									]
+								}" />
+								<input type="hidden" name="pf_motmudancafuncao" id="pf_motmudancafuncao">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_motmudcasecao_desc_cod">Motivo MudanÃ§a SeÃ§Ã£o</label>
+								<input type="zoom" id="dgf_pf_motmudcasecao_desc_cod" name="dgf_pf_motmudcasecao_desc_cod" data-zoom="{
+									'maximumSelectionLength':'1',
+									'placeholder':'Escolha o Motivo',
+									'displayKey':'COD_DESC_MOTIVO',
+									'datasetId':'ds_dpf_di_r_r_pmotmudsecao',
+									'fields':[
+										{
+											'field':'COD_MOTIVO',
+											'visible':'false'
+										},
+										{
+											'field':'DESC_MOTIVO',
+											'visible':'false'
+										},
+										{
+											'field':'COD_DESC_MOTIVO',
+											'label':'CÃ³digo - DescriÃ§Ã£o',
+											'standard':'true'
+										}
+									]
+								}" />
+								<input type="hidden" name="pf_motmudancasecao" id="pf_motmudancasecao">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_pf_hstsit_mot_desc_cod">Motivo MudanÃ§a SituaÃ§Ã£o</label>
+								<input type="zoom" id="dgf_pf_pf_hstsit_mot_desc_cod" name="dgf_pf_pf_hstsit_mot_desc_cod" data-zoom="{
+									'maximumSelectionLength':'1',
+									'placeholder':'Escolha o Motivo',
+									'displayKey':'COD_DESC_MOTIVO',
+									'datasetId':'ds_dpf_di_r_r_pmotmudsituacao',
+									'fields':[
+										{
+											'field':'COD_MOTIVO',
+											'visible':'false'
+										},
+										{
+											'field':'DESC_MOTIVO',
+											'visible':'false'
+										},
+										{
+											'field':'COD_DESC_MOTIVO',
+											'label':'CÃ³digo - DescriÃ§Ã£o',
+											'standard':'true'
+										}
+									]
+								}" />
+								<input type="hidden" name="pf_hstsit_motivo" id="pf_hstsit_motivo">
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divOrientacao">
+						<!-- ORIENTAÃ‡ÃƒO -->
+						<div class="panel-heading">
+							<h4 class="panel-title">ConclusÃ£o do Envio das InformaÃ§Ãµes</h4>
+						</div>
+						<div class="panel-body">
+							<div class="form-group col-sm-12">
+								<label for="dgf_envio_inf_concluido" class="control-label">Envio das informaÃ§Ãµes foi concluido?</label>
+								<select name="dgf_envio_inf_concluido" id="dgf_envio_inf_concluido" class="form-control">
+									<option value=""></option>
+									<option value="nao">NÃ£o</option>
+									<option value="sim">Sim</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-12">
+								<label for="dgf_textareaOrientacao" class="control-label">Mensagem</label>
+								<textarea name="dgf_textareaOrientacao" id="dgf_textareaOrientacao" class="form-control"
+									rows="5"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divDadosPessoais">
+						<!-- DADOS PESSOAIS -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Dados Pessoais</h4>
+						</div>
+						<div id="divDadosPessoaisCadastros">
+							<div class="panel-body">
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label for="pf_cpf" class="control-label">CPF</label>
+										<input type="text" name="pf_cpf" id="pf_cpf" class="form-control"
+											mask="000.000.000-00" placeholder="Ex: 000.000.000-00">
+										<input type="hidden" name="dgf_cpf" id="dgf_cpf">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_nome" class="control-label">Nome Completo</label>
+										<input type="text" name="pf_nome" id="pf_nome" class="form-control" readonly>
+										<input type="hidden" name="dgf_apelido" id="dgf_apelido">
+										<input type="hidden" name="dgf_nome_completo" id="dgf_nome_completo">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="" class="control-label">Data de Nascimento</label>
+										<input type="text" name="pf_dtnascimento" id="pf_dtnascimento"
+											class="form-control valida_datas" readonly>
+									</div>
+								</div>
+							</div>
+							<div id="divDadosPessoaisContato" class="panel-body">
+								<legend id="legendDadosPessoaisContato">Contato</legend>
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label for="pf_nomesocial" class="control-label">Nome Social</label>
+										<input type="text" name="pf_nomesocial" id="pf_nomesocial"
+											class="form-control">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_emailpessoal" class="control-label">E-mail</label>
+										<input type="text" name="pf_emailpessoal" id="pf_emailpessoal" class="form-control"
+											placeholder="Ex: email@dominio.com.br">
+									</div>
+
+									<div class="form-group col-sm-4">
+										<label for="pf_telefone1" class="control-label">Celular 1</label>
+										<input type="text" name="pf_telefone1" id="pf_telefone1" class="form-control"
+											placeholder="Ex: (00) 00000-0000" mask="(00) 00000000000">
+									</div>
+
+									<div class="form-group col-sm-4">
+										<label for="pf_telefone2" class="control-label">Telefone 2</label>
+										<input type="text" name="pf_telefone2" id="pf_telefone2" class="form-control"
+											placeholder="Ex: (00) 00000-0000" mask="(00) 00000000000">
+									</div>
+
+									<div class="form-group col-sm-4">
+										<label for="pf_telefone3" class="control-label">Telefone 3</label>
+										<input type="text" name="pf_telefone3" id="pf_telefone3" class="form-control"
+											placeholder="Ex: (00) 00000-0000" mask="(00) 00000000000">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="divDadosPessoaisFiliacao" class="panel-body">
+							<legend id="legendDadosPessoaisFiliacao">FiliaÃ§Ã£o</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_pd_mnome" class="control-label">Nome da MÃ£e</label>
+									<input type="text" name="dgf_pd_mnome" id="dgf_pd_mnome" class="form-control">
+								</div>
+								<div class="form-group col-sm-2">
+									<label for="dgf_pd_msexo" class="control-label">MÃ£e - Sexo</label>
+									<select name="dgf_pd_msexo" id="dgf_pd_msexo" class="form-control">
+										<option value="F">Feminino</option>
+										<option value="M">Masculino</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-2">
+									<label for="dgf_pd_mestcivil" class="control-label">MÃ£e - Estado Civil</label>
+									<select name="dgf_pd_mestcivil" id="dgf_pd_mestcivil" class="form-control">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_pd_pnome" class="control-label">Nome do Pai</label>
+									<input type="text" name="dgf_pd_pnome" id="dgf_pd_pnome" class="form-control">
+								</div>
+								<div class="form-group col-sm-2">
+									<label for="dgf_pd_psexo" class="control-label">Pai - Sexo</label>
+									<select name="dgf_pd_psexo" id="dgf_pd_psexo" class="form-control">
+										<option value="M">Masculino</option>
+										<option value="F">Feminino</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-2">
+									<label for="dgf_pd_pestcivil" class="control-label">Pai - Estado Civil</label>
+									<select name="dgf_pd_pestcivil" id="dgf_pd_pestcivil" class="form-control">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div id="divDadosPessoaisComplementares" class="panel-body">
+							<legend id="legendDadosPessoaisComplementares">Dados Complementares</legend>
+							<div class="row">
+								<div class="col-sm-4">
+									<label for="pf_sexo" class="control-label">Sexo</label>
+									<select name="pf_sexo" id="pf_sexo" class="form-control">
+										<option value=""></option>
+										<option value="F">Feminino</option>
+										<option value="M">Masculino</option>
+									</select>
+								</div>
+								<div class="col-sm-4">
+									<label for="pf_corraca" class="control-label">RaÃ§a/Cor</label>
+									<select name="pf_corraca" id="pf_corraca" class="form-control">
+										<option value=""></option>
+										<option value="0">IndÃ­gena</option>
+										<option value="2">Branca</option>
+										<option value="4">Preta</option>
+										<option value="6">Amarela</option>
+										<option value="8">Parda</option>
+									</select>
+									<input type="hidden" name="dgf_pf_corraca_desc" id="dgf_pf_corraca_desc"
+										class="form-control">
+								</div>
+								<div class="col-sm-4">
+									<label for="pf_estadocivil" class="control-label">Estado Civil</label>
+									<select name="pf_estadocivil" id="pf_estadocivil" class="form-control">
+										<option value=""></option>
+									</select>
+									<input type="hidden" name="dgf_pf_estadocivil_desc" id="dgf_pf_estadocivil_desc"
+										class="form-control">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_nacionalidade" class="control-label">Nacionalidade</label>
+									<select name="pf_nacionalidade" id="pf_nacionalidade" class="form-control">
+										<option value=""></option>
+									</select>
+									<input type="hidden" name="dgf_pf_nacionalidade_desc" id="dgf_pf_nacionalidade_desc"
+										value="">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_estadonatal" class="control-label">Estado Nascimento (Naturalidade)</label>
+									<select name="pf_estadonatal" id="pf_estadonatal" class="form-control">
+										<option value=""></option>
+									</select>
+									<input type="hidden" name="dgf_pf_estadonatal_desc" id="dgf_pf_estadonatal_desc" value="">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_naturalidade" class="control-label">MunicÃ­pio Nascimento (Naturalidade)</label>
+									<select name="pf_naturalidade" id="pf_naturalidade" class="form-control">
+										<option value=""></option>
+									</select>
+									<input type="hidden" name="dgf_pf_naturalidade_desc" id="dgf_pf_naturalidade_desc" value="">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_tiposang" class="control-label">Tipo SanguÃ­neo</label>
+									<select name="pf_tiposang" id="pf_tiposang" class="form-control">
+										<option value=""></option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_grauinstrucao" class="control-label">Grau InstruÃ§Ã£o (Escolaridade)</label>
+									<select name="pf_grauinstrucao" id="pf_grauinstrucao" class="form-control">
+										<option value=""></option>
+									</select>
+									<input type="hidden" name="dgf_pf_grauinstrucao_desc" id="dgf_pf_grauinstrucao_desc"
+										class="form-control">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_pf_deficiencia" class="control-label">Possui DeficiÃªncia</label>
+									<select name="dgf_pf_deficiencia" id="dgf_pf_deficiencia" class="form-control">
+										<option value=""></option>
+										<option value="1">Sim</option>
+										<option value="2">NÃ£o</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div id="divDadosPessoaisDeficiencia" class="panel-body">
+							<legend id="legendCandidataoDeficiÃªncia">DeficiÃªncia</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="pf_brpdh" class="control-label obrigatorio">Reabilitado (BR)</label>
+									<select name="pf_brpdh" id="pf_brpdh" class="form-control">
+										<option value=""></option>
+										<option value="0">NÃ£o</option>
+										<option value="7">Sim</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_deficientefisico" class="control-label obrigatorio">Deficiente FÃ­sico</label>
+									<select name="pf_deficientefisico" id="pf_deficientefisico" class="form-control">
+										<option value=""></option>
+										<option value="0">NÃ£o</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_deficienteauditivo" class="control-label obrigatorio">Deficiente Auditivo</label>
+									<select name="pf_deficienteauditivo" id="pf_deficienteauditivo"
+										class="form-control">
+										<option value=""></option>
+										<option value="0">NÃ£o</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_deficientefala" class="control-label obrigatorio">Deficiente da Fala</label>
+									<select name="pf_deficientefala" id="pf_deficientefala" class="form-control">
+										<option value=""></option>
+										<option value="0">NÃ£o</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_deficientevisual" class="control-label obrigatorio">Deficiente Visual</label>
+									<select name="pf_deficientevisual" id="pf_deficientevisual" class="form-control">
+										<option value=""></option>
+										<option value="0">NÃ£o</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_deficientemental" class="control-label obrigatorio">Deficiente Mental</label>
+									<select name="pf_deficientemental" id="pf_deficientemental" class="form-control">
+										<option value=""></option>
+										<option value="0">NÃ£o</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_deficienteintelectual" class="control-label obrigatorio">Deficiente Intelectual</label>
+									<select name="pf_deficienteintelectual" id="pf_deficienteintelectual"
+										class="form-control">
+										<option value=""></option>
+										<option value="0">NÃ£o</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_cotapcd" class="control-label">Preenche cota de PCD</label>
+									<select name="pf_cotapcd" id="pf_cotapcd" class="form-control">
+										<option value=""></option>
+										<option value="0">NÃ£o</option>
+										<option value="1">Sim</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-12">
+									<label for="pf_deficienteobservacao" class="control-label">ObservaÃ§Ã£o Sobre DeficiÃªncia</label>
+									<input type="text" name="pf_deficienteobservacao" id="pf_deficienteobservacao"
+										class="form-control">
+								</div>
+							</div>
+						</div>
+						<div id="divDadosPessoaisEstrangeiro" style="display: none;" class="panel-body">
+							<legend id="legendDadosPessoaisCandidatoEstrangeiro">InformaÃ§Ãµes se estrangeiro</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="pf_codclassiftrabestrang" class="control-label obrigatorio">ClassificaÃ§Ã£o do Estrangeiro</label>
+									<select name="pf_codclassiftrabestrang" id="pf_codclassiftrabestrang" class="form-control">
+										<option value=""></option>
+										<option value="01">Visto Permanente</option>
+										<option value="02">Visto TemporÃ¡rio</option>
+										<option value="03">Asilado</option>
+										<option value="04">Refugiado</option>
+										<option value="05">Solicitante de RefÃºgio</option>
+										<option value="06">Residente Fora do Brasil</option>
+										<option value="07">Deficiente FÃ­sico e com mais de 51 anos</option>
+										<option value="08">Com ResidÃªncia ProvisÃ³ria e Anistiado, em SituaÃ§Ã£o Irregular</option>
+										<option value="09">PermanÃªncia no Brasil em RazÃ£o de Filhos ou ConjÃ»gueBrasileiro</option>
+										<option value="10">Beneficiado pelo acordo entre paÃ­ses do Mercosul</option>
+										<option value="11">Dependente de agente diplomÃ¡tico e/ou consular de paÃ­ses que mantÃ©m convÃªnio de reciprocidade</option>
+										<option value="12">Beneficiado pelo tratado de amizade, CooperaÃ§Ã£o e Consulta entre a RepÃºblica Federativa do Brasil</option>
+									</select>
+									<input type="hidden" name="dgf_pf_classestrang_desc" id="dgf_pf_classestrang_desc"
+										class="form-control">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_nroreggeral" class="control-label obrigatorio">Registro Nacional MigratÃ³rio</label>
+									<input type="text" name="pf_nroreggeral" id="pf_nroreggeral" class="form-control" maxlength="15">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_orgemissorrne" class="control-label obrigatorio">UF emissor</label>
+									<input type="text" name="pf_orgemissorrne" id="pf_orgemissorrne" class="form-control">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_dtemissaorne" class="control-label obrigatorio">EmissÃ£o do RNM</label>
+									<input type="text" name="pf_dtemissaorne" id="pf_dtemissaorne" class="form-control valida_datas"
+										placeholder="Ex: 00/00/0000">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_dtvencident" class="control-label obrigatorio">Vencimento do RNM</label>
+									<input type="text" name="pf_dtvencident" id="pf_dtvencident" class="form-control valida_datas"
+										placeholder="Ex: 00/00/0000">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_paisorigem" class="control-label obrigatorio">PaÃ­s
+										Origem</label>
+									<select name="pf_paisorigem" id="pf_paisorigem" class="form-control">
+										<option value=""></option>
+									</select>
+									<input type="hidden" name="dgf_pf_paisorigem_desc" id="dgf_pf_paisorigem_desc"
+										class="form-control">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_datachegada" class="control-label obrigatorio">Data de Chegada ao Brasil</label>
+									<input type="text" name="pf_datachegada" id="pf_datachegada" class="form-control valida_datas"
+										placeholder="Ex: 00/00/0000">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_conjugebrasil" class="control-label obrigatorio">Casado(a) com brasileiro(a)</label>
+									<select name="pf_conjugebrasil" id="pf_conjugebrasil" class="form-control">
+										<option value=""></option>
+										<option value="1">Sim</option>
+										<option value="0">NÃ£o</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pf_nrofilhosbrasil" class="control-label obrigatorio">Nro. Filhos Brasileiros</label>
+									<input type="number" name="pf_nrofilhosbrasil" id="pf_nrofilhosbrasil" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div id="divDadosPessoaisDocumentos">
+							<div id="divDadosPessoaisDocumentoRG" class="panel-body">
+								<legend id="legendDadosPessoaisDocumentoRG">RG</legend>
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label for="pf_cartidentidade" class="control-label">Nro. Identidade</label>
+										<input type="text" name="pf_cartidentidade" id="pf_cartidentidade" class="form-control"
+											placeholder="Ex: 388598373" maxlength="15">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_dtemissaoident" class="control-label">Data de EmissÃ£o do RG</label>
+										<input type="text" name="pf_dtemissaoident" id="pf_dtemissaoident" class="form-control valida_datas" placeholder="Ex: 00/00/0000">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_ufcartident" class="control-label">Estado(UF) de EmissÃ£o do RG</label>
+										<select name="pf_ufcartident" id="pf_ufcartident" class="form-control">
+											<option value=""></option>
+										</select>
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_orgemissorident" class="control-label">OrgÃ£o Emissor do RG</label>
+										<select name="pf_orgemissorident" id="pf_orgemissorident" class="form-control">
+											<option value=""></option>
+										</select>
+										<input type="hidden" name="dgf_pf_orgemissident_desc" id="dgf_pf_orgemissident_desc"
+											class="form-control" maxlength="15">
+									</div>
+								</div>
+							</div>
+							<div id="divDadosPessoaisDocumentoPassaporte" class="panel-body">
+								<legend id="legendDadosPessoaisDocumentoPassaporte">Passaporte</legend>
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label for="pf_npassaporte" class="control-label">NÃºmero do Passaporte</label>
+										<input type="text" name="pf_npassaporte" id="pf_npassaporte"
+											class="form-control" maxlength="15">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_dtemisspassaporte" class="control-label">EmissÃ£o do passaporte</label>
+										<input type="text" name="pf_dtemisspassaporte" id="pf_dtemisspassaporte"
+											class="form-control valida_datas" placeholder="Ex: 00/00/0000">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_dtvalpassaporte" class="control-label">Validade do Passaporte</label>
+										<input type="text" name="pf_dtvalpassaporte" id="pf_dtvalpassaporte"
+											class="form-control" placeholder="Ex: 00/00/0000">
+									</div>
+								</div>
+							</div>
+							<div id="divDadosPessoaisDocumentoPIS" class="panel-body">
+								<legend id="legendDadosPessoaisDocumentoPIS">PIS</legend>
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label for="dgf_pf_primeiro_emprego" class="control-label">Ã‰ primeiro emprego e nÃ£o possui PIS/CNIS?</label>
+										<select name="dgf_pf_primeiro_emprego" id="dgf_pf_primeiro_emprego"
+											class="form-control">
+											<option value="nao">NÃ£o</option>
+											<option value="sim">Sim</option>
+										</select>
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_pispasep" class="control-label">PIS</label>
+										<input type="text" name="pf_pispasep" id="pf_pispasep" class="form-control"
+											placeholder="Ex: 11850277421" mask="00000000000">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_ano1emprego" class="control-label">Ano Primeiro Emprego</label>
+										<input type="text" name="pf_ano1emprego" id="pf_ano1emprego" class="form-control"
+											placeholder="Ex: 2023" mask="0000">
+									</div>
+								</div>
+							</div>
+							<div id="divDadosPessoaisDocumentoCTPS" class="panel-body">
+								<legend id="legendDadosPessoaisDocumentoCTPS">Carteira de Trabalho (CTPS)</legend>
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label for="dgf_pf_carteiratrab_digital" class="control-label">Carteira Digital</label>
+										<select name="dgf_pf_carteiratrab_digital" id="dgf_pf_carteiratrab_digital"
+											class="form-control">
+											<option value=""></option>
+											<option value="nao">NÃ£o</option>
+											<option value="sim">Sim</option>
+										</select>
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_carteiratrab" class="control-label">Nro. CTPS</label>
+										<input type="text" name="pf_carteiratrab" id="pf_carteiratrab"
+											class="form-control" placeholder="Ex: 1234567" maxlength="10">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_seriecarttrab" class="control-label">SÃ©rie CTPS</label>
+										<input type="text" name="pf_seriecarttrab" id="pf_seriecarttrab" class="form-control"
+											placeholder="Ex: 150" maxlength="5">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_ufcarttrab" class="control-label">Estado(UF) Carteira Profissional</label>
+										<select name="pf_ufcarttrab" id="pf_ufcarttrab" class="form-control">
+											<option value=""></option>
+										</select>
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_dtcarttrab" class="control-label">Data de emissÃ£o CTPS</label>
+										<input type="text" name="pf_dtcarttrab" id="pf_dtcarttrab"
+											class="form-control valida_datas">
+									</div>
+								</div>
+							</div>
+							<div id="divDadosPessoaisDocumentoCNH" class="panel-body">
+								<legend id="legendDadosPessoaisDocumentoCNH">Carteira de Motorista (CNH)</legend>
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label for="pf_cartmotorista" class="control-label">Nro. HabilitaÃ§Ã£o</label>
+										<input type="text" name="pf_cartmotorista" id="pf_cartmotorista" class="form-control"
+											placeholder="Ex: 1234567890" maxlength="15">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_orgemissorcnh" class="control-label">OrgÃ£o Emissor CNH</label>
+										<input type="text" name="pf_orgemissorcnh" id="pf_orgemissorcnh" class="form-control"
+											placeholder="Ex: Detran" maxlength="20">
+									</div>
+
+									<div class="form-group col-sm-4">
+										<label for="pf_dtemissaocnh" class="control-label">Data de EmissÃ£o CNH</label>
+										<input type="text" name="pf_dtemissaocnh" id="pf_dtemissaocnh" class="form-control valida_datas" placeholder="Ex: 00/00/0000">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_dataprimeiracnh" class="control-label">Data Primeira CNH</label>
+										<input type="text" name="pf_dataprimeiracnh" id="pf_dataprimeiracnh" class="form-control valida_datas" placeholder="Ex: 00/00/0000">
+									</div>
+
+									<div class="form-group col-sm-4">
+										<label for="pf_dtvenchabilit" class="control-label">Data de Venc HabilitaÃ§Ã£o</label>
+										<input type="text" name="pf_dtvenchabilit" id="pf_dtvenchabilit" class="form-control valida_datas" placeholder="Ex: 00/00/0000">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_tipocarthabilit" class="control-label">Categoria Carteira de HabilitaÃ§Ã£o</label>
+										<select name="pf_tipocarthabilit" id="pf_tipocarthabilit" class="form-control">
+											<option value=""></option>
+											<option value="A">A</option>
+											<option value="B">B</option>
+											<option value="C">C</option>
+											<option value="D">D</option>
+											<option value="E">E</option>
+											<option value="AB">AB</option>
+											<option value="AC">AC</option>
+											<option value="AD">AD</option>
+											<option value="AE">AE</option>
+										</select>
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_ufcnh" class="control-label">Estado(UF) CNH</label>
+										<select name="pf_ufcnh" id="pf_ufcnh" class="form-control">
+											<option value=""></option>
+										</select>
+									</div>
+
+								</div>
+							</div>
+							<div id="divDadosPessoaisDocumentoTituloEleitor" class="panel-body">
+								<legend id="legendDadosPessoaisDocumentoTituloEleitor">TÃ­tulo de Eleitor</legend>
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label for="dgf_pf_titulodigital" class="control-label">TÃ­tulo de Eleitor Digital</label>
+										<select name="dgf_pf_titulodigital" id="dgf_pf_titulodigital"
+											class="form-control">
+											<option value="nao">NÃ£o</option>
+											<option value="sim">Sim</option>
+										</select>
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_tituloeleitor" class="control-label">Nro. Titulo de Eleitor</label>
+										<input type="text" name="pf_tituloeleitor" id="pf_tituloeleitor"
+											class="form-control" maxlength="14">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_zonatiteleitor" class="control-label">TÃ­tulo de Eleitor Zona</label>
+										<input type="text" name="pf_zonatiteleitor" id="pf_zonatiteleitor"
+											class="form-control" maxlength="6">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_secaotiteleitor" class="control-label">SeÃ§Ã£o Eleitoral</label>
+										<input type="text" name="pf_secaotiteleitor" id="pf_secaotiteleitor"
+											class="form-control" maxlength="6">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_dttiteleitor" class="control-label">Dt. Tit. Eleitor</label>
+										<input type="text" name="pf_dttiteleitor" id="pf_dttiteleitor"
+											class="form-control valida_datas">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_esteleit" class="control-label">Estado de EmissÃ£o do TÃ­tulo de Eleitor</label>
+										<select name="pf_esteleit" id="pf_esteleit" class="form-control"></select>
+									</div>
+								</div>
+							</div>
+							<div id="divDadosPessoaisDocumentoReservista" class="panel-body">
+								<legend id="DadosPessoaisDocumentoReservista">Reservista</legend>
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label for="pf_certifreserv" class="control-label">Nro. Certificado reservista</label>
+										<input type="text" name="pf_certifreserv" id="pf_certifreserv"
+											class="form-control" maxlength="30">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_categmilitar" class="control-label">Categoria Carteira de Reservista</label>
+										<select name="pf_categmilitar" id="pf_categmilitar" class="form-control">
+											<option value=""></option>
+											<option value="1">1 categoria - quando possuÃ­rem instruÃ§Ã£o militar suficiente</option>
+											<option value="2">2 categoria - quando possuÃ­rem instruÃ§Ã£o militar insuficiente</option>
+											<option value="3">3 categoria - quando nÃ£o possuÃ­rem instruÃ§Ã£o militar
+											</option>
+										</select>
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_csm" class="control-label">CircunscriÃ§Ã£o Militar</label>
+										<input type="text" name="pf_csm" id="pf_csm"
+											class="form-control" maxlength="10">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_rm" class="control-label">RegiÃ£o Militar</label>
+										<input type="text" name="pf_rm" id="pf_rm"
+											class="form-control" maxlength="10">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_dtexpcml" class="control-label">Data EmissÃ£o Certificado Militar</label>
+										<input type="text" name="pf_dtexpcml" id="pf_dtexpcml"
+											class="form-control" maxlength="10">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_exped" class="control-label">OrgÃ£o de ExpediÃ§Ã£o</label>
+										<input type="text" name="pf_exped" id="pf_exped"
+											class="form-control" maxlength="10">
+									</div>
+									<div class="form-group col-sm-4">
+										<label for="pf_sitmilitar" class="control-label">SituaÃ§Ã£o Militar</label>
+										<select name="pf_sitmilitar" id="pf_sitmilitar" class="form-control">
+											<option value=""></option>
+											<option value="Alistado">Alistado</option>
+											<option value="Dispensado">Dispensado</option>
+											<option value="Reservista">Reservista</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div id="divDadosPessoaisDocumentoCartaoSus" class="panel-body">
+								<legend id="DadosPessoaisDocumentoCartaoSus">CartÃ£o SUS</legend>
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label for="pf_numerocartaosus">NÃºmero CartÃ£o SUS</label>
+										<input type="text" name="pf_numerocartaosus" id="pf_numerocartaosus"
+											class="form-control">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="divRegistroProfissional" class="panel-body">
+							<legend id="legendRegistroProfissional">Registro Profissional</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="pp_codorgaoclasse" class="control-label">Ã“rgÃ£o de Classe</label>
+									<select name="pp_codorgaoclasse" id="pp_codorgaoclasse" class="form-control">
+										<option value=""></option>
+									</select>
+									<input type="hidden" name="dgf_pp_codorgaoclasse_desc"
+										id="dgf_pp_codorgaoclasse_desc">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="pp_codufregistro" class="control-label">UF Ã“rgÃ£o de Classe</label>
+									<select name="pp_codufregistro" id="pp_codufregistro" class="form-control">
+										<option value=""></option>
+									</select>
+								</div>
+
+								<div class="form-group col-sm-4">
+									<label for="pp_numeroregistro" class="control-label">NÃºmero de registro</label>
+									<input type="text" name="pp_numeroregistro" id="pp_numeroregistro"
+										class="form-control" maxlength="15">
+								</div>
+
+								<div class="form-group col-sm-4">
+									<label for="pp_dataemissao" class="control-label">Data de EmissÃ£o</label>
+									<input type="text" name="pp_dataemissao" id="pp_dataemissao"
+										class="form-control valida_datas" placeholder="Ex: 00/00/0000">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divDadosEndereco">
+						<!-- DADOS ENDEREÃ‡O -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Dados do EndereÃ§o</h4>
+						</div>
+						<div class="panel-body">
+							<div class="form-group col-sm-4">
+								<label for="pf_cep" class="control-label">CEP</label>
+								<input type="text" name="pf_cep" id="pf_cep" class="form-control" mask="00.000-000">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_codtiporua" class="control-label">Tipo da Rua</label>
+								<select name="pf_codtiporua" id="pf_codtiporua" class="form-control endereco">
+									<option value=""></option>
+								</select>
+								<input type="hidden" name="dgf_pf_codtiporua_desc" id="dgf_pf_codtiporua_desc">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_rua" class="control-label">Rua</label>
+								<input type="text" name="pf_rua" id="pf_rua"
+									class="form-control endereco">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_numero" class="control-label">NÃºmero</label>
+								<input type="text" name="pf_numero" id="pf_numero"
+									class="form-control endereco" maxlength="8">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_complemento" class="control-label">Complemento</label>
+								<input type="text" name="pf_complemento" id="pf_complemento" class="form-control endereco"
+									maxlength="60">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_codtipobairro" class="control-label">Tipo de Bairro</label>
+								<select name="pf_codtipobairro" id="pf_codtipobairro" class="form-control endereco">
+									<option value=""></option>
+								</select>
+								<input type="hidden" name="dgf_pf_codtipobairro_desc" id="dgf_pf_codtipobairro_desc">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_bairro" class="control-label">Bairro</label>
+								<input type="text" name="pf_bairro" id="pf_bairro" class="form-control endereco"
+									maxlength="30">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_estado" class="control-label">Estado(UF)</label>
+								<select name="pf_estado" id="pf_estado" class="form-control endereco">
+									<option value=""></option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_cidade" class="control-label">MunicÃ­pio</label>
+								<select name="pf_cidade" id="pf_cidade" class="form-control endereco">
+									<option value=""></option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="pf_pais" class="control-label">PaÃ­s</label>
+								<select name="pf_pais" id="pf_pais" class="form-control endereco">
+									<option value=""></option>
+								</select>
+								<input type="hidden" name="dgf_pf_pais_desc" id="dgf_pf_pais_desc">
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divDadosDependentes">
+						<!-- DADOS DOS DEPENDENTES -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Dados dos Dependentes</h4>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="form-group col-sm-12 fs-txt-center">
+									<input type="button" class="btn btn-info btnAdicionarDependente"
+										name="btnAdicionarDependente" value="Incluir Dependente">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-12">
+									<div class="panel">
+										<div class="panel-body table-responsive">
+											<table id="tbDependente" tablename="tbDependente"
+												class="table table-striped" noaddbutton=true nodeletebutton=true>
+												<thead>
+													<tr>
+														<th class="fs-txt-center">Dependente</th>
+														<th class="fs-txt-center hidden-xs">&nbsp;</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="fs-no-margin fs-no-padding col-sm-11"
+															style="padding: 5px !important">
+															<i id="spanRemover" name="spanRemover"
+																style="color: darkred;"
+																class="fluigicon fluigicon-remove-circle icon-lg fs-txt-center fs-cursor-pointer visible-xs-block"
+																onclick="fnCustomDelete(this);"></i>
+															<div class="row">
+																<div class="col-sm-4">
+																	<label for="pd_cpf"
+																		class="control-label">CPF</label>
+																	<input type="text" name="pd_cpf" id="pd_cpf"
+																		class="form-control" mask="000.000.000-00"
+																		placeholder="Ex: 000.000.000-00">
+																	<input type="hidden" name="dgf_depend_cpf" id="dgf_depend_cpf"
+																		class="form-control">
+																</div>
+																<div class="col-sm-8">
+																	<label for="pd_nome"
+																		class="control-label">Nome</label>
+																	<input type="text" name="pd_nome" id="pd_nome"
+																		class="form-control">
+																	<input type="hidden" name="dgf_depend_nome" id="dgf_depend_nome"
+																		class="form-control">	
+																</div>
+																<div class="col-sm-4">
+																	<label for="pd_cartidentidade"
+																		class="control-label">RG</label>
+																	<input type="text" name="pd_cartidentidade" id="pd_cartidentidade"
+																		class="form-control" maxlength="15">
+																</div>
+																<input type="hidden" name="dgf_pd_idade" id="dgf_pd_idade"
+																	class="form-control">
+															</div>
+															<div class="row">
+																<div class="col-sm-4">
+																	<label for="pd_dtnascimento" class="control-label">Data
+																		de Nascimento</label>
+																	<input type="text" name="pd_dtnascimento"
+																		id="pd_dtnascimento" class="form-control valida_datas"
+																		placeholder="Ex: 00/00/0000">
+																</div>
+																<div class="col-sm-4">
+																	<label for="pd_sexo"
+																		class="control-label">Sexo</label>
+																	<select name="pd_sexo" id="pd_sexo"
+																		class="form-control">
+																		<option value="M">Masculino</option>
+																		<option value="F">Feminino</option>
+																	</select>
+																</div>
+																<div class="col-sm-4">
+																	<label for="pd_estadocivil"
+																		class="control-label">Estado Civil</label>
+																	<select name="pd_estadocivil" id="pd_estadocivil"
+																		class="form-control">
+																		<option value=""></option>
+																	</select>
+																	<input type="hidden" name="dgf_pd_estadocivil" id="dgf_pd_estadocivil"
+																		class="form-control">
+																	<input type="hidden" name="dgf_pd_estadocivil_desc" id="dgf_pd_estadocivil_desc"
+																	class="form-control">
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-4">
+																	<label for="pd_grauparentesco"
+																		class="control-label">Parentesco</label>
+																	<select name="pd_grauparentesco" id="pd_grauparentesco"
+																		class="form-control">
+																		<option value=""></option>
+																		<option value="1">Filho(a) VÃ¡lido</option>
+																		<option value="3">Filho(a) InvÃ¡lido</option>
+																		<option value="5">CÃ´njuge</option>
+																		<option value="6">Pai</option>
+																		<option value="7">MÃ£e</option>
+																		<option value="8">Sogro(a)</option>
+																		<option value="9">Outros</option>
+																		<option value="A">AvÃ´(Ã³)</option>
+																		<option value="B">Incapaz</option>
+																		<option value="C">Companheiro(a)</option>
+																		<option value="D">Enteado(a)</option>
+																		<option value="E">Excluido</option>
+																		<option value="G">Ex-conjuge</option>
+																		<option value="I">IrmÃ£(o) VÃ¡lido</option>
+																		<option value="M">Menor Pobre</option>
+																		<option value="N">IrmÃ£(o) InvÃ¡lido</option>
+																		<option value="P">Ex-Companheiro(a)</option>
+																		<option value="S">Ex-sogro(a)</option>
+																		<option value="T">Neto(a)</option>
+																		<option value="X">Ex-enteado(a)</option>
+																	</select>
+																	<input type="hidden" name="dgf_pd_grauparentesco" id="dgf_pd_grauparentesco"
+																		class="form-control">
+																	<input type="hidden" name="dgf_pd_grauparentesco_desc" id="dgf_pd_grauparentesco_desc"
+																	class="form-control">
+																</div>
+																<div class="col-sm-4">
+																	<label for="dgf_pd_incirrf" class="control-label">Tipo Dependente IR</label>
+																	<select name="dgf_pd_incirrf" id="dgf_pd_incirrf"
+																		class="form-control">
+																		<option value=""></option>
+																		<option value="1">Sem Limite de Idade (cÃ´njuge ou portador de deficiÃªncia)</option>
+																		<option value="2">AtÃ© 21 anos</option>
+																		<option value="3">De 21 a 24 anos se for estudante</option>
+																		<option value="4">NÃ£o Ã© dependente para IR</option>
+																	</select>
+																	<input type="hidden" name="dgf_pd_ir_desc" id="dgf_pd_ir_desc"
+																		class="form-control">
+																	<input type="hidden" name="pd_incirrf" id="pd_incirrf"
+																		class="form-control">
+																</div>
+																<div class="col-sm-4">
+																	<label for="pd_dataentregacertidao"
+																		class="control-label">Data de Entrega CertidÃ£o</label>
+																	<input type="text" name="pd_dataentregacertidao"
+																		id="pd_dataentregacertidao" class="form-control valida_datas"
+																		placeholder="Ex: 00/00/0000">
+																</div>
+																<div class="col-sm-4">
+																	<label for="dgf_pd_cartaovacina"
+																		class="control-label">Entregou CartÃ£o Vacina</label>
+																	<select name="dgf_pd_cartaovacina" id="dgf_pd_cartaovacina"
+																		class="form-control">
+																		<option value=""></option>
+																		<option value="0">NÃ£o</option>
+																		<option value="1">Sim</option>
+																	</select>
+																	<input type="hidden" name="dgf_pd_cartaovacina_desc" id="dgf_pd_cartaovacina_desc"
+																		class="form-control">
+																	<input type="hidden" name="pd_cartaovacina" id="pd_cartaovacina"
+																		class="form-control">
+																</div>
+																<div class="col-sm-4">
+																	<label for="dgf_pd_freqescolar"
+																		class="control-label">Entregou Comprov. Frequencia Escolar</label>
+																	<select name="dgf_pd_freqescolar" id="dgf_pd_freqescolar"
+																		class="form-control">
+																		<option value=""></option>
+																		<option value="0">NÃ£o</option>
+																		<option value="1">Sim</option>
+																	</select>
+																	<input type="hidden" name="dgf_pd_freqescolar_desc" id="dgf_pd_freqescolar_desc"
+																		class="form-control">
+																	<input type="hidden" name="pd_freqescolar" id="pd_freqescolar"
+																		class="form-control">
+																</div>
+																<div class="col-sm-4">
+																	<label for="dgf_pd_incsalfam"
+																		class="control-label">Tipo Dependente SalÃ¡rio FamÃ­lia</label>
+																	<select name="dgf_pd_incsalfam" id="dgf_pd_incsalfam"
+																		class="form-control">
+																		<option value=""></option>
+																		<option value="1">Sem Limite de Idade (portador de deficiÃªncia)</option>
+																		<option value="2">AtÃ© 14 anos</option>
+																		<option value="3">NÃ£o Ã© dependente para salÃ¡rio famÃ­lia</option>
+																	</select>
+																	<input type="hidden" name="dgf_pd_incsalfam_desc" id="dgf_pd_incsalfam_desc"
+																		class="form-control">
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-4">
+																	<label for="pd_incsalfam"
+																		class="control-label">ForÃ§ar IncidÃªncia de SalÃ¡rio FamÃ­lia</label>
+																	<select name="pd_incsalfam" id="pd_incsalfam"
+																		class="form-control">
+																		<option value=""></option>
+																		<option value="0">NÃ£o</option>
+																		<option value="1">Sim</option>
+																	</select>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-4">
+																	<label for="dgf_pd_incassistmedica"
+																		class="control-label">Plano de SaÃºde</label>
+																	<select name="dgf_pd_incassistmedica" id="dgf_pd_incassistmedica"
+																		class="form-control">
+																		<option value=""></option>
+																		<option value="1">Sim</option>
+																		<option value="0">NÃ£o</option>
+																	</select>
+																	<input type="hidden" name="pd_incassistmedica" id="pd_incassistmedica"
+																		class="form-control">
+																	<input type="hidden" name="dgf_pd_incassistmedica_desc" id="dgf_pd_incassistmedica_desc"
+																		class="form-control">
+																</div>
+																<div class="col-sm-4">
+																	<label for="pd_mnome" class="control-label">Nome
+																		da MÃ£e</label>
+																	<input type="text" name="pd_mnome" id="pd_mnome"
+																		class="form-control">
+																</div>
+																<div class="form-group col-sm-4">
+																	<label for="pd_numerocartaosus">NÃºmero CartÃ£o
+																		SUS</label>
+																	<input type="text" name="pd_numerocartaosus"
+																		id="pd_numerocartaosus" class="form-control">
+																</div>
+																<div class="form-group col-sm-4">
+																	<label for="pd_observacao">ObservaÃ§Ã£o</label>
+																	<input type="text" name="pd_observacao"
+																		id="pd_observacao" class="form-control">
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12" style="display: none;">
+																	<label for="pd_tipodependesocial" class="control-label">Tipo Dependente eSocial</label>
+																	<select name="pd_tipodependesocial" id="pd_tipodependesocial"
+																		class="form-control">
+																		<option value=""></option>
+																		<option value="01">CÃ´njuge</option>
+																		<option value="02">Companheiro(a) com o(a) qual
+																			tenha filho ou viva hÃ¡ mais de 5 (cinco)
+																			anos ou possua DeclaraÃ§Ã£o de UniÃ£o EstÃ¡vel
+																		</option>
+																		<option value="03">Filho(a) ou enteado(a)
+																		</option>
+																		<option value="04">Filho(a) ou enteado(a)
+																			universitÃ¡rio(a) ou cursando escola tÃ©cnica
+																			de 2Âº grau</option>
+																		<option value="05">Filho(a) ou enteado(a) em
+																			qualquer idade, quando incapacitado fÃ­sica
+																			e/ou mentalmente para o trabalho</option>
+																		<option value="06">IrmÃ£o(Ã£), neto(a) ou
+																			bisneto(a) sem arrimo dos pais, do(a) qual
+																			detenha a guarda judicial</option>
+																		<option value="07">IrmÃ£o(Ã£), neto(a) ou
+																			bisneto(a) sem arrimo dos pais se ainda
+																			estiver cursando estabelecimento de nÃ­vel
+																			superior ou escola tÃ©cnica de 2Âº grau, desde
+																			que tenha detido sua guarda judicial
+																		</option>
+																		<option value="08">IrmÃ£o(Ã£), neto(a) ou
+																			bisneto(a) sem arrimo dos pais, do(a) qual
+																			detenha a guarda judicial, em qualquer
+																			idade, quando incapacitado fÃ­sica e/ou
+																			mentalmente para o trabalho</option>
+																		<option value="09">Pais, avÃ³s e bisavÃ³s</option>
+																		<option value="10">Menor pobre que crie e eduque
+																			e do qual detenha a guarda judicial</option>
+																		<option value="11">A pessoa absolutamente
+																			incapaz, da qual seja tutor ou curador
+																		</option>
+																		<option value="12">Ex-cÃ´njuge</option>
+																		<option value="13">Agregado\Outros</option>
+																	</select>
+																	<input type="hidden" name="dgf_pd_tipodependesocial_desc"
+																		id="dgf_pd_tipodependesocial_desc" class="form-control">
+																</div>
+															</div>
+															<div class="row" id="divBeneficiosDependente">
+																<div class="form-group col-sm-4">
+																	<label for="dgf_beneficio1_depen"
+																		class="control-label">BenefÃ­cio 1</label>
+																	<select name="dgf_beneficio1_depen"
+																		id="dgf_beneficio1_depen"
+																		class="form-control"></select>
+																</div>
+																<div class="form-group col-sm-4">
+																	<label for="dgf_beneficio2_depen"
+																		class="control-label">BenefÃ­cio 2</label>
+																	<select name="dgf_beneficio2_depen"
+																		id="dgf_beneficio2_depen"
+																		class="form-control"></select>
+																</div>
+																<div class="form-group col-sm-4">
+																	<label for="dgf_beneficio3_depen"
+																		class="control-label">BenefÃ­cio 3</label>
+																	<select name="dgf_beneficio3_depen"
+																		id="dgf_beneficio3_depen"
+																		class="form-control"></select>
+																</div>
+																<div class="form-group col-sm-4">
+																	<label for="dgf_beneficio4_depen"
+																		class="control-label">BenefÃ­cio 4</label>
+																	<select name="dgf_beneficio4_depen"
+																		id="dgf_beneficio4_depen"
+																		class="form-control"></select>
+																</div>
+																<div class="form-group col-sm-4">
+																	<label for="dgf_beneficio5_depen"
+																		class="control-label">BenefÃ­cio 5</label>
+																	<select name="dgf_beneficio5_depen"
+																		id="dgf_beneficio5_depen"
+																		class="form-control"></select>
+																</div>
+															</div>
+														</td>
+														<td class="fs-no-margin fs-no-padding hidden-xs"
+															style="width: 5%;">
+															<i id="spanRemover" name="spanRemover"
+																style="color: darkred;"
+																class="fluigicon fluigicon-remove-circle icon-lg fs-txt-center fs-cursor-pointer"
+																onclick="fnCustomDelete(this);"></i>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-sm-12 fs-txt-center">
+									<input type="button" class="btn btn-info btnAdicionarDependente down hide"
+										value="Incluir Dependente">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divDadosValeTransporte">
+						<!-- DADOS VALE TRANSPORTE -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Dados do Vale Transporte</h4>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_deseja_beneficio_vt" class="control-label">Deseja vale transporte?</label>
+									<select name="dgf_deseja_beneficio_vt" id="dgf_deseja_beneficio_vt" class="form-control">
+										<option value=""></option>
+										<option value="nao">NÃ£o</option>
+										<option value="sim">Sim</option>
+									</select>
+								</div>
+							</div>
+							<div id="divDadosValeTransporteLinhasTarifas" style="display: none;">
+								<div class="row">
+									<div class="form-group col-sm-12 fs-txt-center camposTvManual">
+										<input type="button" class="btn btn-info btnAdicionarBeneficio up empresa"
+											value="Incluir ida para o trabalho">
+										<div class="form-group col-sm-12 fs-txt-center visible-xs-block"><br></div>
+										<input type="button" class="btn btn-info btnAdicionarBeneficio up residencia"
+											value="Incluir ida para residÃªncia">
+									</div>
+									<div class="form-group col-sm-12 fs-txt-center camposVtIntegracao">
+										<input type="button" class="btn btn-info btnAdicionarBeneficio up"
+											value="Incluir linha">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-sm-12">
+										<div class="panel">
+											<div class="panel-body table-responsive">
+												<table id="tbValeTranporte" tablename="tbValeTranporte" class="table table-striped"
+													noaddbutton=true nodeletebutton=true>
+													<thead>
+														<tr>
+															<th class="fs-txt-center">Linhas e Tarifas</th>
+															<th class="fs-txt-center">&nbsp;</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="fs-no-margin fs-no-padding col-sm-11"
+																style="padding: 5px !important">
+																<i id="spanRemoverBeneficio" name="spanRemoverBeneficio"
+																	style="color: darkred;"
+																	class="fluigicon fluigicon-remove-circle icon-lg fs-txt-center fs-cursor-pointer visible-xs-block"
+																	onclick="fnCustomDelete(this);"></i>
+																<div class="row">
+																	<div class="camposTvManual">
+																		<div class="col-sm-6">
+																			<label for="dgf_pv_destino"
+																				class="control-label">Destino</label>
+																			<select name="dgf_pv_destino"
+																				id="dgf_pv_destino"
+																				class="form-control">
+																				<option value="residencia">PARA
+																					RESIDÃŠNCIA</option>
+																				<option value="empresa">PARA EMPRESA
+																				</option>
+																			</select>
+																		</div>
+																		<div class="col-sm-6">
+																			<label for="dgf_pv_tipo"
+																				class="control-label">Tipo</label>
+																			<select name="dgf_pv_tipo" id="dgf_pv_tipo"
+																				class="form-control">
+																				<option value="onibusUrbano">Ã”NIBUS
+																					MUNICIPAL</option>
+																				<option value="onibusInterurbano">Ã”NIBUS
+																					INTERMUNICIPAL</option>
+																				<option value="integrancaoBilheteUnico">
+																					INTEGRAÃ‡ÃƒO (Ã”NIBUS+METRO+TREM)
+																				</option>
+																				<option value="metro">METRÃ”</option>
+																				<option value="trem">TREM</option>
+																				<option value="balsa">BALSA</option>
+																				<option value="circular">CIRCULAR
+																				</option>
+																			</select>
+																		</div>
+																		<div class="col-sm-4">
+																			<label for="dgf_pv_codlinha"
+																				class="control-label">NÃºmero da
+																				Linha</label>
+																			<input type="text" name="dgf_pv_codlinha"
+																				id="dgf_pv_codlinha"
+																				class="form-control">
+																		</div>
+
+																		<div class="col-sm-6">
+																			<label for="dgf_pv_nomelinha"
+																				class="control-label">Nome da
+																				Linha</label>
+																			<input type="text" name="dgf_pv_nomelinha"
+																				id="dgf_pv_nomelinha"
+																				class="form-control">
+																		</div>
+
+																		<div class="col-sm-6">
+																			<label for="dgf_pv_empresesatrans"
+																				class="control-label">Empresa
+																				Transporte</label>
+																			<input type="text"
+																				name="dgf_pv_empresesatrans"
+																				id="dgf_pv_empresesatrans"
+																				class="form-control">
+																		</div>
+
+																		<div class="col-sm-4">
+																			<label for="dgf_pv_numcartao"
+																				class="control-label">CartÃ£o</label>
+																			<input type="text" name="dgf_pv_numcartao"
+																				id="dgf_pv_numcartao" class="form-control">
+																		</div>
+
+																		<div class="col-sm-4">
+																			<label for="dgf_pv_valor_tarifa_cartao"
+																				class="control-label">Valor Tarifa
+																				CartÃ£o</label>
+																			<input type="text"
+																				name="dgf_pv_valor_tarifa_cartao"
+																				id="dgf_pv_valor_tarifa_cartao"
+																				class="form-control"
+																				mask="#00.000.000.000.000,00">
+																		</div>
+
+																		<div class="col-sm-4">
+																			<label for="dgf_pv_valor"
+																				class="control-label">Valor Tarifa</label>
+																			<input type="text"
+																				name="dgf_pv_valor"
+																				id="dgf_pv_valor"
+																				class="form-control"
+																				mask="#00.000.000.000.000,00">
+																		</div>
+
+																	</div>
+
+																	<div class="camposVtIntegracao">
+																		<div class="col-sm-6">
+																			<label for="pv_nomelinha">Linha
+																				Utilizada</label>
+																			<input type="text" name="pv_nomelinha"
+																				id="pv_nomelinha"
+																				class="form-control">
+																			<input type="hidden" name="pv_codlinha"
+																				id="pv_codlinha">
+																		</div>
+																		<div class="col-sm-3">
+																			<label for="pv_valor"
+																			class="control-label">Valor
+																			Tarifa</label>
+																			<input type="text" name="pv_valor"
+																			id="pv_valor"
+																			class="form-control"
+																			mask="#00.000.000.000.000,00" readonly>
+																		</div>
+																		<div class="col-sm-3">
+																			<label for="pv_nroviagens">Quantidade Viagens por Dia</label>
+																			<input type="number" name="pv_nroviagens"
+																				id="pv_nroviagens" class="form-control"
+																				value="2">
+																		</div>
+																		<input type="hidden" name="pv_codtarifa"
+																			id="pv_codtarifa">
+																		<input type="hidden" name="pv_dtinicio"
+																			id="pv_dtinicio">
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			
+																	</div>
+
+																</div>
+															</td>
+															<td class="fs-no-margin fs-no-padding col-sm-1 text-center hidden-xs"
+																style="padding: 5px !important">
+																<i id="spanRemoverBeneficio" name="spanRemoverBeneficio"
+																	style="color: darkred;"
+																	class="fluigicon fluigicon-remove-circle icon-lg fs-txt-center fs-cursor-pointer"
+																	onclick="fnCustomDelete(this);"></i>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-sm-12 fs-txt-center camposTvManual">
+										<input type="button" class="btn btn-info btnAdicionarBeneficio down empresa"
+											value="Incluir linha">
+										<div class="form-group col-sm-12 fs-txt-center visible-xs-block"><br></div>
+										<input type="button" class="btn btn-info btnAdicionarBeneficio down residencia"
+											value="Incluir ida para residÃªncia">
+									</div>
+									<div class="form-group col-sm-12 fs-txt-center camposVtIntegracao">
+										<input type="button" class="btn btn-info btnAdicionarBeneficio up"
+											value="Incluir linha">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divCamposAdicionais">
+						<!-- DADOS ADICIONAIS -->
+						<div class="panel-heading">
+							<h4 class="panel-title">InformaÃ§Ãµes Adicionais</h4>
+						</div>
+						<div class="panel-body">
+							<div class="row"></div>
+						</div>
+					</div>
+					<div class="hide"> 
+						<table tablename="tbCamposAdicional" id="tbCamposAdicional" class="table"
+							noaddbutton="true" nodeletebutton="true">
+							<thead>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="hide">
+										<span id="caixaCampoAdicional"></span>
+										<input type="hidden" name="cp_adicional_nome" id="cp_adicional_nome">
+										<input type="hidden" name="cp_adicional_label" id="cp_adicional_label">
+										<input type="hidden" name="cp_adicional_tipo" id="cp_adicional_tipo">
+										<input type="hidden" name="cp_adicional_opcao" id="cp_adicional_opcao">
+										<input type="hidden" name="cp_adicional_opcao_texto" id="cp_adicional_opcao_texto">
+										<input type="hidden" name="cp_adicional_valor" id="cp_adicional_valor">
+										<input type="hidden" name="cp_adicional_vl_padrao" id="cp_adicional_vl_padrao">
+										<input type="hidden" name="cp_adicional_obrig"
+											id="cp_adicional_obrig">
+										<input type="hidden" name="cp_adicional_grv_folha" id="cp_adicional_grv_folha">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="panel panel-default" id="divBeneficios" style="display: none;">
+						<!-- DADOS BENEFÃ�CIOS -->
+						<div class="panel-heading">
+							<h4 class="panel-title">BenefÃ­cios</h4>
+						</div>
+						<div class="panel-body">
+							<div class="row separacaoBeneficios">
+								<div class="form-group col-sm-4">
+									<label for="dgf_beneficio1" class="control-label">BenefÃ­cio 1</label>
+									<select name="dgf_beneficio1" id="dgf_beneficio1" class="form-control"></select>
+									<input type="hidden" name="dgf_beneficio1_ativo" id="dgf_beneficio1_ativo">
+								</div>
+								<div class="col-sm-8" id="div_beneficio1_desc" style="display: none;">
+									<p><strong id="p_beneficio1_desc_tit"></strong></p>
+									<p id="p_beneficio1_desc_cont"></p>
+								</div>
+								<div class="col-sm-12" id="div_beneficio1_links" style="display: none;">
+									<p><strong>Clique nos links abaixo para acessar os formulÃ¡rios:</strong></p>
+									<ol id="ul_beneficio1_links"></ol>
+								</div>
+							</div>
+							<div class="row separacaoBeneficios">
+								<div class="form-group col-sm-4">
+									<label for="dgf_beneficio2" class="control-label">BenefÃ­cio 2</label>
+									<select name="dgf_beneficio2" id="dgf_beneficio2" class="form-control"></select>
+									<input type="hidden" name="dgf_beneficio2_ativo" id="dgf_beneficio2_ativo">
+								</div>
+								<div class="col-sm-8" id="div_beneficio2_desc" style="display: none;">
+									<p><strong id="p_beneficio2_desc_tit"></strong></p>
+									<p id="p_beneficio2_desc_cont"></p>
+								</div>
+								<div class="col-sm-12" id="div_beneficio2_links" style="display: none;">
+									<p><strong>Clique nos links abaixo para acessar os formulÃ¡rios:</strong></p>
+									<ol id="ul_beneficio2_links"></ol>
+								</div>
+							</div>
+							<div class="row separacaoBeneficios">
+								<div class="form-group col-sm-4">
+									<label for="dgf_beneficio3" class="control-label">BenefÃ­cio 3</label>
+									<select name="dgf_beneficio3" id="dgf_beneficio3" class="form-control"></select>
+									<input type="hidden" name="dgf_beneficio3_ativo" id="dgf_beneficio3_ativo">
+								</div>
+								<div class="col-sm-8" id="div_beneficio3_desc" style="display: none;">
+									<p><strong id="p_beneficio3_desc_tit"></strong></p>
+									<p id="p_beneficio3_desc_cont"></p>
+								</div>
+								<div class="col-sm-12" id="div_beneficio3_links" style="display: none;">
+									<p><strong>Clique nos links abaixo para acessar os formulÃ¡rios:</strong></p>
+									<ol id="ul_beneficio3_links"></ol>
+								</div>
+							</div>
+							<div class="row separacaoBeneficios">
+								<div class="form-group col-sm-4">
+									<label for="dgf_beneficio4" class="control-label">BenefÃ­cio 4</label>
+									<select name="dgf_beneficio4" id="dgf_beneficio4" class="form-control"></select>
+									<input type="hidden" name="dgf_beneficio4_ativo" id="dgf_beneficio4_ativo">
+								</div>
+								<div class="col-sm-8" id="div_beneficio4_desc" style="display: none;">
+									<p><strong id="p_beneficio4_desc_tit"></strong></p>
+									<p id="p_beneficio4_desc_cont"></p>
+								</div>
+								<div class="col-sm-12" id="div_beneficio4_links" style="display: none;">
+									<p><strong>Clique nos links abaixo para acessar os formulÃ¡rios:</strong></p>
+									<ol id="ul_beneficio4_links"></ol>
+								</div>
+							</div>
+							<div class="row separacaoBeneficios">
+								<div class="form-group col-sm-4">
+									<label for="dgf_beneficio5" class="control-label">BenefÃ­cio 5</label>
+									<select name="dgf_beneficio5" id="dgf_beneficio5" class="form-control"></select>
+									<input type="hidden" name="dgf_beneficio5_ativo" id="dgf_beneficio5_ativo">
+								</div>
+								<div class="col-sm-8" id="div_beneficio5_desc" style="display: none;">
+									<p><strong id="p_beneficio5_desc_tit"></strong></p>
+									<p id="p_beneficio5_desc_cont"></p>
+								</div>
+								<div class="col-sm-12" id="div_beneficio5_links" style="display: none;">
+									<p><strong>Clique nos links abaixo para acessar os formulÃ¡rios:</strong></p>
+									<ol id="ul_beneficio5_links"></ol>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="panel panel-default" id="divBeneficiariosSeguroVida" style="display: none;">
+						<!-- DADOS BENEFÃ�CIARIOS SEGURO DE VIDA -->
+						<div class="panel-heading">
+							<h4 class="panel-title">BeneficiÃ¡rios do Seguro de Vida</h4>
+						</div>
+						<div class="panel-body">
+							<legend id="legendaBeneficiariosSeguroVida1">BeneficiÃ¡rio 1</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_cpf_ben1">CPF</label>
+									<input type="text" name="dgf_seg_vida_cpf_ben1" id="dgf_seg_vida_cpf_ben1"
+										class="form-control" mask="000.000.000-00">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_nome_ben1">Nome Completo</label>
+									<input type="text" name="dgf_seg_vida_nome_ben1" id="dgf_seg_vida_nome_ben1"
+										class="form-control">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_dt_nasc_ben1">Data Nascimento</label>
+									<input type="text" name="dgf_seg_vida_dt_nasc_ben1" id="dgf_seg_vida_dt_nasc_ben1"
+										class="form-control valida_datas">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_parent_ben1">Parentesco</label>
+									<select name="dgf_seg_vida_parent_ben1" id="dgf_seg_vida_parent_ben1"
+										class="form-control">
+										<option value=""></option>
+										<option value="Filho(a) VÃ¡lido">Filho(a) VÃ¡lido</option>
+										<option value="Filho(a) InvÃ¡lido">Filho(a) InvÃ¡lido</option>
+										<option value="CÃ´njuge">CÃ´njuge</option>
+										<option value="Pai">Pai</option>
+										<option value="MÃ£e">MÃ£e</option>
+										<option value="Sogro(a)">Sogro(a)</option>
+										<option value="AvÃ´(Ã³)">AvÃ´(Ã³)</option>
+										<option value="Incapaz">Incapaz</option>
+										<option value="Companheiro(a)">Companheiro(a)</option>
+										<option value="Enteado(a)">Enteado(a)</option>
+										<option value="Excluido">Excluido</option>
+										<option value="Ex-conjuge">Ex-conjuge</option>
+										<option value="IrmÃ£(o) VÃ¡lido">IrmÃ£(o) VÃ¡lido</option>
+										<option value="Menor Pobre">Menor Pobre</option>
+										<option value="IrmÃ£(o) InvÃ¡lido">IrmÃ£(o) InvÃ¡lido</option>
+										<option value="Ex-Companheiro(a)">Ex-Companheiro(a)</option>
+										<option value="Ex-sogro(a)">Ex-sogro(a)</option>
+										<option value="Neto(a)">Neto(a)</option>
+										<option value="Ex-enteado(a)">Ex-enteado(a)</option>
+										<option value="Outros">Outros</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_part_ben1">Percentual de ParticipaÃ§Ã£o</label>
+									<input type="number" name="dgf_seg_vida_part_ben1" id="dgf_seg_vida_part_ben1"
+										class="form-control" min="0" max="100" placeholder="De 0 atÃ© 100" mask="000">
+								</div>
+							</div>
+							<legend id="legendaBeneficiariosSeguroVida2">BeneficiÃ¡rio 2</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_cpf_ben2">CPF</label>
+									<input type="text" name="dgf_seg_vida_cpf_ben2" id="dgf_seg_vida_cpf_ben2"
+										class="form-control" mask="000.000.000-00">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_nome_ben2">Nome Completo</label>
+									<input type="text" name="dgf_seg_vida_nome_ben2" id="dgf_seg_vida_nome_ben2"
+										class="form-control">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_dt_nasc_ben2">Data Nascimento</label>
+									<input type="text" name="dgf_seg_vida_dt_nasc_ben2" id="dgf_seg_vida_dt_nasc_ben2"
+										class="form-control valida_datas">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_parent_ben2">Parentesco</label>
+									<select name="dgf_seg_vida_parent_ben2" id="dgf_seg_vida_parent_ben2"
+										class="form-control">
+										<option value=""></option>
+										<option value="Filho(a) VÃ¡lido">Filho(a) VÃ¡lido</option>
+										<option value="Filho(a) InvÃ¡lido">Filho(a) InvÃ¡lido</option>
+										<option value="CÃ´njuge">CÃ´njuge</option>
+										<option value="Pai">Pai</option>
+										<option value="MÃ£e">MÃ£e</option>
+										<option value="Sogro(a)">Sogro(a)</option>
+										<option value="AvÃ´(Ã³)">AvÃ´(Ã³)</option>
+										<option value="Incapaz">Incapaz</option>
+										<option value="Companheiro(a)">Companheiro(a)</option>
+										<option value="Enteado(a)">Enteado(a)</option>
+										<option value="Excluido">Excluido</option>
+										<option value="Ex-conjuge">Ex-conjuge</option>
+										<option value="IrmÃ£(o) VÃ¡lido">IrmÃ£(o) VÃ¡lido</option>
+										<option value="Menor Pobre">Menor Pobre</option>
+										<option value="IrmÃ£(o) InvÃ¡lido">IrmÃ£(o) InvÃ¡lido</option>
+										<option value="Ex-Companheiro(a)">Ex-Companheiro(a)</option>
+										<option value="Ex-sogro(a)">Ex-sogro(a)</option>
+										<option value="Neto(a)">Neto(a)</option>
+										<option value="Ex-enteado(a)">Ex-enteado(a)</option>
+										<option value="Outros">Outros</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_part_ben2">Percentual de ParticipaÃ§Ã£o</label>
+									<input type="number" name="dgf_seg_vida_part_ben2" id="dgf_seg_vida_part_ben2"
+										class="form-control" min="0" max="100" placeholder="De 0 atÃ© 100" mask="000">
+								</div>
+							</div>
+							<legend id="legendaBeneficiariosSeguroVida3">BeneficiÃ¡rio 3</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_cpf_ben3">CPF</label>
+									<input type="text" name="dgf_seg_vida_cpf_ben3" id="dgf_seg_vida_cpf_ben3"
+										class="form-control" mask="000.000.000-00">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_nome_ben3">Nome Completo</label>
+									<input type="text" name="dgf_seg_vida_nome_ben3" id="dgf_seg_vida_nome_ben3"
+										class="form-control">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_dt_nasc_ben3">Data Nascimento</label>
+									<input type="text" name="dgf_seg_vida_dt_nasc_ben3" id="dgf_seg_vida_dt_nasc_ben3"
+										class="form-control valida_datas">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_parent_ben3">Parentesco</label>
+									<select name="dgf_seg_vida_parent_ben3" id="dgf_seg_vida_parent_ben3"
+										class="form-control">
+										<option value=""></option>
+										<option value="Filho(a) VÃ¡lido">Filho(a) VÃ¡lido</option>
+										<option value="Filho(a) InvÃ¡lido">Filho(a) InvÃ¡lido</option>
+										<option value="CÃ´njuge">CÃ´njuge</option>
+										<option value="Pai">Pai</option>
+										<option value="MÃ£e">MÃ£e</option>
+										<option value="Sogro(a)">Sogro(a)</option>
+										<option value="AvÃ´(Ã³)">AvÃ´(Ã³)</option>
+										<option value="Incapaz">Incapaz</option>
+										<option value="Companheiro(a)">Companheiro(a)</option>
+										<option value="Enteado(a)">Enteado(a)</option>
+										<option value="Excluido">Excluido</option>
+										<option value="Ex-conjuge">Ex-conjuge</option>
+										<option value="IrmÃ£(o) VÃ¡lido">IrmÃ£(o) VÃ¡lido</option>
+										<option value="Menor Pobre">Menor Pobre</option>
+										<option value="IrmÃ£(o) InvÃ¡lido">IrmÃ£(o) InvÃ¡lido</option>
+										<option value="Ex-Companheiro(a)">Ex-Companheiro(a)</option>
+										<option value="Ex-sogro(a)">Ex-sogro(a)</option>
+										<option value="Neto(a)">Neto(a)</option>
+										<option value="Ex-enteado(a)">Ex-enteado(a)</option>
+										<option value="Outros">Outros</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_part_ben3">Percentual de ParticipaÃ§Ã£o</label>
+									<input type="number" name="dgf_seg_vida_part_ben3" id="dgf_seg_vida_part_ben3"
+										class="form-control" min="0" max="100" placeholder="De 0 atÃ© 100" mask="000">
+								</div>
+							</div>	
+							<legend id="legendaBeneficiariosSeguroVida4">BeneficiÃ¡rio 4</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_cpf_ben4">CPF</label>
+									<input type="text" name="dgf_seg_vida_cpf_ben4" id="dgf_seg_vida_cpf_ben4"
+										class="form-control" mask="000.000.000-00">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_nome_ben4">Nome Completo</label>
+									<input type="text" name="dgf_seg_vida_nome_ben4" id="dgf_seg_vida_nome_ben4"
+										class="form-control">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_dt_nasc_ben4">Data Nascimento</label>
+									<input type="text" name="dgf_seg_vida_dt_nasc_ben4" id="dgf_seg_vida_dt_nasc_ben4"
+										class="form-control valida_datas">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_parent_ben4">Parentesco</label>
+									<select name="dgf_seg_vida_parent_ben4" id="dgf_seg_vida_parent_ben4"
+										class="form-control">
+										<option value=""></option>
+										<option value="Filho(a) VÃ¡lido">Filho(a) VÃ¡lido</option>
+										<option value="Filho(a) InvÃ¡lido">Filho(a) InvÃ¡lido</option>
+										<option value="CÃ´njuge">CÃ´njuge</option>
+										<option value="Pai">Pai</option>
+										<option value="MÃ£e">MÃ£e</option>
+										<option value="Sogro(a)">Sogro(a)</option>
+										<option value="AvÃ´(Ã³)">AvÃ´(Ã³)</option>
+										<option value="Incapaz">Incapaz</option>
+										<option value="Companheiro(a)">Companheiro(a)</option>
+										<option value="Enteado(a)">Enteado(a)</option>
+										<option value="Excluido">Excluido</option>
+										<option value="Ex-conjuge">Ex-conjuge</option>
+										<option value="IrmÃ£(o) VÃ¡lido">IrmÃ£(o) VÃ¡lido</option>
+										<option value="Menor Pobre">Menor Pobre</option>
+										<option value="IrmÃ£(o) InvÃ¡lido">IrmÃ£(o) InvÃ¡lido</option>
+										<option value="Ex-Companheiro(a)">Ex-Companheiro(a)</option>
+										<option value="Ex-sogro(a)">Ex-sogro(a)</option>
+										<option value="Neto(a)">Neto(a)</option>
+										<option value="Ex-enteado(a)">Ex-enteado(a)</option>
+										<option value="Outros">Outros</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_part_ben4">Percentual de ParticipaÃ§Ã£o</label>
+									<input type="number" name="dgf_seg_vida_part_ben4" id="dgf_seg_vida_part_ben4"
+										class="form-control" min="0" max="100" placeholder="De 0 atÃ© 100" mask="000">
+								</div>
+							</div>
+							<legend id="legendaBeneficiariosSeguroVida5">BeneficiÃ¡rio 5</legend>
+							<div class="row">
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_cpf_ben5">CPF</label>
+									<input type="text" name="dgf_seg_vida_cpf_ben5" id="dgf_seg_vida_cpf_ben5"
+										class="form-control" mask="000.000.000-00">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_nome_ben5">Nome Completo</label>
+									<input type="text" name="dgf_seg_vida_nome_ben5" id="dgf_seg_vida_nome_ben5"
+										class="form-control">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_dt_nasc_ben5">Data Nascimento</label>
+									<input type="text" name="dgf_seg_vida_dt_nasc_ben5" id="dgf_seg_vida_dt_nasc_ben5"
+										class="form-control valida_datas">
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_parent_ben5">Parentesco</label>
+									<select name="dgf_seg_vida_parent_ben5" id="dgf_seg_vida_parent_ben5"
+										class="form-control">
+										<option value=""></option>
+										<option value="Filho(a) VÃ¡lido">Filho(a) VÃ¡lido</option>
+										<option value="Filho(a) InvÃ¡lido">Filho(a) InvÃ¡lido</option>
+										<option value="CÃ´njuge">CÃ´njuge</option>
+										<option value="Pai">Pai</option>
+										<option value="MÃ£e">MÃ£e</option>
+										<option value="Sogro(a)">Sogro(a)</option>
+										<option value="AvÃ´(Ã³)">AvÃ´(Ã³)</option>
+										<option value="Incapaz">Incapaz</option>
+										<option value="Companheiro(a)">Companheiro(a)</option>
+										<option value="Enteado(a)">Enteado(a)</option>
+										<option value="Excluido">Excluido</option>
+										<option value="Ex-conjuge">Ex-conjuge</option>
+										<option value="IrmÃ£(o) VÃ¡lido">IrmÃ£(o) VÃ¡lido</option>
+										<option value="Menor Pobre">Menor Pobre</option>
+										<option value="IrmÃ£(o) InvÃ¡lido">IrmÃ£(o) InvÃ¡lido</option>
+										<option value="Ex-Companheiro(a)">Ex-Companheiro(a)</option>
+										<option value="Ex-sogro(a)">Ex-sogro(a)</option>
+										<option value="Neto(a)">Neto(a)</option>
+										<option value="Ex-enteado(a)">Ex-enteado(a)</option>
+										<option value="Outros">Outros</option>
+									</select>
+								</div>
+								<div class="form-group col-sm-4">
+									<label for="dgf_seg_vida_part_ben5">Percentual de ParticipaÃ§Ã£o</label>
+									<input type="number" name="dgf_seg_vida_part_ben5" id="dgf_seg_vida_part_ben5"
+										class="form-control" min="0" max="100" placeholder="De 0 atÃ© 100" mask="000">
+								</div>
+							</div>
+						</div>
+					</div>		
+					
+					<div class="panel panel-default" id="divRepresentanteLegal" style="display: none;" >
+						<!-- DADOS REPRESENTANTE LEGAL -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Representante Legal</h4>
+						</div>
+						<div class="panel-body">
+							<div class="form-group col-sm-4">
+								<label for="dgf_rep_legal_cpf">CPF</label>
+								<input type="text" name="dgf_rep_legal_cpf" id="dgf_rep_legal_cpf"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_rep_legal_nome">Nome Completo</label>
+								<input type="text" name="dgf_rep_legal_nome" id="dgf_rep_legal_nome"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_rep_legal_email">E-mail</label>
+								<input type="text" name="dgf_rep_legal_email" id="dgf_rep_legal_email"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_rep_legal_telefone">Telefone</label>
+								<input type="text" name="dgf_rep_legal_telefone" id="dgf_rep_legal_telefone"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_rep_legal_parent">Parentesco</label>
+								<select name="dgf_rep_legal_parent" id="dgf_rep_legal_parent"
+									class="form-control">
+									<option value=""></option>
+									<option value="Filho(a) VÃ¡lido">Filho(a) VÃ¡lido</option>
+									<option value="Filho(a) InvÃ¡lido">Filho(a) InvÃ¡lido</option>
+									<option value="CÃ´njuge">CÃ´njuge</option>
+									<option value="Pai">Pai</option>
+									<option value="MÃ£e">MÃ£e</option>
+									<option value="Sogro(a)">Sogro(a)</option>
+									<option value="AvÃ´(Ã³)">AvÃ´(Ã³)</option>
+									<option value="Incapaz">Incapaz</option>
+									<option value="Companheiro(a)">Companheiro(a)</option>
+									<option value="Enteado(a)">Enteado(a)</option>
+									<option value="Excluido">Excluido</option>
+									<option value="Ex-conjuge">Ex-conjuge</option>
+									<option value="IrmÃ£(o) VÃ¡lido">IrmÃ£(o) VÃ¡lido</option>
+									<option value="Menor Pobre">Menor Pobre</option>
+									<option value="IrmÃ£(o) InvÃ¡lido">IrmÃ£(o) InvÃ¡lido</option>
+									<option value="Ex-Companheiro(a)">Ex-Companheiro(a)</option>
+									<option value="Ex-sogro(a)">Ex-sogro(a)</option>
+									<option value="Neto(a)">Neto(a)</option>
+									<option value="Ex-enteado(a)">Ex-enteado(a)</option>
+									<option value="Outros">Outros</option>
+								</select>
+							</div>
+						</div>
+					</div>	
+
+					<div class="panel panel-default" id="divLGPD">
+						<!-- LGPD -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Termo de Aceite - Lei Geral de ProteÃ§Ã£o de Dados (LGPD)</h4>
+						</div>
+						<div class="panel-body">
+							<div class="form-group col-sm-12">
+								<label for="dgf_termo_lgpd" class="control-label">Termo LGPD</label>
+								<textarea name="dgf_termo_lgpd" id="dgf_termo_lgpd" class="form-control"
+									rows="5"></textarea>
+							</div>
+							<div class="form-group col-sm-12 fs-txt-center">
+								<label for="dgf_aceite_termo_lgpd" class="control-label">Aceite LGPD</label>
+								<select name="dgf_aceite_termo_lgpd" id="dgf_aceite_termo_lgpd"
+									class="form-control">
+									<option value="" checked></option>
+									<option value="sim">Sim, concordo</option>
+									<option value="nao">NÃ£o concordo</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divDadosEsocial">
+						<!-- DADOS ESOCIAL -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Consulta da QualificaÃ§Ã£o Cadastral do eSocial</h4>
+						</div>
+						<div class="panel-body">
+							<div class="form-group col-sm-12">
+								<label for="dgf_error_consulta" class="control-label">Mensagem de Erro Consulta da QualificaÃ§Ã£o Cadastral</label>
+								<textarea name="dgf_error_consulta" id="dgf_error_consulta" class="form-control"
+									rows="2"></textarea>
+							</div>
+							<div class="form-group col-sm-12">
+								<label for="dgf_mensagem_resultado" class="control-label">Mensagem Consulta Consulta da QualificaÃ§Ã£o Cadastral</label>
+								<textarea name="dgf_mensagem_resultado" id="dgf_mensagem_resultado" class="form-control"
+									rows="2"></textarea>
+							</div>
+							<div class="form-group col-sm-12">
+								<label for="dgf_orientacao" class="control-label">OrientaÃ§Ã£o Consulta da QualificaÃ§Ã£o Cadastral</label>
+								<textarea name="dgf_orientacao" id="dgf_orientacao" class="form-control" rows="2"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divSituacaoIntegracaoFolha">
+						<!-- INTEGRACAO COM A FOLHA -->
+						<div class="panel-heading">
+							<h4 class="panel-title">IntegraÃ§Ã£o com a Folha de Pagamento</h4>
+						</div>
+						<div class="panel-body">
+							<div class="form-group col-sm-12">
+								<label for="dgf_integr_folha_status" class="control-label">SituaÃ§Ã£o da IntegraÃ§Ã£o Folha de Pagamento</label>
+								<select name="dgf_integr_folha_status" id="dgf_integr_folha_status" class="form-control">
+									<option value=""></option>
+									<option value="2" checked>Efetuar integraÃ§Ã£o somento dos dados faltantes</option>
+									<option value="3" checked>Refazer toda a IntegraÃ§Ã£o</option>
+									<option value="1">Integrado com Sucesso</option>
+									<option value="0">Integrado com Erros</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-12">
+								<label for="dgf_integr_folha_detalhe" class="control-label">Detalhes da IntegraÃ§Ã£o Folha de Pagamento</label>
+								<textarea name="dgf_integr_folha_detalhe" id="dgf_integr_folha_detalhe" class="form-control" rows="5" readonly>
+								</textarea>	
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divEtapaDestino" style="display: none;">
+						<div class="panel-heading">
+							<h4 class="panel-title">Administrador da AdmissÃ£o - caso necessite pode mover a solicitaÃ§Ã£o para uma outra etapa vocÃª pode utilizar a lista abaixo</h4>
+						</div>
+						<div class="panel-body">
+							<div class="form-group col-sm-12">
+								<label for="dgf_etapa_administrador" class="control-label">Lista de etapas da jornada</label>
+								<input type="zoom" id="dgf_etapa_administrador" name="dgf_etapa_administrador"
+								data-zoom="{
+										'maximumSelectionLength':'1',
+										'placeholder':'Escolha a etapa destino',
+										'displayKey':'atividadeOrdemDesc',
+										'datasetId':'ds_dpf_getJornadaEtapa',
+										'fields':[
+											{'field':'atividadeOrdem','label':'CÃ³digo','visible':'true'},
+											{'field':'atividadeOrdemDesc','label':'DescriÃ§Ã£o','visible':'true'},
+											{'field':'atividadeIdDestino','label':'Id Atividade BPM','visible':'false'}]}" />
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="divDadosOcultos" style="display: none;">
+						<!-- DADOS OCULTOS DE USO INTERNO -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Dados Ocultos</h4>
+						</div>
+						<div class="panel-body">
+							<div class="form-group col-sm-4">
+								<label for="dgf_complemento_contr_cod" class="control-label">Id Complemento
+									Contrato</label>
+								<input type="text" name="dgf_complemento_contr_cod" id="dgf_complemento_contr_cod"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_compl_contr_texto1" class="control-label">Complemento Contrato
+									1</label>
+								<input type="text" name="dgf_compl_contr_texto1" id="dgf_compl_contr_texto1"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_compl_contr_texto2" class="control-label">Complemento Contrato
+									2</label>
+								<input type="text" name="dgf_compl_contr_texto2" id="dgf_compl_contr_texto2"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_compl_contr_texto3" class="control-label">Complemento Contrato
+									3</label>
+								<input type="text" name="dgf_compl_contr_texto3" id="dgf_compl_contr_texto3"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_compl_contr_texto4" class="control-label">Complemento Contrato
+									4</label>
+								<input type="text" name="dgf_compl_contr_texto4" id="dgf_compl_contr_texto4"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_compl_contr_texto5" class="control-label">Complemento Contrato
+									5</label>
+								<input type="text" name="dgf_compl_contr_texto5" id="dgf_compl_contr_texto5"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_nomefantasia" class="control-label">Filial Nome
+									Comercial</label>
+								<input type="text" name="dgf_pf_fl_nomefantasia" id="dgf_pf_fl_nomefantasia"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_cod_filial" class="control-label">CÃ³digo Filial - Interno</label>
+								<input type="text" class="form-control" id="dgf_cod_filial" name="dgf_cod_filial">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_frmnome" class="control-label">DescriÃ§Ã£o Filial</label>
+								<input type="text" class="form-control" id="dgf_pf_fl_frmnome"
+									name="dgf_pf_fl_frmnome">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_cnpj" class="control-label">CNPJ Filial</label>
+								<input type="text" class="form-control" id="dgf_pf_fl_cnpj" name="dgf_pf_fl_cnpj">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_rua" class="control-label">Logradouro Filial</label>
+								<input type="text" class="form-control" id="dgf_pf_fl_rua"
+									name="dgf_pf_fl_rua">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_bairro" class="control-label">Bairro Filial</label>
+								<input type="text" class="form-control" id="dgf_pf_fl_bairro" name="dgf_pf_fl_bairro">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_cidade" class="control-label">Cidade Filial</label>
+								<input type="text" class="form-control" id="dgf_pf_fl_cidade" name="dgf_pf_fl_cidade">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_estado" class="control-label">Estado Filial</label>
+								<input type="text" class="form-control" id="dgf_pf_fl_estado" name="dgf_pf_fl_estado">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_cep" class="control-label">CEP Filial</label>
+								<input type="text" class="form-control" id="dgf_pf_fl_cep" name="dgf_pf_fl_cep">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_numero" class="control-label">NÃºmero Filial</label>
+								<input type="text" class="form-control" id="dgf_pf_fl_numero" name="dgf_pf_fl_numero">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_complemento" class="control-label">Complemento Filial</label>
+								<input type="text" class="form-control" id="dgf_pf_fl_complemento"
+									name="dgf_pf_fl_complemento">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_fl_pais" class="control-label">PaÃ­s Filial</label>
+								<input type="text" class="form-control" id="dgf_pf_fl_pais" name="dgf_pf_fl_pais">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_vl_salario_extenso" class="control-label">Vl SalÃ¡rio por Extenso</label>
+								<input type="text" name="dgf_vl_salario_extenso" id="dgf_vl_salario_extenso"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_dt_admissao_extenso" class="control-label">Data AdmissÃ£o por
+									Extenso</label>
+								<input type="text" name="dgf_dt_admissao_extenso" id="dgf_dt_admissao_extenso"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_dt_admissao" class="control-label">Data AdmissÃ£o - Interno</label>
+								<input type="text" name="dgf_dt_admissao" id="dgf_dt_admissao"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_cidade_desc" class="control-label">EndereÃ§o - Nome
+									MunicÃ­pio</label>
+								<input type="text" class="form-control" id="dgf_pf_cidade_desc"
+									name="dgf_pf_cidade_desc">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_cl_nomefantasia" class="control-label">Nome
+									Comercial - Empresa</label>
+								<input type="text" name="dgf_pf_cl_nomefantasia"
+									id="dgf_pf_cl_nomefantasia" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_cl_rua" class="control-label">Logradorou da
+									Empresa</label>
+								<input type="text" name="dgf_pf_cl_rua" id="dgf_pf_cl_rua"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_cl_bairro" class="control-label">Bairro da Empresa</label>
+								<input type="text" name="dgf_pf_cl_bairro" id="dgf_pf_cl_bairro"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_cl_cidade" class="control-label">Cidade da Empresa</label>
+								<input type="text" name="dgf_pf_cl_cidade" id="dgf_pf_cl_cidade"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_cl_estado" class="control-label">Estado da Empresa</label>
+								<input type="text" name="dgf_pf_cl_estado" id="dgf_pf_cl_estado"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_cl_cep" class="control-label">CEP da Empresa</label>
+								<input type="text" name="dgf_pf_cl_cep" id="dgf_pf_cl_cep" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_possui_cnh" class="control-label">Possui CNH - Interno</label>
+								<input type="text" name="dgf_possui_cnh" id="dgf_possui_cnh" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pis" class="control-label">PIS - Interno</label>
+								<input type="text" name="dgf_pis" id="dgf_pis" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_centro_custo_desc" class="control-label">Centro Custo DescriÃ§Ã£o - Interno</label>
+								<input type="text" name="dgf_centro_custo_desc" id="dgf_centro_custo_desc" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_dt_nascimento" class="control-label">Data Nascimento FuncionÃ¡rio - Interno</label>
+								<input type="text" name="dgf_dt_nascimento" id="dgf_dt_nascimento" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_cpf_nome" class="control-label">CPF Nome - Interno</label>
+								<input type="text" name="dgf_cpf_nome" id="dgf_cpf_nome" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_cpf_nome_centro_custo" class="control-label">CPF Nome Centro de Custo - Interno</label>
+								<input type="text" name="dgf_cpf_nome_centro_custo" id="dgf_cpf_nome_centro_custo" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_cpf_nome_secao" class="control-label">CPF Nome SeÃ§Ã£o - Interno</label>
+								<input type="text" name="dgf_cpf_nome_secao" id="dgf_cpf_nome_secao" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_cod_empresa" class="control-label">CÃ³digo Empresa - Interno</label>
+								<input type="text" name="dgf_cod_empresa" id="dgf_cod_empresa" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_cl_frmnome" class="control-label">DescriÃ§Ã£o Empresa - Interno</label>
+								<input type="text" name="dgf_pf_cl_frmnome" id="dgf_pf_cl_frmnome"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_pf_cl_cnpj" class="control-label">CNPJ</label>
+								<input type="text" name="dgf_pf_cl_cnpj" id="dgf_pf_cl_cnpj" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_cod_funcao" class="control-label">CÃ³digo da FunÃ§Ã£o - Interno</label>
+								<input type="text" name="dgf_cod_funcao" id="dgf_cod_funcao" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_code_consulta" class="control-label">CÃ³digo Consulta eSocial</label>
+								<input name="dgf_code_consulta" id="dgf_code_consulta" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_code_message_consulta" class="control-label">Mensagem Consulta
+									eSocial</label>
+								<input name="dgf_code_message_consulta" id="dgf_code_message_consulta" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_idade" class="control-label">Idade</label>
+								<input type="text" name="dgf_idade" id="dgf_idade" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_qt_dependente" class="control-label">Quantidade Dependentes</label>
+								<input type="text" name="dgf_qt_dependente" id="dgf_qt_dependente"
+									class="form-control" value="0">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_cod_segregacao" class="control-label">CÃ³digo SegregaÃ§Ã£o Documentos Inteligentes - Interno</label>
+								<input type="text" name="dgf_cod_segregacao" id="dgf_cod_segregacao" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_tp_etapa" class="control-label">Tipo Etapa Processo PÃºblico - Interno</label>
+								<input type="text" name="dgf_tp_etapa" id="dgf_tp_etapa" class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_termo_lgpd_1" class="control-label">LGPD1</label>
+								<textarea name="dgf_termo_lgpd_1" id="dgf_termo_lgpd_1"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_termo_lgpd_2" class="control-label">LGPD2</label>
+								<textarea name="dgf_termo_lgpd_2" id="dgf_termo_lgpd_2"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_termo_lgpd_3" class="control-label">LGPD3</label>
+								<textarea name="dgf_termo_lgpd_3" id="dgf_termo_lgpd_3"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio1_desc" class="control-label">DescriÃ§Ã£o BenefÃ­cio 1</label>
+								<input type="text" name="dgf_beneficio1_desc" id="dgf_beneficio1_desc"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio2_desc" class="control-label">DescriÃ§Ã£o BenefÃ­cio 2</label>
+								<input type="text" name="dgf_beneficio2_desc" id="dgf_beneficio2_desc"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio3_desc" class="control-label">DescriÃ§Ã£o BenefÃ­cio 3</label>
+								<input type="text" name="dgf_beneficio3_desc" id="dgf_beneficio3_desc"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio4_desc" class="control-label">DescriÃ§Ã£o BenefÃ­cio 4</label>
+								<input type="text" name="dgf_beneficio4_desc" id="dgf_beneficio4_desc"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio5_desc" class="control-label">DescriÃ§Ã£o BenefÃ­cio 5</label>
+								<input type="text" name="dgf_beneficio5_desc" id="dgf_beneficio5_desc"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio1_benefic" class="control-label">BenefÃ­cio 1
+									BeficioÃ¡rio</label>
+								<input type="text" name="dgf_beneficio1_benefic" id="dgf_beneficio1_benefic"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio2_benefic" class="control-label">BenefÃ­cio 2
+									BeficioÃ¡rio</label>
+								<input type="text" name="dgf_beneficio2_benefic" id="dgf_beneficio2_benefic"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio3_benefic" class="control-label">BenefÃ­cio 3
+									BeficioÃ¡rio</label>
+								<input type="text" name="dgf_beneficio3_benefic" id="dgf_beneficio3_benefic"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio4_benefic" class="control-label">BenefÃ­cio 4
+									BeficioÃ¡rio</label>
+								<input type="text" name="dgf_beneficio4_benefic" id="dgf_beneficio4_benefic"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio5_benefic" class="control-label">BenefÃ­cio 5
+									BeficioÃ¡rio</label>
+								<input type="text" name="dgf_beneficio5_benefic" id="dgf_beneficio5_benefic"
+									class="form-control">
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio1_detalha" class="control-label">DescriÃ§Ã£o BenefÃ­cio
+									1</label>
+								<textarea name="dgf_beneficio1_detalha" id="dgf_beneficio1_detalha"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio2_detalha" class="control-label">DescriÃ§Ã£o BenefÃ­cio
+									2</label>
+								<textarea name="dgf_beneficio2_detalha" id="dgf_beneficio2_detalha"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio3_detalha" class="control-label">DescriÃ§Ã£o BenefÃ­cio
+									3</label>
+								<textarea name="dgf_beneficio3_detalha" id="dgf_beneficio3_detalha"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio4_detalha" class="control-label">DescriÃ§Ã£o BenefÃ­cio
+									4</label>
+								<textarea name="dgf_beneficio4_detalha" id="dgf_beneficio4_detalha"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio5_detalha" class="control-label">DescriÃ§Ã£o BenefÃ­cio
+									5</label>
+								<textarea name="dgf_beneficio5_detalha" id="dgf_beneficio5_detalha"
+									class="form-control"></textarea>
+							</div>
+
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio1_link1" class="control-label">Link FormulÃ¡rio 1 BenefÃ­cio
+									1</label>
+								<textarea name="dgf_beneficio1_link1" id="dgf_beneficio1_link1"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio1_link2" class="control-label">Link FormulÃ¡rio 2 BenefÃ­cio
+									1</label>
+								<textarea name="dgf_beneficio1_link2" id="dgf_beneficio1_link2"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio1_link3" class="control-label">Link FormulÃ¡rio 3 BenefÃ­cio
+									1</label>
+								<textarea name="dgf_beneficio1_link3" id="dgf_beneficio1_link3"
+									class="form-control"></textarea>
+							</div>
+
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio2_link1" class="control-label">Link FormulÃ¡rio 1 BenefÃ­cio
+									2</label>
+								<textarea name="dgf_beneficio2_link1" id="dgf_beneficio2_link1"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio2_link2" class="control-label">Link FormulÃ¡rio 2 BenefÃ­cio
+									2</label>
+								<textarea name="dgf_beneficio2_link2" id="dgf_beneficio2_link2"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio2_link3" class="control-label">Link FormulÃ¡rio 3 BenefÃ­cio
+									2</label>
+								<textarea name="dgf_beneficio2_link3" id="dgf_beneficio2_link3"
+									class="form-control"></textarea>
+							</div>
+
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio3_link1" class="control-label">Link FormulÃ¡rio 1 BenefÃ­cio
+									3</label>
+								<textarea name="dgf_beneficio3_link1" id="dgf_beneficio3_link1"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio3_link2" class="control-label">Link FormulÃ¡rio 2 BenefÃ­cio
+									3</label>
+								<textarea name="dgf_beneficio3_link2" id="dgf_beneficio3_link2"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio3_link3" class="control-label">Link FormulÃ¡rio 3 BenefÃ­cio
+									3</label>
+								<textarea name="dgf_beneficio3_link3" id="dgf_beneficio3_link3"
+									class="form-control"></textarea>
+							</div>
+
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio4_link1" class="control-label">Link FormulÃ¡rio 1 BenefÃ­cio
+									4</label>
+								<textarea name="dgf_beneficio4_link1" id="dgf_beneficio4_link1"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio4_link2" class="control-label">Link FormulÃ¡rio 2 BenefÃ­cio
+									4</label>
+								<textarea name="dgf_beneficio4_link2" id="dgf_beneficio4_link2"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio4_link3" class="control-label">Link FormulÃ¡rio 3 BenefÃ­cio
+									4</label>
+								<textarea name="dgf_beneficio4_link3" id="dgf_beneficio4_link3"
+									class="form-control"></textarea>
+							</div>
+
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio5_link1" class="control-label">Link FormulÃ¡rio 1 BenefÃ­cio
+									4</label>
+								<textarea name="dgf_beneficio5_link1" id="dgf_beneficio5_link1"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio5_link2" class="control-label">Link FormulÃ¡rio 2 BenefÃ­cio
+									4</label>
+								<textarea name="dgf_beneficio5_link2" id="dgf_beneficio5_link2"
+									class="form-control"></textarea>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="dgf_beneficio5_link3" class="control-label">Link FormulÃ¡rio 3 BenefÃ­cio
+									4</label>
+								<textarea name="dgf_beneficio5_link3" id="dgf_beneficio5_link3"
+									class="form-control"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="versionPa"></div>
+			</div>
+		</form>
+	</div>
+	
+</body>
+
+</html>
