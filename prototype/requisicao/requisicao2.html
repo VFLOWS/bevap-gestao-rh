@@ -1,0 +1,2183 @@
+<form enctype="" role="form" method="post" name="form" action="" onsubmit="return false;">
+
+			<div id="campos_hidden">
+				<input type="hidden" name="WKFormMode" id="WKFormMode" value="VIEW" disabled="disabled">
+				<input type="hidden" name="dados_matSolicitante" id="dados_matSolicitante" value="14cdc0c0-a710-4412-81dd-d94fe3abe00a" disabled="disabled">
+				<input type="hidden" name="ativAtual" id="ativAtual" disabled="disabled">
+				<input type="hidden" name="numSolic" id="numSolic" value="" disabled="disabled">
+				<input type="hidden" name="numSolicPai" id="numSolicPai" value="1578" disabled="disabled">
+				<input type="hidden" name="origemRecSelecao" id="origemRecSelecao" value="externo" disabled="disabled">
+
+				<input type="hidden" name="infoNome" id="infoNome" value="" disabled="disabled">
+				<input type="hidden" name="infoCpf" id="infoCpf" value="" disabled="disabled">
+				<input type="hidden" name="infoIdentidade" id="infoIdentidade" value="" disabled="disabled">
+				<input type="hidden" name="infoDtNascimento" id="infoDtNascimento" value="" disabled="disabled">
+				<input type="hidden" name="infoNaturalidade" id="infoNaturalidade" value="" disabled="disabled">
+				<input type="hidden" name="infoGrau" id="infoGrau" value="" disabled="disabled">
+				<input type="hidden" name="infoGrauRequisito" id="infoGrauRequisito" value="" disabled="disabled">
+			</div>
+
+			<div class="panel panel-default painelPrincipal">
+				<div class="panel-body">
+					<h1 class="text-center title">
+						<b>Requisição de Pessoal</b>
+					</h1>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div id="abasNav2">
+						<div id="navbar2" class="col-xs-12">
+							<ul class="nav nav-pills" role="tablist">
+								<li class="nav-item active">
+									<a href="#painelSintegra" role="tab" data-toggle="pill">Identificação</a>
+								</li>
+								<li class="nav-item">
+									<a href="#painelReceitaFederal" role="tab" data-toggle="pill">Requisitos da Vaga</a>
+								</li>
+								<li class="nav-item">
+									<a href="#painelEndCobr" role="tab" data-toggle="pill">Requisitos de
+										Pessoais</a>
+								</li>
+
+								<li class="nav-item">
+									<a href="#painelSst" role="tab" data-toggle="pill">SST</a>
+								</li>
+
+								<li class="nav-item">
+									<a href="#painelTai" role="tab" data-toggle="pill">TAI</a>
+								</li>
+
+								<li class="nav-item">
+									<a href="#painelRecrutamento" role="tab" data-toggle="pill">Recrutamento</a>
+								</li>
+
+								<li class="nav-item">
+									<a href="#painelIntegracao" role="tab" data-toggle="pill">Integração</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<br><br>
+					<div class="tab-content">
+						<div class="panel panel-default tab-pane fade in active" id="painelSintegra">
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>Identificação</b></h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group row">
+
+									<div class="col-md-3">
+										<label for="nomeCandidatoEscolhido">Nome do Candidato<span class="required text-danger"><strong>*</strong></span></label>
+										<input readonly="" class="form-control" type="text" id="nomeCandidatoEscolhido" name="nomeCandidatoEscolhido" value="teste" disabled="disabled">
+									</div>
+
+									<!-- <div class="col-md-3">
+										<label for="classificacaoVaga">Classificação da Vaga<span
+												class="required text-danger"><strong>*</strong></span></label>
+										<input readonly class="form-control" type="text" id="classificacaoVaga"
+											name="classificacaoVaga">
+									</div> -->
+									
+
+									<div class="label-field">
+										<div class="col-md-3">
+											<label for="cargo" class="control-label">Cargo
+												<span class="required text-danger"><strong>*</strong></span></label>
+											<input readonly="" class="form-control" type="text" id="cargo" name="cargo" value="10002 - DIRETOR  PRESIDENTE" disabled="disabled">
+										</div>
+									</div>
+
+									<div class="label-field">
+										<div class="col-md-3">
+											<label for="areaReq" class="control-label">Seção
+												<span class="required text-danger"><strong>*</strong></span></label>
+											<input readonly="" class="form-control" type="text" id="areaReq" name="areaReq" value="01 - BIOENERGÉTICA VALE DO PARACATU S/A. (01)" disabled="disabled">
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<label for="dataEnvio">Data</label>
+										<input type="text" class="form-control" name="dataEnvio" id="dataEnvio" readonly="" value="01/08/2024" disabled="disabled">
+									</div>
+
+								</div>
+
+								<div class="form-group row">
+									<div class="col-md-3">
+										<label for="numVagas">Número de Vagas<span class="required text-danger"><strong>*</strong></span></label>
+										<input readonly="" type="text" class="form-control" name="numVagas" id="numVagas" value="30" disabled="disabled">
+									</div>
+
+
+									<div class="label-field">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="centroCusto" class="control-label">Centro de Custo
+												<span class="required text-danger"><strong>*</strong></span></label>
+											<input readonly="" class="form-control" type="text" id="centroCusto" name="centroCusto" value="1.5.01.001 - Conselho de Administração" disabled="disabled">
+										</div>
+									</div>
+
+
+									<div class="label-field">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="horarioTrabalho" class="control-label">Horário de trabalho
+												<span class="required text-danger"><strong>*</strong></span></label>
+											<input type="text" id="horarioTrabalho" name="horarioTrabalho" readonly="" class="form-control" value="6X1 (07:00 às 11:00 / 12:00 às 15:20)" disabled="disabled">
+										</div>
+									</div>
+
+
+
+									<div class="label-field">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="localTrabalho" class="control-label">Departamento
+												<span class="required text-danger"><strong>*</strong></span></label>
+											<input type="text" name="localTrabalho" id="localTrabalho" readonly="" class="form-control" value="CONTROLADORIA E FINANÇAS" disabled="disabled">
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group row">
+
+									<!-- <div class="col-md-3">
+										<label for="inicioPrevisto">Inicio Previsto<span
+												class="required text-danger"><strong>*</strong></span></label>
+										<input readonly type="text" class="form-control" id="inicioPrevisto"
+											name="inicioPrevisto" />
+									</div> -->
+
+									<div class="col-md-3">
+										<label for="motivo">Motivo<span class="required text-danger"><strong>*</strong></span></label>
+										<input type="text" id="motivo" name="motivo" class="form-control" readonly="" value="1" disabled="disabled">
+									</div>
+
+									<div class="col-md-3">
+										<label for="tipoVaga">Tipo de Vaga<span class="required text-danger"><strong>*</strong></span></label>
+										<input type="text" name="tipoVaga" id="tipoVaga" readonly="" class="form-control" value="Estratégico" disabled="disabled">
+									</div>
+
+
+									
+
+								</div>
+
+								<!-- <div class="form-group row">
+
+									<div class="label-field" id="divSupervisorVaga" style="display: none;">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="supervisorVaga" class="control-label">Supervisor
+												<span class="required text-danger"><strong>*</strong></span></label>
+											<div>
+												<input type="zoom" name="supervisorVaga" id="supervisorVaga"
+													class="form-control" data-zoom="{
+											'displayKey': 'ZOOM',
+											'datasetId': 'ds_consultaSupervisor',
+											'fields': [
+												{
+													'field':'nome',
+													'label': 'Nome',
+													'filterValues': 'nome',
+													'standard': 'true'
+												}   
+											]
+										}" />
+											</div>
+										</div>
+									</div>
+
+									<div class="label-field" id="divNomeMotivo" style="display: none;">
+										<div class="col-xs-11 col-sm-11 col-md-3 col-lg-3">
+											<label for="nomeMotivo" class="control-label">Nome
+												<span class="required text-danger"><strong>*</strong></span></label>
+											<div>
+												<input type="zoom" name="nomeMotivo" id="nomeMotivo"
+													class="form-control" data-zoom="{
+											'displayKey': 'ZOOM',
+											'datasetId': 'ds_buscaColaboradores',
+											'fields': [
+												{
+													'field':'nome',
+													'label': 'Nome',
+													'filterValues': 'nome',
+													'standard': 'true'
+												}   
+											]
+										}" />
+											</div>
+										</div>
+									</div>
+								</div> -->
+
+								<!-- <div class="form-group row" id="divFaixaSalarial" style="display: none;">
+									<div class="col-md-3">
+										<label for="faixasalarialDe">Faixa salarial De:</label>
+										<input mask="#000.000.000,00" class="form-control" type="text"
+											id="faixasalarialDe" name="faixasalarialDe">
+									</div>
+									<div class="col-md-3">
+										<label for="faixasalarialDeAte">Até</label>
+										<input mask="#000.000.000,00" class="form-control" type="text"
+											id="faixasalarialDeAte" name="faixasalarialDeAte">
+									</div>
+									<div class="col-md-3">
+										<label for="previstoPatch">Previsto PEF ?</label>
+										<select class="form-control" name="previstoPatch" id="previstoPatch">
+											<option value="">Selecione...</option>
+											<option value="1">Sim</option>
+											<option value="2">Não</option>
+										</select>
+									</div>
+								</div> -->
+
+								<div class="form-group row">
+
+									<div class="col-md-12">
+										<label for="observacao">Observações</label>
+										<textarea readonly="" class="form-control" name="observacao" id="observacao" rows="4" style="resize: none;"></textarea>
+									</div>
+
+								</div>
+
+								<div class="row form-group">
+									<div class="col-md-12">
+										<div class="alert alert-info" role="alert">
+											<b style="color:white">Atenção: </b> (<b style="color:red"> * </b>) Campo
+											Obrigatório
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="panel panel-default tab-pane fade" id="painelReceitaFederal">
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>Requisitos Vaga</b></h3>
+							</div>
+							<div class="panel-body">
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3>Formação<span class="required text-danger"><strong>*</strong></span></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tabelaFormacao" nodeletebutton="true" noaddbutton="true" id="tabelaFormacao">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+														<th class="tableColumn">Formação</th>
+														<th class="tableColumn">Grau de Instrução</th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaFormacao">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-4">
+
+															<div class="form-group">
+																<input type="text" name="formacao" id="formacao" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+
+														<td class="col-xs-3">
+
+															<div class="form-group">
+																<input class="form-control" type="text" id="instrucao" name="instrucao" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="tabelaFormacao">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button___1" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_button___1" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-4">
+
+															<div class="form-group">
+																<input type="text" name="formacao___1" id="formacao___1" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+
+														<td class="col-xs-3">
+
+															<div class="form-group">
+																<input class="form-control" type="text" id="instrucao___1" name="instrucao___1" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar8"
+												id="refCom_Adicionar8"
+												onclick="addRowFormacao('tabelaFormacao')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+
+								<div class="form-group row" hidden="">
+									<div class="col-xs-12">
+										<h3>Tarefas a serem desempenhadas<span class="required text-danger"><strong>*</strong></span></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tabelaTarefas" nodeletebutton="true" noaddbutton="true" id="tabelaTarefas">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaTarefas">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button2" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="tarefas" id="tarefas" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="tabelaTarefas">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button2___1" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_button2___1" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="tarefas___1" id="tarefas___1" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar2"
+												id="refCom_Adicionar2"
+												onclick="addRowTarefas('tabelaTarefas')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3>Caracteristicas do trabalho<span class="required text-danger"><strong>*</strong></span></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="caracteristicasTrabalho" nodeletebutton="true" noaddbutton="true" id="caracteristicasTrabalho">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="caracteristicasTrabalho">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button3" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="caracteristicas" id="caracteristicas" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="caracteristicasTrabalho">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button3___1" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_button3___1" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="caracteristicas___1" id="caracteristicas___1" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar3"
+												id="refCom_Adicionar3"
+												onclick="addRowCaracteristicas('caracteristicasTrabalho')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3>Supervisão exercida<span class="required text-danger"><strong>*</strong></span></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tabelaSupervisao" nodeletebutton="true" noaddbutton="true" id="tabelaSupervisao">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaSupervisao">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button4" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="supervisao" id="supervisao" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="tabelaSupervisao">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button4___1" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_button4___1" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="supervisao___1" id="supervisao___1" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar10"
+												id="refCom_Adicionar10"
+												onclick="addRowSupervisao('tabelaSupervisao')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default tab-pane fade" id="painelEndCobr">
+
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>Requisitos Pessoais</b></h3>
+							</div>
+
+							<div class="panel-body">
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3>Caracteristicas Pessoais<span class="required text-danger"><strong>*</strong></span></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="caracteristicasPessoais" nodeletebutton="true" noaddbutton="true" id="caracteristicasPessoais">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+														<!-- <th class="tableColumn">Formação</th> -->
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="caracteristicasPessoais">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonCarac" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="caracteristicasPessoais" id="caracteristicasPessoais" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="caracteristicasPessoais">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonCarac___1" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonCarac___1" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="caracteristicasPessoais___1" id="caracteristicasPessoais___1" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default"
+												name="refCom_AdicionarPessoais" id="refCom_AdicionarPessoais"
+												onclick="addRowCaracteristicas('caracteristicasPessoais')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3>Habilidades Necessárias<span class="required text-danger"><strong>*</strong></span></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tabelaHabilidades" nodeletebutton="true" noaddbutton="true" id="tabelaHabilidades">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+														<!-- <th class="tableColumn">Formação</th> -->
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaHabilidades">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonHab" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="habilidades" id="habilidades" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="tabelaHabilidades">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonHab___1" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonHab___1" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="habilidades___1" id="habilidades___1" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+										<!-- 
+										<div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_AdicionarHab6"
+												id="refCom_AdicionarHab6"
+												onclick="addRowHabilidades('tabelaHabilidades')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3>Tarefas a serem desempenhadas<span class="required text-danger"><strong>*</strong></span></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tabelaTarefasDesempenho" nodeletebutton="true" noaddbutton="true" id="tabelaTarefasDesempenho">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+														<!-- <th class="tableColumn">Formação</th> -->
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaTarefasDesempenho">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button7" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="tarefasDesempenho" id="tarefasDesempenho" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="tabelaTarefasDesempenho">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button7___1" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_button7___1" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="tarefasDesempenho___1" id="tarefasDesempenho___1" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar7"
+												id="refCom_Adicionar7"
+												onclick="addRowTarefas('tabelaTarefasDesempenho')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default tab-pane fade" id="painelSst">
+
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>SST</b></h3>
+							</div>
+
+							<div class="panel-body">
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3 class="panel-title"><b>EPI:<span class="required text-danger"><strong>*</strong></span></b></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tabelaEpi" nodeletebutton="true" noaddbutton="true" id="tabelaEpi">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi" name="epi" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___1" name="epi___1" class="form-control" readonly="" value="CAPACETE DE SEGURANCA CA 498 TIPO II ABA FRONTAL CLASSE B COM LOGO BEVAP - GARD - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___1" id="epi___1"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___2" name="epi___2" class="form-control" readonly="" value="CARNEIRA COM JUGULAR PARA CAPACETE DE SEGURANCA COM NCA 50 - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___2" id="epi___2"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___3" name="epi___3" class="form-control" readonly="" value="CAMISA (ADMINISTRATIVO MASCULINA AZUL Nº 2) MANGA LONGA COR AZUL CLARO JUI - MONACO COM GOLA INTERNA E PUNHO COR AZUL ACY - RIVIERA TECIDO 50% ALGODAO 50% POLIESTER - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___3" id="epi___3"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___4" name="epi___4" class="form-control" readonly="" value="CAMISA (ADMINISTRATIVO MASCULINA AZUL Nº 3) MANGA LONGA COR AZUL CLARO JUI - MONACO COM GOLA INTERNA E PUNHO COR AZUL ACY - RIVIERA TECIDO 50% ALGODAO 50% POLIESTER - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___4" id="epi___4"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___5" name="epi___5" class="form-control" readonly="" value="CAMISETE (ADMINISTRATIVO FEMININO AZUL Nº 2) MANGA LONGA COR AZUL CLARO JUI-MONACO GOLA INTERNA E PUNHO COR AZUL ACY RIVIERA 50% ALGODAO 50% POLIESTER - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___5" id="epi___5"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___6" name="epi___6" class="form-control" readonly="" value="CAMISETE (ADMINISTRATIVO FEMININO AZUL Nº 3) MANGA LONGA COR AZUL CLARO JUI-MONACO GOLA INTERNA E PUNHO COR AZUL ACY RIVIERA 50% ALGODAO 50% POLIESTER - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___6" id="epi___6"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___7" name="epi___7" class="form-control" readonly="" value="MARMITA TÉRMICA - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___7" id="epi___7"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___8" name="epi___8" class="form-control" readonly="" value="PERNEIRA DE SEGURANÇA CA 44234 CONFECCIONADA EM MATERIAL SINTÉTICO 3 TALAS FRONTAL DE AÇO REGULAGEM E FECHO EM VELCRO - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___8" id="epi___8"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___9" name="epi___9" class="form-control" readonly="" value="PROTETOR AUDITIVO DO TIPO INSERÇÃO PRÉ-MOLDADO 3M 18 dB CA 5745 - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___9" id="epi___9"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___10" name="epi___10" class="form-control" readonly="" value="BOTINA DE SEGURANCA MICROFIBRAS 70B19 COM BIQUEIRA DE COMPOSITE  CA 34554 - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___10" id="epi___10"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___11" name="epi___11" class="form-control" readonly="" value="BONÉ DE SEGURANÇA (TIPO ÁRABE  CA 29047) CONFECCIONADO EM BRIM COM ABA COM TIRA DE VELCRO PARA AJUSTE FRONTAL PROTEÇÃO CONTRA RAIOS SOLARES - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___11" id="epi___11"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___12" name="epi___12" class="form-control" readonly="" value="ÓCULOS DE SEGURANÇA SOBREPOR PANDA INCOLOR CA 10344 - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___12" id="epi___12"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___13" name="epi___13" class="form-control" readonly="" value="OCULOS DE SEGURANCA POLICARBONATO ANTI-RISCO INCOLOR CA 39959 - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___13" id="epi___13"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___14" name="epi___14" class="form-control" readonly="" value="BONÉ DE SEGURANÇA 1° (CASQUETE CA 38352) CONFECCIONADO EM BRIM TIPO LEGIONÁRIO BEVAP - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___14" id="epi___14"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___15" name="epi___15" class="form-control" readonly="" value="CAMISA (ADMINISTRATIVO MASCULINA AZUL Nº 1) MANGA LONGA COR AZUL CLARO JUI - MONACO COM GOLA INTERNA E PUNHO COR AZUL ACY - RIVIERA TECIDO 50% ALGODAO 50% POLIESTER - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___15" id="epi___15"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr>
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___16" name="epi___16" class="form-control" readonly="" value="CAMISETE (ADMINISTRATIVO FEMININO AZUL Nº 1) MANGA LONGA COR AZUL CLARO JUI-MONACO GOLA INTERNA E PUNHO COR AZUL ACY RIVIERA 50% ALGODAO 50% POLIESTER - 10002" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi___16" id="epi___16"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___17" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___17" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___17" name="divSupervisorVaga___17" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___17" name="epi___17" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___18" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___18" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___18" name="divSupervisorVaga___18" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___18" name="epi___18" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___19" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___19" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___19" name="divSupervisorVaga___19" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___19" name="epi___19" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___20" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___20" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___20" name="divSupervisorVaga___20" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___20" name="epi___20" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___21" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___21" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___21" name="divSupervisorVaga___21" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___21" name="epi___21" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___22" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___22" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___22" name="divSupervisorVaga___22" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___22" name="epi___22" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___23" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___23" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___23" name="divSupervisorVaga___23" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___23" name="epi___23" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___24" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___24" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___24" name="divSupervisorVaga___24" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___24" name="epi___24" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___25" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___25" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___25" name="divSupervisorVaga___25" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___25" name="epi___25" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___26" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___26" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___26" name="divSupervisorVaga___26" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___26" name="epi___26" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___27" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___27" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___27" name="divSupervisorVaga___27" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___27" name="epi___27" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___28" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___28" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___28" name="divSupervisorVaga___28" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___28" name="epi___28" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___29" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___29" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___29" name="divSupervisorVaga___29" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___29" name="epi___29" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___30" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___30" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___30" name="divSupervisorVaga___30" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___30" name="epi___30" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___31" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___31" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___31" name="divSupervisorVaga___31" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___31" name="epi___31" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr><tr style="display: table-row;" detail="true" detailname="tabelaEpi">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEpi___32" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEpi___32" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+
+															<div class="label-field" id="divSupervisorVaga___32" name="divSupervisorVaga___32" value="">
+																<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7">
+																	<label for="epi" class="control-label">EPI
+																		<span class="required text-danger"><strong>*</strong></span></label>
+																	<input type="text" id="epi___32" name="epi___32" class="form-control" readonly="" value="" disabled="disabled">
+																</div>
+															</div>
+
+
+															<!-- <div class="form-group">
+																<input type="text" name="epi" id="epi"
+																	class="form-control" />
+															</div> -->
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar5"
+												id="refCom_Adicionar5"
+												onclick="addRowEpi('tabelaEpi')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3 class="panel-title"><b>Treinamentos:<span class="required text-danger"><strong>*</strong></span></b></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tabelaTreinamentos" nodeletebutton="true" noaddbutton="true" id="tabelaTreinamentos">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaTreinamentos">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonTreinamento" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="treinamento" id="treinamento" class="form-control" readonly="" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar6"
+												id="refCom_Adicionar6"
+												onclick="addRowTreinamento('tabelaTreinamentos')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="panel panel-default tab-pane fade" id="painelTai">
+
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>TAI</b></h3>
+							</div>
+
+							<div class="panel-body">
+
+								<div class="row">
+									<div class="col-md-2">
+										<label for="acessoInternet">Acesso a internet<span class="required text-danger"><strong>*</strong></span></label>
+										<input class="form-control" type="text" id="acessoInternet" name="acessoInternet" value="Total" disabled="disabled">
+									</div>
+
+									<div class="col-md-2">
+										<label for="impressao">Impressão<span class="required text-danger"><strong>*</strong></span></label>
+										<input type="text" id="impressao" name="impressao" class="form-control" value="Preto e Branco" disabled="disabled">
+									</div>
+
+									<div class="label-field" id="divSupervisorVaga">
+										<div class="col-xs-11 col-sm-11 col-md-2 col-lg-2">
+											<label for="perfilPadrao" class="control-label">Perfil padrão
+												<span class="required text-danger"><strong>*</strong></span></label>
+											<input class="form-control" type="text" id="perfilPadrao" name="perfilPadrao" value="00172 - JORDANA ARAGAO SOUTO" disabled="disabled">
+										</div>
+									</div>
+
+									<div class="col-md-3">
+										<br>
+										<!-- label class="switch-button">Usa itens de TI </label>
+										<div class="switch switch-primary switch-labels switch-lg">
+											<label class="switch-button" for="usaItensTi">Usa itens de TI</label>
+											<input class="switch-input" type="checkbox" id="usaItensTi"
+												name="usaItensTi" />
+										</div -->
+
+										<div id="switchInLot" class="bs-example" style="padding-bottom: 24px;">
+											<label class="required" for="usaItensTi">Usa itens de TI</label>
+											<div class="bootstrap-switch-on bootstrap-switch-disabled bootstrap-switch-id-usaItensTi bootstrap-switch bootstrap-switch-wrapper"><div class="bootstrap-switch-container"><span class="bootstrap-switch-handle-on bootstrap-switch-primary">ON</span><span class="bootstrap-switch-label">&nbsp;</span><span class="bootstrap-switch-handle-off bootstrap-switch-default">OFF</span><input checked="" id="usaItensTi" name="usaItensTi" type="checkbox" disabled="disabled"></div></div>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<br>
+										<!-- label class="switch-button">E-mail</label>
+										<div class="switch switch-primary switch-labels switch-lg">
+											<label class="switch-button" for="email">togle</label>
+											<input class="switch-input" type="checkbox" id="email" name="email" />
+										</div -->
+
+										<div id="switchInLot" class="bs-example" style="padding-bottom: 24px;">
+											<label for="email">E-mail</label>
+											<div class="bootstrap-switch-off bootstrap-switch-disabled bootstrap-switch-id-email bootstrap-switch bootstrap-switch-wrapper"><div class="bootstrap-switch-container"><span class="bootstrap-switch-handle-on bootstrap-switch-primary">ON</span><span class="bootstrap-switch-label">&nbsp;</span><span class="bootstrap-switch-handle-off bootstrap-switch-default">OFF</span><input id="email" name="email" type="checkbox" disabled="disabled"></div></div>
+										</div>
+									</div>
+
+								</div>
+
+								<br>
+								<br>
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3 class="panel-title"><b>Equipamentos<span class="required text-danger"><strong>*</strong></span></b></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tableEquipamento" nodeletebutton="true" noaddbutton="true" id="tableEquipamento">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tableEquipamento">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEquipamentos" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="equipamentos" id="equipamentos" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="tableEquipamento">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_buttonEquipamentos___1" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_buttonEquipamentos___1" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="equipamentos___1" id="equipamentos___1" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar4"
+												id="refCom_Adicionar4"
+												onclick="addRowEquipamentos('tableEquipamento')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3 class="panel-title"><b>Licenças<span class="required text-danger"><strong>*</strong></span></b></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tabelaLicensas" nodeletebutton="true" noaddbutton="true" id="tabelaLicensas">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaLicensas">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button5" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="licensas" id="licensas" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="tabelaLicensas">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button5___1" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_button5___1" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="licensas___1" id="licensas___1" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default"
+												name="refCom_AdicionarLicensas" id="refCom_AdicionarLicensas"
+												onclick="addRowLicensas('tabelaLicensas')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3 class="panel-title"><b>Caracteristicas Pessoais<span class="required text-danger"><strong>*</strong></span></b></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tabelaCaracteristicas2" nodeletebutton="true" noaddbutton="true" id="tabelaCaracteristicas2">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaCaracteristicas2">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button6" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="caracPessoais" id="caracPessoais" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr>
+												<tr style="display: table-row;" detail="true" detailname="tabelaCaracteristicas2">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="refCom_td_button6___1" onclick="deletaFilho(this)" style="width: 100%;" class="imagem" id="refCom_td_button6___1" value=""><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-7">
+
+															<div class="form-group">
+																<input type="text" name="caracPessoais___1" id="caracPessoais___1" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+													</tr></tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default" name="refCom_Adicionar9"
+												id="refCom_Adicionar9"
+												onclick="addRowCaracteristicas2('tabelaCaracteristicas2')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+						<div class="panel panel-default tab-pane fade" id="painelIntegracao">
+
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>Integração</b></h3>
+							</div>
+
+							<div class="panel-body">
+
+								<div class="form-group row row-info">
+									<div class="col-md-3">
+										<label for="dados_nomeSolicitante">Nome do solicitante</label>
+										<input type="text" class="form-control" name="dados_nomeSolicitante" id="dados_nomeSolicitante" readonly="" value="Ellison" disabled="disabled">
+									</div>
+									<div class="col-md-3">
+										<label for="dados_dataSolicitacao">Data da solicitação</label>
+										<input type="text" class="form-control" name="dados_dataSolicitacao" id="dados_dataSolicitacao" mask="00/00/0000" readonly="" value="01/08/2024" disabled="disabled" maxlength="10" autocomplete="off">
+									</div>
+									<div class="col-md-3">
+										<label for="dados_numFluig">Nº Fluig</label>
+										<input type="text" class="form-control" name="dados_numFluig" id="dados_numFluig" readonly="" value="1578" disabled="disabled">
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="panel panel-default tab-pane fade" id="painelRecrutamento">
+
+							<div class="panel-heading ">
+								<h3 class="panel-title"><b>Recrutamento</b></h3>
+							</div>
+
+							<div class="panel-body">
+								<div class="form-group row">
+									<div class="col-xs-12">
+										<h3>Candidatos<span class="required text-danger"><strong>*</strong></span></h3>
+										<div class="form-field table-responsive" data-type="tabledetail" data-show-properties="" data-field-name="tabledetail">
+											<table class="table" tablename="tabelaRecrutamento" nodeletebutton="true" noaddbutton="true" id="tabelaRecrutamento">
+												<thead>
+													<tr class="tableHeadRow">
+
+														<th class="tableColumn gridDelete"></th>
+
+													</tr>
+												</thead>
+												<tbody>
+													<tr style="display:none" detail="true" detailname="tabelaRecrutamento">
+														<td class="col-xs-1 gridDelete">
+															<div class="form-group">
+																<button type="button" name="buttonDeleteFilhoRec" onclick="deletaFilho(this)" style="width: 100%;" class="imagem"><i class="fluigicon fluigicon-trash icon-md" style="display: none;"></i></button>
+															</div>
+														</td>
+
+														<td class="col-xs-2">
+
+															<div class="form-group">
+																<label for="">Nome Candidato</label>
+																<input type="text" name="nomeCandidato" id="nomeCandidato" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+														<td class="col-xs-2">
+
+															<div class="form-group">
+																<label for="">CPF</label>
+																<input type="text" name="cpfCandidato" id="cpfCandidato" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+														<td class="col-xs-2">
+
+															<div class="form-group">
+																<label for="">RG</label>
+																<input type="text" name="rgCandidato" id="rgCandidato" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+														<td class="col-xs-2">
+															<label for="">Data Nascimento</label>
+															<div class="form-group">
+																<input type="text" name="dataNascimentoCandidato" id="dataNascimentoCandidato" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+														<td class="col-xs-2">
+															<label for="">Naturalidade</label>
+															<div class="form-group">
+
+																<input type="text" name="naturalidadeCandidato" id="naturalidadeCandidato" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+														<td class="col-xs-1">
+															<label for="">Origem</label>
+															<div class="form-group">
+																<input type="text" name="origemCandidato" id="origemCandidato" class="form-control" value="" disabled="disabled">
+															</div>
+
+														</td>
+
+
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+
+										<!-- <div class="form-group">
+											<button type="button" class="btn btn-default"
+												name="buttonAddRowRecrutamento" id="buttonAddRowRecrutamento"
+												onclick="addRowRecrutamento('tabelaRecrutamento')">Adicionar</button>
+										</div> -->
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="painelExameMedico" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Exame Médico
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label for="aprovadoExameMedico">Aprovado
+									<span class="text-danger">
+										<strong>*</strong>
+									</span>
+								</label>
+								<select name="aprovadoExameMedico" id="aprovadoExameMedico" class="form-control" disabled="disabled">
+									<option value="" class="form-control">Selecione</option>
+									<option value="sim" class="form-control" selected="selected">Sim</option>
+									<option value="nao" class="form-control">Não</option>
+								</select>
+							</div>
+							<div class="col-md-12">
+								<label for="observacaoSupervisor">Observações</label>
+								<textarea class="form-control" name="observacaoSupervisor" id="observacaoSupervisor" rows="4" style="resize: none;" readonly="">123</textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="painelGestorArea" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Aprovação Gestor da Área
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label for="aprovadorGestorArea">Aprovado
+									<span class="text-danger">
+										<strong>*</strong>
+									</span>
+								</label>
+								<select name="aprovadorGestorArea" onchange="verificaAprovacao(this.value)" id="aprovadorGestorArea" class="form-control" disabled="disabled">
+									<option value="" class="form-control" selected="selected">Selecione</option>
+									<option value="sim" class="form-control">Sim</option>
+									<option value="nao" class="form-control">Não</option>
+								</select>
+							</div>
+							<div class="col-md-12">
+								<label for="obsGestorArea">Observações</label>
+								<textarea class="form-control" name="obsGestorArea" id="obsGestorArea" rows="4" style="resize: none;" readonly=""></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="painelGestorExecutivo" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Aprovação do gestor executivo
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label for="aprovadorGestorExecutivo">Aprovado
+									<span class="text-danger">
+										<strong>*</strong>
+									</span>
+								</label>
+								<select name="aprovadorGestorExecutivo" onchange="verificaAprovacao(this.value)" id="aprovadorGestorExecutivo" class="form-control" disabled="disabled">
+									<option value="" class="form-control" selected="selected">Selecione</option>
+									<option value="sim" class="form-control">Sim</option>
+									<option value="nao" class="form-control">Não</option>
+								</select>
+							</div>
+							<div class="col-md-12">
+								<label for="observacaoGestorExecutivo">Observações</label>
+								<textarea class="form-control" name="observacaoGestorExecutivo" id="observacaoGestorExecutivo" rows="4" style="resize: none;" readonly=""></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="painelAprovacaoDiretor" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Aprovação do diretor
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label for="aprovadorDiretor">Aprovado
+									<span class="text-danger">
+										<strong>*</strong>
+									</span>
+								</label>
+								<select name="aprovadorDiretor" onchange="verificaAprovacao(this.value)" id="aprovadorDiretor" class="form-control" disabled="disabled">
+									<option value="" class="form-control" selected="selected">Selecione</option>
+									<option value="sim" class="form-control">Sim</option>
+									<option value="nao" class="form-control">Não</option>
+								</select>
+							</div>
+							<div class="col-md-12">
+								<label for="obsDiretor">Observações</label>
+								<textarea class="form-control" name="obsDiretor" id="obsDiretor" rows="4" style="resize: none;" readonly=""></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="painelAprovacaoDiretorRh" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Aprovação do diretor de RH
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label for="aprovadorDiretorRh">Aprovado
+									<span class="text-danger">
+										<strong>*</strong>
+									</span>
+								</label>
+								<select name="aprovadorDiretorRh" onchange="verificaAprovacao(this.value)" id="aprovadorDiretorRh" class="form-control" disabled="disabled">
+									<option value="" class="form-control" selected="selected">Selecione</option>
+									<option value="sim" class="form-control">Sim</option>
+									<option value="nao" class="form-control">Não</option>
+								</select>
+							</div>
+							<div class="col-md-12">
+								<label for="obsDiretorRh">Observações</label>
+								<textarea class="form-control" name="obsDiretorRh" id="obsDiretorRh" rows="4" style="resize: none;" readonly=""></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel panel-default" id="painelPresidente" style="display: none;">
+				<div class="panel-heading painelPrincipal">
+					<h3 class="panel-title">
+						<a class="collapse-icon up title" data-toggle="collapse" data-parent="#accordion" href="#collapse7" style="font-weight: bold;">
+							Aprovação do presidente
+						</a>
+					</h3>
+				</div>
+				<div id="collapse6" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<div class="form-group row row-info">
+							<div class="col-md-4">
+								<label for="aprovadorPresidente">Aprovado
+									<span class="text-danger">
+										<strong>*</strong>
+									</span>
+								</label>
+								<select name="aprovadorPresidente" onchange="verificaAprovacao(this.value)" id="aprovadorPresidente" class="form-control" disabled="disabled">
+									<option value="" class="form-control" selected="selected">Selecione</option>
+									<option value="sim" class="form-control">Sim</option>
+									<option value="nao" class="form-control">Não</option>
+								</select>
+							</div>
+							<div class="col-md-12">
+								<label for="obsPresidente">Observações</label>
+								<textarea class="form-control" name="obsPresidente" id="obsPresidente" rows="4" style="resize: none;" readonly=""></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</form>

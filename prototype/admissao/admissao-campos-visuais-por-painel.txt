@@ -1,0 +1,378 @@
+LISTA DE CAMPOS VISUAIS - POR PAINEL (FORMULÁRIO ADMISSÃO)
+Fonte HTML: admissao.html
+Fonte retorno dataset: admissao-retorno
+
+(formato: NOME DO CAMPO - ID DO CAMPO)
+
+================================================================================
+PAINEL: Dados de Contato
+ID DO PAINEL: divDadosContato
+Email de Contato - dgf_email_contato
+Celular de Contato - dgf_celular_contato
+Telefone de Contato - dgf_telefone_contato
+
+================================================================================
+PAINEL: Dados de Contratação
+ID DO PAINEL: divDadosContratacao
+Empresa - dgf_pf_empresa_com_desc_cod
+Filial - dgf_pf_filial_com_desc_cod
+Jornada de Admissão - dgf_jornada_desc_cod
+Grupo Contrato Assinatura - dgf_grupo_tp_contrato_desc
+Chapa - pf_chapa
+Identificador (Cod Pessoa) - pf_codpessoa
+Ficha de Registro - pf_nrofichareg
+Email Corporativo - pf_email
+Código Usuário - pf_codusuario
+Data de Admissão - pf_dataadmissao
+Data Base - pf_dtbase
+Tipo de Admissão - dgf_pf_tipoadmissao_desc_cod
+Seção - dgf_pf_codsecao_desc_cod
+Natureza da Atividade - pf_esocialnatatividade
+Indicativo de Admissão - pf_indadmissao
+Tipo de Regime Previdenciário - pf_tpregimeprev
+Quantidade Horas Mês - pf_jornada
+Tipo Funcionário - dgf_pf_codtipo_desc_cod
+Função - dgf_pf_codfuncao_desc_cod
+Cargo - dgf_pf_cod_desc_cargo
+Tem Remuneração - pf_temremuneracao
+Nível Função - dgf_pf_sal_nivel_desc_cod
+Faixa Salarial - dgf_pf_sal_faixa_desc_cod
+Salário - pf_salario
+Valor Hora - pf_hora
+Salário Base Dissídio - pf_salariobase
+Percentual de Adiantamento - pf_percentadiant
+Ajuda de Custo - pf_ajudacusto
+Arredondamento - pf_arredondamento
+Tipo de Pagamento - dgf_pf_codrecebimento_desc_cod
+Categoria eSocial - dgf_pf_codcatesocial_desc_cod
+Tipo de Regime Trabalhista - pf_tiporegimetrabalhista
+Contribuição Sindical - dgf_pf_contribsind_desc_cod
+Sindicato - dgf_pf_codsindicato_desc_cod
+Sindicato Filiação - dgf_pf_sind_filiacao_desc_cod
+Aposentado - pf_aposentado
+INSS - pf_situacaoinss
+IRRF - pf_situacaoirrf
+Situação do Fgts - pf_situacaofgts
+Data Último Saldo FGTS - pf_dtsaldofgts
+Código Ocorrência SEFIP - dgf_pf_ocorrencia_desc_cod
+Código Categoria SEFIP - dgf_pf_codcategoria_desc_cod
+Situação Empregatício (RAIS) - dgf_pf_situacaorais_desc_cod
+Vínculo Empregatício (RAIS) - dgf_pf_vinculorais_desc_cod
+Grupo de Quiosque - dgf_pf_qsq_desc_cod
+Código de Equipe - dgf_pf_equipe_desc_cod
+---------------
+Dados Bancários
+Banco Depósito FGTS - dgf_pf_codbancofgts_desc_cod
+Agência Depósito FGTS - dgf_pf_agencia_fgts_desc_cod
+Conta Depósito FGTS - pf_contafgts
+Banco PIS - dgf_pf_codbancopis_desc_cod
+Tipo de Conta Bancária - pf_tpcontabancaria
+Banco Depósito Salário - dgf_pf_codbancopagto_desc_cod
+Conta Depósito Salário - pf_contapagamento
+Operação Bancária - pf_opbancaria
+Agência Depósito Salário - dgf_pf_codagenciapgt_desc_cod
+---------------
+Contrato de Trabalho
+Contrato com Prazo - pf_tipocontratoprazo
+Dias Venc Primeira Experiência - dpf_dias_venc_exp1
+Vencimento da Primeira Experiência - dgf_pf_experiencia_inicio
+Dias Venc Segunda Experiência - dpf_dias_venc_exp2
+Vencimento da Segunda Experiência - dgf_pf_experiencia_fim
+Complemento Contrato - dgf_complemento_contr_desc
+---------------
+Informações de Estágio
+Natureza do Estágio - pf_naturezaestagio
+Nível de Estágio - pf_codnivelestagio
+Área de Atuação - pf_areaatuacaoestagio
+Número de Apólice - pf_numeroapoliceestagio
+Data Fim do Estágio - pf_dtprevterminoestagio
+Entidade de Ensino - dgf_pf_entidade_desc_cod
+Agente Integração - dgf_pf_codagestagio_desc_cod
+Nome do Coordenador - pf_nomecoordenadorestagio
+CPF do Coordenador - pf_cpfcoordenadorestagio
+---------------
+Informações de Menor Aprendiz
+CNPJ Entidade Qualificadora/Empregador Cotista - dgf_pf_cnpjempcontraprendiz
+Inscrição Estabelecimento Atividades Práticas - dgf_pf_inscrestabativprat
+Modalidade Contratação - dgf_pf_modalidadecontratacao
+---------------
+Horário de Trabalho
+Horário de Trabalho - dgf_pf_codhorario_desc_cod
+Índice Início Horário - dgf_pf_indiniciohor_desc_cod
+Contrato a Tempo Parcial - pf_tempoparcial
+Tipo de Jornada - pf_tiporegimejornada
+---------------
+Dados Contábeis
+Integração Contábil - dgf_pf_integrcontabil_desc_cod
+Integração Gerencial - dgf_pf_intgerencial_desc_cod
+Centro de Custo - dgf_pf_codccusto_desc_cod
+---------------
+Rateio Fixo (Centro de Custo) (Pai e Filho)
+TABELA FILHO: tbRateioCentroCusto
+Centro de Custo - tbRateioCentroCusto.dgf_pr_codccusto_desc_cod
+Valor (%) - tbRateioCentroCusto.pr_valor
+---------------
+Tomadores (Pai e Filho)
+TABELA FILHO: tbTomador
+Código do Tomador - tbTomador.pt_codtomador
+Tomador - tbTomador.dgf_pt_tomador_desc_cod
+CEI - tbTomador.pt_cei
+Coligada Tomador - tbTomador.pt_codcoltomador
+Tipo de Tomador - tbTomador.pt_tptomador
+Valor de rateio (dias) - tbTomador.pt_valor
+---------------
+Códigos Fixos (Pai e Filho)
+TABELA FILHO: tbEvento
+Evento - tbEvento.dgt_pe_evento_desc_cod
+Categoria Evento - tbEvento.pe_categoria
+Número de vezes de lançamento - tbEvento.pe_nrovezes
+Tipo - tbEvento.dgf_pe_codfix_desc_cod
+Valor do codigo fixo - tbEvento.pe_valor
+---------------
+Eventos Programados (Pai e Filho)
+TABELA FILHO: tbEventoProgramado
+Evento - tbEventoProgramado.dgt_ep_evento_desc_cod
+Mês Inicial - tbEventoProgramado.ep_mesinic
+Ano Inicial - tbEventoProgramado.ep_anoinic
+Mês Fim - tbEventoProgramado.ep_mesfim
+Ano Fim - tbEventoProgramado.ep_anofim
+Sempre Válido - tbEventoProgramado.ep_semprevalido
+Tipo - tbEventoProgramado.dgf_ep_tipo_desc_cod
+Valor - tbEventoProgramado.ep_valor
+Complemento 1 - tbEventoProgramado.ep_complemento1
+Complemento 2 - tbEventoProgramado.ep_complemento2
+Centro de Custo - tbEventoProgramado.dgf_ep_codccusto_desc_cod
+---------------
+Valores Associados (Pai e Filho)
+TABELA FILHO: tbValorAssociado
+Data - tbValorAssociado.pa_dtvalor
+Código - tbValorAssociado.dgt_pa_codvalor_desc_cod
+Valor do codigo fixo - tbValorAssociado.pa_valor
+Observação - tbValorAssociado.pa_observacao
+---------------
+Origem da Solicitação
+Agrupador - dgf_cod_agrupador
+Número da requisição - dgf_num_requisicao
+Data requisição - dgf_dt_requisicao
+Tipo da requisição - dgf_tp_requisicao
+Num sistema ATS - dgf_num_requisicao_ats
+Num sistema ATS Integração - dgf_num_requisicao_ats_int
+---------------
+Dias Vale Transporte - Expediente Integral
+Dias Úteis Mês - pf_diasuteismes
+Dias Úteis Restantes - pf_diasutrestantes
+Dias Úteis Próximo Mês - pf_diasutproxmes
+---------------
+Dias Vale Transporte - Meio Expediente
+Dias Úteis Mês - pf_diasutmeioexp
+Dias Úteis Restantes - dgf_diasutrestmeio
+Dias Úteis Próximo Mês - dgf_diasutproxmeio
+---------------
+Motivos
+Motivo Admissão - dgf_pf_motivoadmissao_desc_cod
+Motivo Mudança Salário - dgf_pf_motmudsalario_desc_cod
+Motivo Mudança Função - dgf_pf_motmudfuncao_desc_cod
+Motivo Mudança Seção - dgf_pf_motmudcasecao_desc_cod
+Motivo Mudança Situação - dgf_pf_pf_hstsit_mot_desc_cod
+
+================================================================================
+PAINEL: Conclusão do Envio das Informações
+ID DO PAINEL: divOrientacao
+Envio das informações foi concluída? - dgf_envio_inf_concluido
+Mensagem - dgf_textareaOrientacao
+
+================================================================================
+PAINEL: Dados Pessoais
+ID DO PAINEL: divDadosPessoais
+CPF - pf_cpf
+Nome Completo - pf_nome
+Data de Nascimento - pf_dtnascimento
+---------------
+Contato
+Nome Social - pf_nomesocial
+E-mail - pf_emailpessoal
+Celular 1 - pf_telefone1
+Telefone 2 - pf_telefone2
+Telefone 3 - pf_telefone3
+---------------
+Filiação
+Nome da Mãe - dgf_pd_mnome
+Mãe - Sexo - dgf_pd_msexo
+Mãe - Estado Civil - dgf_pd_mestcivil
+Nome do Pai - dgf_pd_pnome
+Pai - Sexo - dgf_pd_psexo
+Pai - Estado Civil - dgf_pd_pestcivil
+---------------
+Dados Complementares
+Sexo - pf_sexo
+Raça/Cor - pf_corraca
+Estado Civil - pf_estadocivil
+Nacionalidade - pf_nacionalidade
+Estado Nascimento (Naturalidade) - pf_estadonatal
+Município Nascimento (Naturalidade) - pf_naturalidade
+Tipo Sanguíneo - pf_tiposang
+Grau Instrução (Escolaridade) - pf_grauinstrucao
+Possui Deficiência - dgf_pf_deficiencia
+---------------
+RG
+Nro. Identidade - pf_cartidentidade
+Data de Emissão do RG - pf_dtemissaoident
+Estado(UF) de Emissão do RG - pf_ufcartident
+Órgão Emissor do RG - pf_orgemissorident
+---------------
+Passaporte
+Número do Passaporte - pf_npassaporte
+Emissão do Passaporte - pf_dtemisspassaporte
+Validade do Passaporte - pf_dtvalpassaporte
+---------------
+PIS
+É primeiro emprego e não possui PIS/CNIS? - dgf_pf_primeiro_emprego
+PIS - pf_pispasep
+Ano Primeiro Emprego - pf_ano1emprego
+---------------
+Carteira de Trabalho (CTPS)
+Carteira Digital - dgf_pf_carteiratrab_digital
+Nro. CTPS - pf_carteiratrab
+Série CTPS - pf_seriecarttrab
+Estado(UF) Carteira Profissional - pf_ufcarttrab
+Data de emissão CTPS - pf_dtcarttrab
+---------------
+Carteira de Motorista (CNH)
+Nro. Habilitação - pf_cartmotorista
+Órgão Emissor CNH - pf_orgemissorcnh
+Data de Emissão CNH - pf_dtemissaocnh
+Data Primeira CNH - pf_dataprimeiracnh
+Data de venc Habilitação - pf_dtvenchabilit
+Categoria Carteira de Habilitação - pf_tipocarthabilit
+Estado (UF) CNH - pf_ufcnh
+---------------
+Título de Eleitor
+Título de Eleitor Digital - dgf_pf_titulodigital
+Nro. Titulo de Eleitor - pf_tituloeleitor
+Título de Eleitor Zona - pf_zonatiteleitor
+Seção Eleitoral - pf_secaotiteleitor
+Dt. Tit. Eleitor - pf_dttiteleitor
+Estado de emissão do Título de Eleitor - pf_esteleit
+---------------
+Reservista
+Nro. Certificado reservista - pf_certifreserv
+Categoria Carteira de Reservista - pf_categmilitar
+Circunscrição Militar - pf_csm
+Região Militar - pf_rm
+Data Emissão Certificado Militar - pf_dtexpcml
+Órgão de Expedição - pf_exped
+Situação Militar - pf_sitmilitar
+---------------
+Cartão SUS
+Número Cartão SUS - pf_numerocartaosus
+---------------
+Registro Profissional
+Órgão de Classe - pp_codorgaoclasse
+UF Órgão de Classe - pp_codufregistro
+Número de registro - pp_numeroregistro
+Data de emissão - pp_dataemissao
+
+================================================================================
+PAINEL: Dados do Endereço
+ID DO PAINEL: divDadosEndereco
+CEP - pf_cep
+Tipo da Rua - pf_codtiporua
+Rua - pf_rua
+Número - pf_numero
+Complemento - pf_complemento
+Tipo de Bairro - pf_codtipobairro
+Bairro - pf_bairro
+Estado(UF) - pf_estado
+Município - pf_cidade
+País - pf_pais
+
+================================================================================
+PAINEL: Dados dos Dependentes
+ID DO PAINEL: divDadosDependentes
+---------------
+Dependentes (Pai e Filho)
+TABELA FILHO: tbDependente
+CPF - tbDependente.pd_cpf
+Nome - tbDependente.pd_nome
+RG - tbDependente.pd_cartidentidade
+Data de Nascimento - tbDependente.pd_dtnascimento
+Sexo - tbDependente.pd_sexo
+Estado Civil - tbDependente.pd_estadocivil
+Parentesco - tbDependente.pd_grauparentesco
+Tipo Dependente IR - tbDependente.dgf_pd_incirrf
+Data de Entrega Certidão - tbDependente.pd_dataentregacertidao
+Entregou Cartão Vacina - tbDependente.dgf_pd_cartaovacina
+Entregou Comprov. Frequencia Escolar - tbDependente.dgf_pd_freqescolar
+Tipo Dependente Salário Família - tbDependente.dgf_pd_incsalfam
+Forçar Incidência de Salário Família - tbDependente.pd_incsalfam
+Plano de Saúde - tbDependente.dgf_pd_incassistmedica
+Nome da Mãe - tbDependente.pd_mnome
+Número Cartão SUS - tbDependente.pd_numerocartaosus
+Observação - tbDependente.pd_observacao
+Benefício 1 - tbDependente.dgf_beneficio1_depen
+Benefício 2 - tbDependente.dgf_beneficio2_depen
+Benefício 3 - tbDependente.dgf_beneficio3_depen
+Benefício 4 - tbDependente.dgf_beneficio4_depen
+Benefício 5 - tbDependente.dgf_beneficio5_depen
+
+================================================================================
+PAINEL: Dados do Vale Transporte
+ID DO PAINEL: divDadosValeTransporte
+Deseja vale transporte? - dgf_deseja_beneficio_vt
+---------------
+Linhas e Tarifas (Pai e Filho)
+TABELA FILHO: tbValeTranporte
+Linha Utilizada (Integração) - tbValeTranporte.pv_nomelinha
+Valor Tarifa (Integração) - tbValeTranporte.pv_valor
+Quantidade Viagens por Dia (Integração) - tbValeTranporte.pv_nroviagens
+Destino (Manual) - tbValeTranporte.dgf_pv_destino
+Tipo (Manual) - tbValeTranporte.dgf_pv_tipo
+Número da Linha (Manual) - tbValeTranporte.dgf_pv_codlinha
+Nome da Linha (Manual) - tbValeTranporte.dgf_pv_nomelinha
+Empresa Transporte (Manual) - tbValeTranporte.dgf_pv_empresesatrans
+Cartão (Manual) - tbValeTranporte.dgf_pv_numcartao
+Valor Tarifa Cartão (Manual) - tbValeTranporte.dgf_pv_valor_tarifa_cartao
+Valor Tarifa (Manual) - tbValeTranporte.dgf_pv_valor
+
+================================================================================
+PAINEL: Informações Adicionais
+ID DO PAINEL: divCamposAdicionais
+---------------
+Campos Adicionais (Pai e Filho)
+TABELA FILHO: tbCamposAdicional
+(Candidato) Caso seu cônjuge trabalhe, informe o nome da empresa onde ele trabalha: - tbCamposAdicional.funx_empresa_conjuge
+(Candidato) Informe o nome do seu cônjuge: - tbCamposAdicional.funx_nome_conjuge
+(Candidato) Número do calçado: - tbCamposAdicional.bot
+(Candidato) Número do uniforme: - tbCamposAdicional.tamuni
+(Candidato) Orientação Sexual: - tbCamposAdicional.funx_orientacao
+(Candidato) Seu cônjuge trabalha?: - tbCamposAdicional.funx_expensas_conjuge
+(Candidato) Você já possui um plano de saúde ativo?: - tbCamposAdicional.funx_vinculo_plano
+(Plano Odontológico) Beneficiário 1 - CPF: - tbCamposAdicional.funx_depend_cpf_b2_1
+(Plano Odontológico) Beneficiário 1 - Data de Nascimento: - tbCamposAdicional.funx_dtnascimento_b2_1
+(Plano Odontológico) Beneficiário 1 - Nome da Mãe: - tbCamposAdicional.funx_mnome_b2_1
+(Plano Odontológico) Beneficiário 1 - Nome: - tbCamposAdicional.funx_nome_b2_1
+(Plano Odontológico) Beneficiário 1 - RG: - tbCamposAdicional.funx_cartidentidade_b2_1
+(Plano Odontológico) Beneficiário 2 - CPF: - tbCamposAdicional.funx_depend_cpf_b2_2
+(Plano Odontológico) Beneficiário 2 - Data de Nascimento: - tbCamposAdicional.funx_dtnascimento_b2_2
+(Plano Odontológico) Beneficiário 2 - Nome da Mãe: - tbCamposAdicional.funx_mnome_b2_2
+(Plano Odontológico) Beneficiário 2 - Nome: - tbCamposAdicional.funx_nome_b2_2
+(Plano Odontológico) Beneficiário 2 - RG: - tbCamposAdicional.funx_cartidentidade_b2_2
+(Plano Odontológico) Beneficiário 3 - CPF: - tbCamposAdicional.funx_depend_cpf_b2_3
+(Plano Odontológico) Beneficiário 3 - Data de Nascimento: - tbCamposAdicional.funx_dtnascimento_b2_3
+(Plano Odontológico) Beneficiário 3 - Nome da Mãe: - tbCamposAdicional.funx_mnome_b2_3
+(Plano Odontológico) Beneficiário 3 - Nome: - tbCamposAdicional.funx_nome_b2_3
+(Plano Odontológico) Beneficiário 3 - RG: - tbCamposAdicional.funx_cartidentidade_b2_3
+(RH - RM) Tipo de contratação: - tbCamposAdicional.pro
+(RH - RM) Plano de Saúde: - tbCamposAdicional.planosaude
+(RH) O cargo do candidato exige comprovação de registro profissional?: - tbCamposAdicional.funx_registro
+
+================================================================================
+PAINEL: Benefícios
+ID DO PAINEL: divBeneficios
+Plano de Saúde - dgf_beneficio1
+Plano Odontológico - dgf_beneficio2
+
+================================================================================
+PAINEL: Termo de Aceite - Lei Geral de Proteção de Dados (LGPD)
+ID DO PAINEL: divLGPD
+Aceite LGPD - dgf_aceite_termo_lgpd

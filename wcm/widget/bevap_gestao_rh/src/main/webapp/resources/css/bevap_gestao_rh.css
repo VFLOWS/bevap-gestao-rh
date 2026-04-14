@@ -1,0 +1,655 @@
+﻿/* ============================================================
+   BEVAP Gestao RH Widget — Plain CSS
+   All layout props use !important to defeat Fluig Bootstrap 3
+============================================================= */
+
+/* ---- Reset básico dentro do widget ---- */
+.bevap-rh-root *,
+.bevap-rh-root *::before,
+.bevap-rh-root *::after {
+    box-sizing: border-box !important;
+}
+
+.bevap-rh-root {
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+    font-size: 14px !important;
+    color: #1f2937 !important;
+    background: #ffffff !important;
+    line-height: 1.5 !important;
+}
+
+/* Reset inputs do Bootstrap */
+.bevap-rh-root input,
+.bevap-rh-root select,
+.bevap-rh-root textarea {
+    height: auto !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.875rem !important;
+    font-family: inherit !important;
+    line-height: 1.5 !important;
+    color: #1f2937 !important;
+    background-color: #ffffff !important;
+    border: 1px solid rgba(0,51,102,0.3) !important;
+    border-radius: 0.375rem !important;
+    box-shadow: none !important;
+    outline: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.bevap-rh-root input:focus,
+.bevap-rh-root select:focus,
+.bevap-rh-root textarea:focus {
+    border-color: #34558b !important;
+    box-shadow: 0 0 0 2px rgba(0,51,102,0.15) !important;
+    outline: none !important;
+}
+
+/* ---- Topbar ---- */
+.rh-topbar {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 1rem  1.5rem  !important;
+    background: #ffffff !important;
+    
+}
+
+#visualizacaoPagina .layout-1-1 {
+    
+    margin-bottom: 0px !important;
+}
+
+.rh-topbar-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+}
+
+.rh-topbar-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+}
+
+.rh-logo {
+    height: 2.5rem !important;
+    width: auto !important;
+}
+
+.rh-title {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    color: #1f2937 !important;
+    margin: 0 !important;
+}
+
+.rh-bell-icon {
+    color: #d1d5db !important;
+    font-size: 1.125rem !important;
+}
+
+.rh-avatar {
+    width: 2rem !important;
+    height: 2rem !important;
+    border-radius: 9999px !important;
+}
+
+/* ---- Main layout ---- */
+.rh-main {
+    background: #ffffff !important;
+    min-height: 100vh !important;
+    display: block !important;
+}
+
+.rh-content {
+    
+    background: white;
+}
+
+/* ---- Filters section ---- */
+.rh-filters {
+    background: #ffffff !important;
+    border-radius: 0.5rem !important;
+    border: 1px solid rgba(0,51,102,0.2) !important;
+    padding: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.rh-filters-title {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: #34558b !important;
+    margin: 0 0 1rem 0 !important;
+}
+
+.rh-filters-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.rh-filter-label {
+    display: block !important;
+    font-size: 0.875rem !important;
+    color: #34558b !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.rh-filter-input {
+    width: 100% !important;
+    padding: 0.5rem 0.75rem !important;
+    border: 1px solid rgba(0,51,102,0.3) !important;
+    border-radius: 0.375rem !important;
+    font-size: 0.875rem !important;
+    color: #1f2937 !important;
+    background: #ffffff !important;
+    height: auto !important;
+}
+
+.rh-filters-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+}
+
+/* ---- Buttons ---- */
+.rh-btn-primary {
+    background: #34558b !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 0.5rem 1.5rem !important;
+    border-radius: 0.375rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    line-height: 1.5 !important;
+}
+
+.rh-btn-primary:hover {
+    background: #002d5a !important;
+}
+
+.rh-btn-outline {
+    background: transparent !important;
+    color: #34558b !important;
+    border: 1px solid #34558b !important;
+    padding: 0.5rem 1.5rem !important;
+    border-radius: 0.375rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    line-height: 1.5 !important;
+}
+
+.rh-btn-outline:hover {
+    background: rgba(0,51,102,0.08) !important;
+}
+
+.rh-btn-icon {
+    margin-right: 0.5rem !important;
+}
+
+/* ---- Sections / Paineis ---- */
+.rh-section {
+    margin-bottom: 2rem !important;
+}
+
+.painel-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #34558b !important;
+    color: #ffffff !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+    cursor: pointer !important;
+    transition: background 0.2s !important;
+}
+
+.painel-header.rh-painel-collapsed {
+    border-radius: 0.5rem !important;
+}
+
+.painel-header:hover {
+    background: #002d5a !important;
+}
+
+.painel-header i {
+    transition: transform 0.25s ease !important;
+}
+
+.rh-chevron-open {
+    transform: rotate(180deg) !important;
+}
+
+.rh-painel-title {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+}
+
+.painel-content {
+    background: #ffffff !important;
+    border: 1px solid rgba(0,51,102,0.2) !important;
+    border-top: none !important;
+    border-radius: 0 0 0.5rem 0.5rem !important;
+    overflow: hidden !important;
+    transition: max-height 0.25s ease !important;
+}
+
+.painel-content.rh-collapsed {
+    border: 0 !important;
+}
+
+/* ---- Table filter row inside painel ---- */
+.rh-table-filter {
+    padding: 1rem !important;
+    border-bottom: 1px solid rgba(0,51,102,0.15) !important;
+}
+
+.rh-table-filter-label {
+    display: block !important;
+    font-size: 0.875rem !important;
+    color: #34558b !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.rh-table-filter-input {
+    width: 100% !important;
+    padding: 0.5rem 0.75rem !important;
+    border: 1px solid rgba(0,51,102,0.3) !important;
+    border-radius: 0.375rem !important;
+    font-size: 0.875rem !important;
+    height: auto !important;
+}
+
+/* ---- Table ---- */
+.rh-table-wrap {
+    height: 16rem !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* ---- Empty table state (no rows / filtered out) ---- */
+.rh-table-wrap.rh-table-wrap-empty {
+    height: 10rem !important;
+}
+
+.rh-empty-row td {
+    font-size: 20px !important;
+    padding-top: 50px !important;
+}
+
+.rh-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: fixed !important;
+}
+
+/* ---- Column widths (manual) ----
+   Use classes like col-md-1, col-md-2, ..., col-md-12 (and col-md-0.5) directly in <th>
+   to force a fixed column width when using table-layout: fixed.
+*/
+.bevap-rh-root .rh-table th.col-md-0\.5,
+.bevap-rh-root .rh-table td.col-md-0\.5 {
+    width: 4.1666667% !important;
+}
+
+.bevap-rh-root .rh-table th.col-md-1,
+.bevap-rh-root .rh-table td.col-md-1 { width: 8.3333333% !important; }
+.bevap-rh-root .rh-table th.col-md-2,
+.bevap-rh-root .rh-table td.col-md-2 { width: 16.6666667% !important; }
+.bevap-rh-root .rh-table th.col-md-3,
+.bevap-rh-root .rh-table td.col-md-3 { width: 25% !important; }
+.bevap-rh-root .rh-table th.col-md-4,
+.bevap-rh-root .rh-table td.col-md-4 { width: 33.3333333% !important; }
+.bevap-rh-root .rh-table th.col-md-5,
+.bevap-rh-root .rh-table td.col-md-5 { width: 41.6666667% !important; }
+.bevap-rh-root .rh-table th.col-md-6,
+.bevap-rh-root .rh-table td.col-md-6 { width: 50% !important; }
+.bevap-rh-root .rh-table th.col-md-7,
+.bevap-rh-root .rh-table td.col-md-7 { width: 58.3333333% !important; }
+.bevap-rh-root .rh-table th.col-md-8,
+.bevap-rh-root .rh-table td.col-md-8 { width: 66.6666667% !important; }
+.bevap-rh-root .rh-table th.col-md-9,
+.bevap-rh-root .rh-table td.col-md-9 { width: 75% !important; }
+.bevap-rh-root .rh-table th.col-md-10,
+.bevap-rh-root .rh-table td.col-md-10 { width: 83.3333333% !important; }
+.bevap-rh-root .rh-table th.col-md-11,
+.bevap-rh-root .rh-table td.col-md-11 { width: 91.6666667% !important; }
+.bevap-rh-root .rh-table th.col-md-12,
+.bevap-rh-root .rh-table td.col-md-12 { width: 100% !important; }
+
+.rh-thead {
+    background: #f9fafb !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
+}
+
+.rh-th {
+    padding: 0.75rem 1rem !important;
+    text-align: left !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    color: #6b7280 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.rh-td {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+    color: #111827 !important;
+    border-top: 1px solid #f3f4f6 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.rh-td-center {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+    color: #111827 !important;
+    border-top: 1px solid #f3f4f6 !important;
+    text-align: center !important;
+}
+
+.rh-tr-odd {
+    background: #ffffff !important;
+}
+
+.rh-tr-even {
+    background: #f9fafb !important;
+}
+
+/* ---- Badges ---- */
+.rh-badge {
+    display: inline-block !important;
+    padding: 0.2rem 0.6rem !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    border-radius: 9999px !important;
+    color: #ffffff !important;
+}
+
+.rh-badge-blue  { background: #34558b !important; }
+.rh-badge-green { background: #7AC143 !important; }
+.rh-badge-red   { background: #dc2626 !important; }
+
+/* ---- Eye icon / detail button ---- */
+.detail-btn {
+    background: none !important;
+    border: none !important;
+    padding: 0.25rem !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+}
+
+.rh-eye-icon {
+    color: #34558b !important;
+    font-size: 1rem !important;
+    transition: color 0.2s !important;
+}
+
+.detail-btn:hover .rh-eye-icon {
+    color: #7AC143 !important;
+}
+
+/* ---- Page scroll lock (when detail modal is open) ---- */
+html.rh-scroll-locked,
+body.rh-scroll-locked {
+    overflow: hidden !important;
+}
+
+/* ---- Modal ---- */
+.rh-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(0,0,0,0.5) !important;
+}
+
+.rh-modal.hidden {
+    display: none !important;
+}
+
+.rh-modal-box {
+    background: #ffffff !important;
+    border-radius: 0.5rem !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+    width: 100% !important;
+    max-width: 80rem !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    position: relative !important;
+}
+
+/* ---- Modal tabs ---- */
+.rh-modal-tabs {
+    display: flex !important;
+    align-items: center !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    background: #f9fafb !important;
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain !important;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    color: #6b7280 !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    cursor: pointer !important;
+    transition: color 0.2s, border-color 0.2s !important;
+    white-space: nowrap !important;
+}
+
+.tab-btn:hover {
+    color: #34558b !important;
+}
+
+.tab-btn.tab-active {
+    color: #64BC46 !important;
+    border-bottom: 2px solid #64BC46 !important;
+    background: #f5faff !important;
+}
+
+.rh-modal-close {
+    position: sticky !important;
+    right: 0 !important;
+    margin-left: auto !important;
+    padding: 0 1rem !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #9ca3af !important;
+    background: #f9fafb !important;
+    border: none !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+    z-index: 1 !important;
+}
+
+.rh-modal-close:hover {
+    color: #dc2626 !important;
+}
+
+/* ---- Modal body & fields ---- */
+.rh-modal-body {
+    padding: 2rem !important;
+}
+
+.rh-modal-grid-6 {
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr) !important;
+    gap: 1rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.rh-modal-grid-3 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.rh-modal-grid-2 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.rh-detail-table {
+    margin-top: 0.25rem !important;
+    margin-bottom: 1.25rem !important;
+}
+
+.rh-detail-table .rh-td {
+    vertical-align: top !important;
+}
+
+.rh-modal-record {
+    margin-bottom: 1rem !important;
+}
+
+.rh-modal-field {
+    margin-bottom: 1rem !important;
+}
+
+.rh-modal-field-lg {
+    margin-bottom: 1.5rem !important;
+}
+
+.rh-modal-label {
+    display: block !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    color: #4b5563 !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.rh-modal-label-bold {
+    display: block !important;
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.rh-modal-section-title {
+    font-size: 1.3rem !important;
+    font-weight: 600 !important;
+    color: #34558b !important;
+    margin: 0 0 1rem 0 !important;
+}
+
+.rh-modal-paralisar-row {
+    display: flex !important;
+    align-items: flex-end !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.rh-modal-inline {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.rh-modal-inline-field {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.rh-modal-field-grow {
+    flex: 1 !important;
+}
+
+.rh-checkbox {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+}
+
+.rh-modal-check-label {
+    font-size: 0.875rem !important;
+    color: #374151 !important;
+    margin: 0 !important;
+}
+
+.rh-modal-list {
+    list-style: disc !important;
+    padding-left: 1.25rem !important;
+    margin: 0 !important;
+    background: #f9fafb !important;
+    border-radius: 0.375rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    min-height: 2rem !important;
+    font-size: 0.875rem !important;
+    color: #1f2937 !important;
+}
+
+.rh-required {
+    color: #ef4444 !important;
+}
+
+/* ---- Inputs inside modal (read-only) ---- */
+.input-modal {
+    background: #f3f4f6 !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 0.5rem !important;
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.875rem !important;
+    color: #1f2937 !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* ---- Textarea sizes ---- */
+.rh-textarea-lg {
+    height: 5rem !important;
+    resize: vertical !important;
+}
+
+.rh-textarea-md {
+    height: 4rem !important;
+    resize: vertical !important;
+}
+
+/* ---- hidden utility ---- */
+.hidden {
+    display: none !important;
+}
+
+/* ---- Tab content ---- */
+.tab-content {
+    display: block !important;
+}
+
+.tab-content.hidden {
+    display: none !important;
+}
+
