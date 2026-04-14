@@ -26,3 +26,4 @@ application.resource.js.9=/resources/js/View.js
 application.resource.js.10=/resources/js/Controller.js
 application.resource.css.1=/resources/css/bevap_gestao_rh.css
 hash=4a16315e9e66fa7d797b3f6b1fb365b69f9a4ce2
+application.tenant.code=1
