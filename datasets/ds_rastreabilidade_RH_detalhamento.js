@@ -9,7 +9,7 @@ function createDataset(fields, constraints, sortFields) {
     var queryFilter = "";
     var sqlLimit = null;
     var shouldGroups = {};
-    var selectFields = "";
+        var selectFields = "";
 
     var baseTable = "ML001351";
     var targetTable = baseTable;
@@ -24,7 +24,7 @@ function createDataset(fields, constraints, sortFields) {
 
     
     var parentFields = [];
-    var childFieldsMap = {};
+    var childFieldsMap = {}; 
     
     if (fields != null && fields.length > 0) {
     
@@ -49,52 +49,10 @@ function createDataset(fields, constraints, sortFields) {
             }
         }
     
+        selectFields = parentFields.length > 0 ? parentFields.join(", ") : "*";
+    
     } else {
         selectFields = "*";
-    }
-
-    function getExistingColumnsMap(conn, tableName) {
-        var map = {};
-        if (conn == null || tableName == null) return map;
-
-        var rsCols = null;
-        try {
-            var md = conn.getMetaData();
-            rsCols = md.getColumns(null, null, tableName, null);
-            while (rsCols.next()) {
-                var col = rsCols.getString("COLUMN_NAME");
-                if (col != null) {
-                    map[(col + "").toLowerCase()] = true;
-                }
-            }
-        } catch (e) {
-            // noop
-        } finally {
-            try {
-                if (rsCols != null) rsCols.close();
-            } catch (e) {
-                // noop
-            }
-        }
-
-        return map;
-    }
-
-    function filterExistingColumns(existingMap, requestedColumns) {
-        var kept = [];
-        var removed = [];
-
-        for (var i = 0; i < requestedColumns.length; i++) {
-            var c = requestedColumns[i] + "";
-            var low = c.toLowerCase();
-            if (existingMap && existingMap[low]) {
-                kept.push(c);
-            } else {
-                removed.push(c);
-            }
-        }
-
-        return { kept: kept, removed: removed };
     }
 
     if (constraints != null) {
@@ -201,83 +159,51 @@ function createDataset(fields, constraints, sortFields) {
         }
     }
 
+    var tablesPaiFilho = getTablesPaiFilho(baseTable);
+    var dynamicJsonSelect = "";
+    
+    for (var t = 0; t < tablesPaiFilho.length; t++) {
+    
+        var codListaFilho = tablesPaiFilho[t].codListaFilho;
+        var codTabela = tablesPaiFilho[t].codTabela;
+    
+        if (codListaFilho != null && codTabela != null) {
+    
+            var childTableName = "ML001" + codListaFilho;
+    
+            var childFields = "*";
+    
+            if (childFieldsMap[codTabela] && childFieldsMap[codTabela].length > 0) {
+                childFields = childFieldsMap[codTabela].join(", ");
+            }
+    
+            dynamicJsonSelect += 
+                ", ( " +
+                "    SELECT " + childFields +
+                "    FROM " + childTableName + " CHILD " +
+                "    WHERE CHILD.MASTERID = PRINCIPAL.ID " +
+                "    FOR JSON PATH " +
+                ") AS [" + codTabela + "] ";
+        }
+    }
+    
+
+   var myQuery = 
+       "SELECT " + topClause + selectFields + dynamicJsonSelect + " " +
+    "FROM " + targetTable + " AS PRINCIPAL " +
+    "INNER JOIN DOCUMENTO AS DOC "+
+    "    ON PRINCIPAL.documentid = DOC.NR_DOCUMENTO "+
+    "   AND PRINCIPAL.version = DOC.NR_VERSAO "+
+    "INNER JOIN PROCES_WORKFLOW PWS " +
+    "ON PWS.NR_DOCUMENTO_CARD = PRINCIPAL.documentid " +
+    "WHERE DOC.VERSAO_ATIVA = 1 " +
+    queryFilter;
+
+    log.info("$$DEBUG ds_rastreabilidade_RH_detalhamento myQuery: ")
+    log.info(myQuery)
+
     try {
         var conn = ds.getConnection();
-
-        // Blindagem: se algum campo solicitado não existir na tabela, remove do SELECT
-        // (evita o dataset retornar vazio por erro de SQL).
-        if (parentFields != null && parentFields.length > 0) {
-            var parentExisting = getExistingColumnsMap(conn, targetTable);
-            var filteredParent = filterExistingColumns(parentExisting, parentFields);
-            if (filteredParent.removed.length > 0) {
-                log.warn(
-                    "$$DEBUG ds_rastreabilidade_RH_detalhamento removendo colunas inexistentes (pai): " +
-                        filteredParent.removed.join(", ")
-                );
-            }
-            selectFields = filteredParent.kept.length > 0 ? filteredParent.kept.join(", ") : "*";
-        }
-
-        var tablesPaiFilho = getTablesPaiFilho(baseTable);
-        var dynamicJsonSelect = "";
-
-        for (var t = 0; t < tablesPaiFilho.length; t++) {
-            var codListaFilho = tablesPaiFilho[t].codListaFilho;
-            var codTabela = tablesPaiFilho[t].codTabela;
-
-            if (codListaFilho != null && codTabela != null) {
-                var childTableName = "ML001" + codListaFilho;
-
-                var childFields = "*";
-                if (childFieldsMap[codTabela] && childFieldsMap[codTabela].length > 0) {
-                    var childExisting = getExistingColumnsMap(conn, childTableName);
-                    var filteredChild = filterExistingColumns(childExisting, childFieldsMap[codTabela]);
-                    if (filteredChild.removed.length > 0) {
-                        log.warn(
-                            "$$DEBUG ds_rastreabilidade_RH_detalhamento removendo colunas inexistentes (filho " +
-                                codTabela +
-                                "): " +
-                                filteredChild.removed.join(", ")
-                        );
-                    }
-                    childFields = filteredChild.kept.length > 0 ? filteredChild.kept.join(", ") : "*";
-                }
-
-                dynamicJsonSelect +=
-                    ", ( " +
-                    "    SELECT " +
-                    childFields +
-                    "    FROM " +
-                    childTableName +
-                    " CHILD " +
-                    "    WHERE CHILD.documentid = PRINCIPAL.documentid " +
-                    "    FOR JSON PATH " +
-                    ") AS [" +
-                    codTabela +
-                    "] ";
-            }
-        }
-
-        var myQuery =
-            "SELECT " +
-            topClause +
-            selectFields +
-            dynamicJsonSelect +
-            " " +
-            "FROM " +
-            targetTable +
-            " AS PRINCIPAL " +
-            "INNER JOIN DOCUMENTO AS DOC " +
-            "    ON PRINCIPAL.documentid = DOC.NR_DOCUMENTO " +
-            "   AND PRINCIPAL.version = DOC.NR_VERSAO " +
-            "INNER JOIN PROCES_WORKFLOW PWS " +
-            "ON PWS.NR_DOCUMENTO_CARD = PRINCIPAL.documentid " +
-            "WHERE DOC.VERSAO_ATIVA = 1 " +
-            queryFilter;
-
-        log.info("$$DEBUG ds_rastreabilidade_RH_detalhamento myQuery: ")
-        log.info(myQuery)
-
         var stmt = conn.createStatement();
         var rs = stmt.executeQuery(myQuery);
         var columnCount = rs.getMetaData().getColumnCount();
@@ -332,6 +258,9 @@ function getTablesPaiFilho(tableId)
                 "AND LTRIM(RTRIM(DOCUMENTO.NM_DATASET)) <> ''  " +
                 "AND DOCUMENTO.NM_DATASET IS NOT NULL " +
                 "AND DOCUMENTO.COD_LISTA LIKE '%" + codMl + "%'"
+        
+    log.info("$$DEBUG getTablesPaiFilho myQuery")
+    log.info(query)
 
     try {
         var conn = ds.getConnection();
